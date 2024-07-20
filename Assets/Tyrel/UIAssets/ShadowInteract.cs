@@ -12,6 +12,7 @@ public class ShadowInteract : MonoBehaviour
 
     public Animator animator;
 
+
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
@@ -37,7 +38,10 @@ public class ShadowInteract : MonoBehaviour
     {
         if (GameManager.instance.gameIsPaused == false )// && also check if over the shadow object
         {
-            
+            //if (context.performed)
+            //{
+            //    OpenRadialMenu();
+            //}
 
             if (isRadialMenuOpen && context.performed)
             {
@@ -53,15 +57,25 @@ public class ShadowInteract : MonoBehaviour
 
     void OpenRadialMenu()
     {
+        Debug.Log("Opening Radial Menu");
         radialMenu.SetActive(true);
+        animator.SetTrigger("Open");
         isRadialMenuOpen = true;
     }
     void CloseRadialMenu()
     {
-        animator.SetTrigger("CloseRadialMenu");
+        Debug.Log("Closing Radial Menu");
+        animator.SetTrigger("Close");
         isRadialMenuOpen = false;
+        //StartCoroutine(DeactivateAfterAnimation());
     }
 
+    private IEnumerator DeactivateAfterAnimation()
+    {
+        // Wait for the length of the closing animation
+        yield return new WaitForSeconds(.2f);
+        radialMenu.SetActive(false);
+    }
     
 
 
