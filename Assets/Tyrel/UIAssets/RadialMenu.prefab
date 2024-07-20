@@ -257,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4656303064405316802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -328,6 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5163355150465261503}
   - component: {fileID: 4010939682795601139}
+  - component: {fileID: 3456657171992526542}
   m_Layer: 5
   m_Name: RadialMenu
   m_TagString: Untagged
@@ -376,6 +377,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3456657171992526542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5254847573026504818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22d468fd47ad71d489544e7c1a6aa315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radialMenu: {fileID: 5206061896124457830}
+  animator: {fileID: 4010939682795601139}
 --- !u!1 &8761406266882517553
 GameObject:
   m_ObjectHideFlags: 0
