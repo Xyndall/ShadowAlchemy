@@ -2,55 +2,80 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class ShadowInteract : MonoBehaviour
 {
 
     public PlayerInputActions playerInputActions;
     public GameObject radialMenu;
+    public Button Top, Left, Right;
     bool isRadialMenuOpen;
 
     public Animator animator;
+    public Animator effectAnimator;
 
+    public Transform SpawnPoint;
+    public GameObject TransformEffect;
+
+    public GameObject ShadowCube;
+    public GameObject ShadowLadder;
+    public GameObject ShadowDistractor;
+    public GameObject shadowObject;
 
     private void Awake()
     {
-        playerInputActions = new PlayerInputActions();
         radialMenu.SetActive(false);
         isRadialMenuOpen = false;
-    }
+        Top.enabled = false; Left.enabled = false; Right.enabled = false;
 
-
-    private void OnEnable()
-    {
-        playerInputActions.Enable();
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
         playerInputActions.Player.Interact.performed += Interact;
+
+
     }
 
-    private void OnDisable()
+
+
+    public void ChangeToSquare()
     {
-        playerInputActions.Disable();
-        playerInputActions.Player.Interact.performed += Interact;
-    }
+        Debug.Log("ChangingToSquare");
+        Instantiate(TransformEffect, SpawnPoint.position, Quaternion.identity);
+        Destroy(shadowObject);
+        Instantiate(ShadowCube, SpawnPoint.position, Quaternion.identity);
+    } 
+    public void ChangeToDistractor()
+    {
+        Debug.Log("ChangingToDistractor");
+        Instantiate(TransformEffect, SpawnPoint.position, Quaternion.identity);
+        Destroy(shadowObject);
+        Instantiate(ShadowDistractor, SpawnPoint.position, Quaternion.identity);
+    } 
+    public void ChangeToLadder()
+    {
+        Debug.Log("ChangingToLadder");
+        Instantiate(TransformEffect, SpawnPoint.position, Quaternion.identity);
+        Destroy(shadowObject);
+        Instantiate(ShadowLadder, SpawnPoint.position, Quaternion.identity);
+    } 
+
 
 
     void Interact(InputAction.CallbackContext context)
     {
-        if (GameManager.instance.gameIsPaused == false )// && also check if over the shadow object
+        if (GameManager.instance.gameIsPaused == false && !isRadialMenuOpen)// && also check if over the shadow object
         {
-            //if (context.performed)
+            OpenRadialMenu();
+
+            //if (isRadialMenuOpen && context.performed)
+            //{
+            //    CloseRadialMenu();
+            //}
+            //else
             //{
             //    OpenRadialMenu();
             //}
-
-            if (isRadialMenuOpen && context.performed)
-            {
-                CloseRadialMenu();
-            }
-            else
-            {
-                OpenRadialMenu();
-            }
 
         }
     }
@@ -62,21 +87,29 @@ public class ShadowInteract : MonoBehaviour
         animator.SetTrigger("Open");
         isRadialMenuOpen = true;
     }
-    void CloseRadialMenu()
+
+    public void TurnOnButtons()
+    {
+        Top.enabled = true;Left.enabled = true; Right.enabled = true;
+        
+    }
+
+    public void CloseRadialMenu()
     {
         Debug.Log("Closing Radial Menu");
         animator.SetTrigger("Close");
         isRadialMenuOpen = false;
-        //StartCoroutine(DeactivateAfterAnimation());
+        Top.enabled = false; Left.enabled = false; Right.enabled = false;
     }
 
-    private IEnumerator DeactivateAfterAnimation()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Wait for the length of the closing animation
-        yield return new WaitForSeconds(.2f);
-        radialMenu.SetActive(false);
+        if (collision.CompareTag("ShadowObject"))
+        {
+            Debug.Log("Shadow object is in trigger");
+            shadowObject = collision.gameObject;
+        }
     }
-    
 
 
 }
