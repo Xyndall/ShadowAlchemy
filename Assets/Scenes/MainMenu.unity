@@ -706,6 +706,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2914753246837126448, guid: 45f0f71dfda8c784bb5c09fea6bb2eb6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 4315248917897161350, guid: 45f0f71dfda8c784bb5c09fea6bb2eb6, type: 3}
       propertyPath: m_Name
       value: ShadowCube
@@ -4432,7 +4436,7 @@ MonoBehaviour:
   m_Intensity: 0.1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: bb027cf7
+  m_ApplyToSortingLayers: fdaa3014
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
