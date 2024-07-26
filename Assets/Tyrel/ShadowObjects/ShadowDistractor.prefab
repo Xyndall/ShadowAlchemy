@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7878395675569872321}
   - component: {fileID: 4272862188848449514}
   - component: {fileID: 7813202151530592108}
-  - component: {fileID: 3269425388215657752}
+  - component: {fileID: 2552035152391008087}
   m_Layer: 0
   m_Name: ShadowDistractor
   m_TagString: ShadowObject
@@ -113,8 +113,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &3269425388215657752
-CircleCollider2D:
+--- !u!68 &2552035152391008087
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -146,5 +146,20 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.4
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.12718868, y: 0.31383407}
+  - {x: -0.12653637, y: 0.31679738}
+  - {x: -0.32073975, y: 0.068228364}
+  - {x: -0.32593918, y: -0.12198532}
+  - {x: -0.2565484, y: -0.38044095}
+  - {x: -0.18863535, y: -0.38249528}
+  - {x: -0.08609676, y: -0.08129597}
+  - {x: 0.0035653114, y: -0.18964756}
+  - {x: 0.19371462, y: -0.19458246}
+  - {x: 0.32082248, y: -0.05223024}
+  - {x: 0.12862918, y: 0.313481}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
