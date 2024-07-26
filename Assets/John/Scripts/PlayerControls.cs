@@ -11,13 +11,14 @@ public class PlayerControls : MonoBehaviour
     public GroundCheck groundCh;
     public PlayerInputActions playerInputActions;
     [SerializeField] float speed;
+    [SerializeField] float speedBase;
     [SerializeField] float jumpForce;
     [SerializeField] float gravity;
     [SerializeField] float gravityBase;
     [SerializeField] float gravityIncrease;
     [SerializeField] float velocity;
+    public GameObject Parent;
 
-    
     Vector3 movedirection;
     private void Awake()
     {
@@ -46,21 +47,23 @@ public class PlayerControls : MonoBehaviour
     }
     void Update()
     {
-        velocity += gravity * Time.deltaTime;
+
+        velocity += gravity * gravityIncrease * Time.deltaTime;
         if (groundCh.groundCheck && velocity < 0)
         {
-            velocity = 0;
             gravity = gravityBase;
+            float floorHeight = .9f;
+            velocity = 0;
+            speed = speedBase;
+            transform.position = new Vector3(transform.position.x, groundCh.surfacePosition.y + floorHeight, transform.position.z);
         }
-        if (Input.GetKey(KeyCode.Space) && groundCh.groundCheck)
+        if (Input.GetKeyDown(KeyCode.Space) && groundCh.groundCheck || Input.GetKeyDown(KeyCode.Space)&& groundCh.jumpGrace >0)
         {
             velocity = jumpForce;
+            speed -= speed* Time.deltaTime;
 
         }
-        if (!groundCh.groundCheck)
-        {
-            gravity -= gravityIncrease * Time.deltaTime;
-        }
+        
         transform.Translate(new Vector3(0, velocity, 0) * Time.deltaTime);
 
 
