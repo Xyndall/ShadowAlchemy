@@ -12,6 +12,7 @@ public class DetectObjects : MonoBehaviour
         {
             Debug.Log("Shadow object is in trigger");
             ShadowInteract.shadowObject = collision.gameObject;
+            collision.GetComponent<FlipSprites>().OutlineOn();
         }
     }
 
@@ -21,6 +22,7 @@ public class DetectObjects : MonoBehaviour
         {
             Debug.Log("Shadow object is in trigger");
             ShadowInteract.shadowObject = null;
+            collision.GetComponent<FlipSprites>().OutlineOff();
         }
     }
 
