@@ -24,14 +24,12 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] float velocity;
     [SerializeField] float floorHeight = .9f;
 
-    
     private string currentState;
 
     const string player_Idle = "Idle";
     const string player_Run = "Run";
     const string player_Jump = "Jump";
     const string player_Climb = "Climb";
-
 
     bool climbing;
     bool running;
@@ -140,7 +138,6 @@ public class PlayerControls : MonoBehaviour
     {
         if (ladderCheck.canClimb)
         {
-            
             Vector3 movePlayer = new Vector3(0, MoveX.y, 0) * speed * Time.deltaTime;
             transform.Translate(movePlayer);
             if (movePlayer.y != 0)

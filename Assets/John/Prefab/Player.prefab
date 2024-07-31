@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 5485583660189717665}
   - component: {fileID: 149872633878949884}
   - component: {fileID: 480541291461102378}
-  - component: {fileID: 1181464573572296186}
   - component: {fileID: 4703555570262497991}
-  - component: {fileID: 6426163966954878774}
-  - component: {fileID: 6115995643529396635}
+  - component: {fileID: 6225205452433802758}
+  - component: {fileID: 5296426995517566170}
+  - component: {fileID: 1942987915170582552}
+  - component: {fileID: 3049058313526078477}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -124,28 +125,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &1181464573572296186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895278781263323785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01350ac1a68159844be979cf94729a0a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frontCh: {fileID: 6115995643529396635}
-  groundCh: {fileID: 6426163966954878774}
-  speed: 10
-  speedBase: 10
-  jumpForce: 30
-  gravity: -9.8
-  gravityBase: -9.8
-  gravityIncrease: 20
-  velocity: 0
-  floorHeight: 0.9
 --- !u!114 &4703555570262497991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,31 +137,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d946e11248535be4c901bab09d0343ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlive: 0
---- !u!114 &6426163966954878774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 895278781263323785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e42f941a43285c4b925db145bd4828c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceCheck: 1
-  offset: 1
-  jumpGrace: 0
-  jumpGraceBase: 0.4
-  groundCheck: 0
-  on: 1
-  surfacePosition: {x: 0, y: 0, z: 0}
-  overlapBoxSize: {x: 0, y: 0, z: 0}
-  toDetect:
+  isAlive: 1
+  Death:
     serializedVersion: 2
-    m_Bits: 704
---- !u!114 &6115995643529396635
+    m_Bits: 2048
+--- !u!114 &6225205452433802758
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +150,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 895278781263323785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77a9c8afaa170994a8f3877a01794cfc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b668e65e7c91214f984e7de56c887af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   touchingWall: 0
@@ -199,3 +158,65 @@ MonoBehaviour:
   wallMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &5296426995517566170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895278781263323785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee647a860f78a7040b027674faf90041, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceCheck: 1.11
+  offset: 1
+  jumpGrace: 0.03
+  jumpGraceBase: 0.03
+  groundCheck: 0
+  on: 1
+  surfacePosition: {x: 0, y: 0, z: 0}
+  overlapBoxSize: {x: 1, y: 1, z: 0}
+  toDetect:
+    serializedVersion: 2
+    m_Bits: 704
+--- !u!114 &1942987915170582552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895278781263323785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af61473795931cb4787c1a99117eff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  speedBase: 10
+  jumpForce: 20
+  gravity: -9.8
+  gravityBase: -9.8
+  gravityIncrease: 10
+  velocity: 0
+  floorHeight: 1.1
+  ladderPosition:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &3049058313526078477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895278781263323785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edbf5822bd1acc248adc6da6c27ce964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ladder:
+    serializedVersion: 2
+    m_Bits: 1024
+  canClimb: 0
