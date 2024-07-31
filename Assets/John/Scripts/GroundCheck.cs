@@ -12,8 +12,6 @@ public class GroundCheck : MonoBehaviour
     public bool on;
     public Vector3 surfacePosition;
     public Vector3 overlapBoxSize;
-    public ContactFilter2D filter;
-    Collider2D[] results = new Collider2D[1];
     public LayerMask toDetect;
     Vector2 point;
     void Update()
