@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -24,6 +25,9 @@ public class ShadowInteract : MonoBehaviour
 
     Camera mainCamera; // Reference to the main camera
     public Canvas canvas; // Reference to the UI canvas
+
+    public EventSystem evenSystem;
+    public GameObject firstSelectedButton;
 
     private void Awake()
     {
@@ -89,6 +93,8 @@ public class ShadowInteract : MonoBehaviour
 
     void OpenRadialMenu()
     {
+        evenSystem.firstSelectedGameObject = firstSelectedButton;
+
         Debug.Log("Opening Radial Menu");
         // Step 1: Convert world position to screen position
         Vector2 screenPosition = mainCamera.WorldToScreenPoint(Player.transform.position);
