@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/ShadowGame/Scenes/MainMenu.unity
     guid: c8cea9b2314eccf4caec807eb78ccfce
+  - enabled: 1
+    path: Assets/ShadowGame/Josh/Level.unity
+    guid: 6dc41e190b8e1784aa7cb41ff4043f20
   m_configObjects: {}
