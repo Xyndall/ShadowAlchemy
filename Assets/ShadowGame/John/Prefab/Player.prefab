@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5296426995517566170}
   - component: {fileID: 1942987915170582552}
   - component: {fileID: 3049058313526078477}
+  - component: {fileID: 1727894915791060996}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 895278781263323785}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -5.78, y: -2.92, z: 0}
   m_LocalScale: {x: 1, y: 0.95, z: 1}
   m_ConstrainProportionsScale: 0
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e24e15aeca36cd4c938cf0a199cad18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -122,7 +123,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.13}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
 --- !u!114 &4703555570262497991
@@ -140,7 +141,7 @@ MonoBehaviour:
   isAlive: 1
   Death:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 0
 --- !u!114 &6225205452433802758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +158,7 @@ MonoBehaviour:
   wallCheckDistance: 0.7
   wallMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
 --- !u!114 &5296426995517566170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +181,7 @@ MonoBehaviour:
   overlapBoxSize: {x: 1, y: 1, z: 0}
   toDetect:
     serializedVersion: 2
-    m_Bits: 704
+    m_Bits: 0
 --- !u!114 &1942987915170582552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +204,7 @@ MonoBehaviour:
   floorHeight: 1.1
   ladderPosition:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
 --- !u!114 &3049058313526078477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,5 +219,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Ladder:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 0
   canClimb: 0
+--- !u!95 &1727894915791060996
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895278781263323785}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6ad03ed68b502248876f71061a9046b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -604,32 +604,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1894263332 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 895278781263323785, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-  m_PrefabInstance: {fileID: 9104817117838462103}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1894263345
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1894263332}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e6ad03ed68b502248876f71061a9046b, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2018887613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,61 +1043,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 149872633878949884, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9e24e15aeca36cd4c938cf0a199cad18, type: 3}
-    - target: {fileID: 480541291461102378, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.13
-      objectReference: {fileID: 0}
     - target: {fileID: 895278781263323785, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1181464573572296186, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: floorHeight
-      value: 1.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1181464573572296186, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: PlayerAnimator
-      value: 
-      objectReference: {fileID: 1894263345}
-    - target: {fileID: 1942987915170582552, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: jumpForce
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942987915170582552, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: floorHeight
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1942987915170582552, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: gravityIncrease
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4703555570262497991, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: isAlive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4703555570262497991, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: Death.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296426995517566170, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: on
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296426995517566170, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: distanceCheck
-      value: 1.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296426995517566170, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: overlapBoxSize.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5296426995517566170, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: overlapBoxSize.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5485583660189717665, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1165,25 +1087,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6225205452433802758, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: wallMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 6225205452433802758, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: wallCheckDistance
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6426163966954878774, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      propertyPath: distanceCheck
-      value: 1.15
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 895278781263323785, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1894263345}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae4f8d3f660d93742b24f20b0674c7bb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -18,7 +18,7 @@ public class GroundCheck : MonoBehaviour
     {
         point = transform.position + Vector3.down * offset;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, distanceCheck, toDetect);
-
+        Debug.DrawRay(transform.position, Vector2.down * distanceCheck, Color.yellow);
 
         if (hit)
         {
@@ -33,13 +33,13 @@ public class GroundCheck : MonoBehaviour
         }
 
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
         if (on)
         {
-            Gizmos.DrawCube(point, overlapBoxSize);
-
+            //Gizmos.DrawCube(point, overlapBoxSize);
+            Gizmos.DrawLine(transform.position, Vector2.down * distanceCheck);
         }
     }
 }
