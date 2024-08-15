@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ShadowGame/Scenes/MainMenu.unity
-    guid: c8cea9b2314eccf4caec807eb78ccfce
+    path: Assets/SwingGameTest/Grappling Hook/Test/FreeControl.unity
+    guid: 23f7755dbdfba26449f471ec78f274dd
   - enabled: 1
-    path: Assets/ShadowGame/Josh/Level.unity
-    guid: 6dc41e190b8e1784aa7cb41ff4043f20
+    path: Assets/SwingGameTest/Grappling Hook/Test/LimitedControl.unity
+    guid: 358bc4fec47778f4eba80706201dd8eb
   m_configObjects: {}

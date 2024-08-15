@@ -32,7 +32,7 @@ public class PlayerControls : MonoBehaviour
     const string player_Climb = "Climb";
 
     bool climbing;
-    bool running;
+   // bool running;
     bool jumping;
     Vector3 MoveX;
 
@@ -114,7 +114,7 @@ public class PlayerControls : MonoBehaviour
         }
         Vector3 movePlayer = new Vector3(MoveX.x, 0, 0) * speed * Time.deltaTime;
         transform.Translate(movePlayer);
-        running = true;
+        //running = true;
     }
     void Jump()
     {

@@ -137,10 +137,9 @@ MonoBehaviour:
   gunHolder: {fileID: 3251706366551174603}
   gunPivot: {fileID: 638276557882854080}
   firePoint: {fileID: 1327332270247175281}
-  rotateOverTime: 0
   rotationSpeed: 360
   hasMaxDistance: 1
-  maxDistance: 5
+  maxDistance: 10
   launchToPoint: 1
   Launch_Type: 1
   launchSpeed: 0.5
@@ -151,6 +150,7 @@ MonoBehaviour:
   grapplePoint: {x: 0, y: 0}
   DistanceVector: {x: 0, y: 0}
   ballRigidbody: {fileID: 2738211470705664813}
+  validGrapplePoint: 0
 --- !u!1 &4602626331944618812
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,8 +593,8 @@ LineRenderer:
       m_ColorSpace: -1
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 2
-    numCapVertices: 2
+    numCornerVertices: 4
+    numCapVertices: 4
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}
