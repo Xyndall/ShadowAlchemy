@@ -19,7 +19,6 @@ public class NewGrappleTest : MonoBehaviour
     public Transform firePoint;
 
     [Header("Rotation:")]
-    [SerializeField] private bool rotateOverTime = true;
     [Range(0, 360)][SerializeField] private float rotationSpeed = 4;
 
     [Header("Distance:")]
@@ -50,7 +49,7 @@ public class NewGrappleTest : MonoBehaviour
     [HideInInspector] public Vector2 DistanceVector;
 
     public Rigidbody2D ballRigidbody;
-
+    [HideInInspector]public bool validGrapplePoint = false;
 
     private void Start()
     {
@@ -61,7 +60,8 @@ public class NewGrappleTest : MonoBehaviour
 
     private void Update()
     {
-       
+        Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
+
 
         if (Input.GetKey(KeyCode.Space) && !grappleRope.isGrappling)
         {
@@ -74,9 +74,7 @@ public class NewGrappleTest : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Space) && grappleRope.isGrappling)
         {
-            grappleRope.enabled = false;
-            m_springJoint2D.enabled = false;
-            ballRigidbody.gravityScale = 1;
+            DisableGrapple();
         }
 
         if (launchToPoint && grappleRope.isGrappling)
@@ -89,6 +87,14 @@ public class NewGrappleTest : MonoBehaviour
 
     }
 
+    public void DisableGrapple()
+    {
+        grappleRope.enabled = false;
+        m_springJoint2D.enabled = false;
+        ballRigidbody.gravityScale = 1;
+    }
+
+
     void RotateGun()
     {
         // Calculate the rotation amount
@@ -99,22 +105,49 @@ public class NewGrappleTest : MonoBehaviour
 
     }
 
+
     void SetGrapplePoint()
     {
-        if (Physics2D.Raycast(firePoint.position, gunPivot.transform.right * 100))
+        // Determine the raycast distance
+        float raycastDistance = hasMaxDistance ? maxDistance : 100f;
+
+        // Perform the raycast
+        RaycastHit2D _hit = Physics2D.Raycast(firePoint.position, gunPivot.transform.right, raycastDistance);
+
+        // Check if the raycast hit something
+        if (_hit.collider != null)
         {
-            RaycastHit2D _hit = Physics2D.Raycast(firePoint.position, gunPivot.transform.right* 100);
-            if ((_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) && ((Vector2.Distance(_hit.point, firePoint.position) <= maxDistance) || !hasMaxDistance))
+            // If it hits a grappable object or grappleToAll is true, and within max distance
+            if ((_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) &&
+                (Vector2.Distance(_hit.point, firePoint.position) <= maxDistance || !hasMaxDistance))
             {
+                // Set the grapple point to the hit point
                 grapplePoint = _hit.point;
-                DistanceVector = grapplePoint - (Vector2)gunPivot.position;
-                grappleRope.enabled = true;
+                validGrapplePoint = true;
             }
+            
         }
+        else
+        {
+            // If the raycast didn't hit anything, set the grapple point to the max distance
+            grapplePoint = (Vector2)firePoint.position + (Vector2)(gunPivot.transform.right * raycastDistance);
+            validGrapplePoint = false;
+        }
+
+        // Calculate the distance vector and enable the grapple rope
+        DistanceVector = grapplePoint - (Vector2)gunPivot.position;
+        grappleRope.enabled = true;
     }
+
+
 
     public void Grapple()
     {
+        // Only proceed if the grapple point is valid
+        if (!validGrapplePoint)
+        {
+            return;
+        }
 
         if (!launchToPoint && !autoCongifureDistance)
         {

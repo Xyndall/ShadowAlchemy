@@ -2270,10 +2270,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 4192212043372246929, guid: 2bebfa43cb16a0347ad915d015702428, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7282150984323725384, guid: 2bebfa43cb16a0347ad915d015702428, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.34
