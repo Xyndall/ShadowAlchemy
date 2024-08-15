@@ -117,10 +117,9 @@ public class GrappleRope : MonoBehaviour
             {
                 waveSize = 0;
                 DrawRopeNoWaves();
-                if(newGrapplingGun.validGrapplePoint == false)
-                {
-                    RetractRopeWaves();
-                }
+                if(grapplingGun != null && grapplingGun.validGrapplePoint == false) RetractRopeWaves();
+                if(newGrapplingGun != null && newGrapplingGun.validGrapplePoint == false) RetractRopeWaves();
+                
             }
         }
     }
@@ -194,7 +193,8 @@ public class GrappleRope : MonoBehaviour
         if (moveTime <= 0f)
         {
             moveTime = 0f;
-            newGrapplingGun.DisableGrapple();
+            if (grapplingGun != null) grapplingGun.DisableGrapple();
+            if (newGrapplingGun != null) newGrapplingGun.DisableGrapple();
         }
     }
 

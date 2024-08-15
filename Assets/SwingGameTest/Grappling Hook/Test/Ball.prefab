@@ -111,7 +111,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -278,8 +278,8 @@ MonoBehaviour:
   firePoint: {fileID: 7593350018237097970}
   rotateOverTime: 0
   rotationSpeed: 12.9
-  hasMaxDistance: 0
-  maxDistance: 20
+  hasMaxDistance: 1
+  maxDistance: 10
   launchToPoint: 1
   Launch_Type: 1
   launchSpeed: 0.57
@@ -290,6 +290,7 @@ MonoBehaviour:
   grapplePoint: {x: 0, y: 0}
   DistanceVector: {x: 0, y: 0}
   ballRigidbody: {fileID: 4192212043372246929}
+  validGrapplePoint: 0
 --- !u!1 &2475164875484284138
 GameObject:
   m_ObjectHideFlags: 0
