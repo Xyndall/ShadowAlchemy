@@ -125,6 +125,12 @@ public class NewGrappleTest : MonoBehaviour
                 grapplePoint = _hit.point;
                 validGrapplePoint = true;
             }
+            else
+            {
+                // Set the grapple point to the hit point
+                grapplePoint = _hit.point;
+                validGrapplePoint = false;
+            }
             
         }
         else
