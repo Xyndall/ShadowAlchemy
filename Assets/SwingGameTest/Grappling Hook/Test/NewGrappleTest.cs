@@ -68,6 +68,7 @@ public class NewGrappleTest : MonoBehaviour
     {
         Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
 
+        
 
         if (Input.GetKey(KeyCode.Space) && !grappleRope.isGrappling)
         {
@@ -82,6 +83,7 @@ public class NewGrappleTest : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) && grappleRope.isGrappling)
         {
             DisableGrapple();
+            validGrapplePoint = false;
         }
 
         if (launchToPoint && grappleRope.isGrappling)
@@ -104,8 +106,13 @@ public class NewGrappleTest : MonoBehaviour
 
     void RotateGun()
     {
+        float rotationMultiplier;
+        if (Input.GetKey(KeyCode.LeftShift)) { rotationMultiplier = 2; }
+        else { rotationMultiplier = 1; }
+
+
         // Calculate the rotation amount
-        float rotationAmount = rotationSpeed * Time.deltaTime;
+        float rotationAmount = (rotationSpeed * rotationMultiplier) * Time.deltaTime;
 
         // Apply the rotation to the object
         gunPivot.transform.Rotate(Vector3.forward, rotationAmount);
@@ -196,6 +203,7 @@ public class NewGrappleTest : MonoBehaviour
                 // Check if this is the last raycast
                 if (i == numberOfRaycasts && !validGrapplePoint)
                 {
+                    Debug.Log("why no shoot");
                     CalculateGrapplePosition((Vector2)firePoint.position + (Vector2)(gunPivot.transform.right * raycastDistance), false);
                 }
                 Debug.DrawRay(origin, direction * maxDistance, Color.red, 10);

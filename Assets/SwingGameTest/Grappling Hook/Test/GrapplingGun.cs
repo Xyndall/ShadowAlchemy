@@ -156,6 +156,8 @@ public class GrapplingGun : MonoBehaviour
         grappleRope.enabled = true;
     }
 
+
+
     public void Grapple()
     {
         // Only proceed if the grapple point is valid
