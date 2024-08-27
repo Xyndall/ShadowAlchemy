@@ -8118,14 +8118,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LimitedBall
       objectReference: {fileID: 0}
+    - target: {fileID: 5216795375444055463, guid: dd46abf2d8f4f1a49aaa88ce5a8dfb89, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8074969661566956164, guid: dd46abf2d8f4f1a49aaa88ce5a8dfb89, type: 3}
       propertyPath: m_camera
       value: 
       objectReference: {fileID: 385787454}
-    - target: {fileID: 8074969661566956164, guid: dd46abf2d8f4f1a49aaa88ce5a8dfb89, type: 3}
-      propertyPath: launchSpeed
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

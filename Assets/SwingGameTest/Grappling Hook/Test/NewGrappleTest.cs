@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NewGrappleTest : MonoBehaviour
 {
@@ -57,6 +58,9 @@ public class NewGrappleTest : MonoBehaviour
     public Rigidbody2D ballRigidbody;
     [HideInInspector]public bool validGrapplePoint = false;
 
+    [Header("HUD")]
+    public GameObject RotationDirImg;
+
     private void Start()
     {
         grappleRope.enabled = false;
@@ -68,7 +72,7 @@ public class NewGrappleTest : MonoBehaviour
     {
         Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
 
-        
+        if (Input.GetKeyDown(KeyCode.R)) ReverseSpin();
 
         if (Input.GetKey(KeyCode.Space) && !grappleRope.isGrappling)
         {
@@ -103,6 +107,12 @@ public class NewGrappleTest : MonoBehaviour
         ballRigidbody.gravityScale = 1;
     }
 
+    public void ReverseSpin()
+    {
+
+        rotationSpeed = rotationSpeed * -1;
+        RotationDirImg.transform.localScale = new Vector3(RotationDirImg.transform.localScale.x * -1, 1, 1);
+    }
 
     void RotateGun()
     {
