@@ -10,6 +10,7 @@ public class NewGrappleTest : MonoBehaviour
     [Header("Layer Settings:")]
     [SerializeField] private bool grappleToAll = false;
     [SerializeField] private int grappableLayerNumber = 9;// Layer mask to detect interactable objects
+    public LayerMask ignoreLayer;
 
     [Header("Main Camera")]
     public Camera m_camera;
@@ -137,7 +138,7 @@ public class NewGrappleTest : MonoBehaviour
         float raycastDistance = hasMaxDistance ? maxDistance : 100f;
 
         // Perform the raycast
-        RaycastHit2D _hit = Physics2D.Raycast(origin, direction, raycastDistance);
+        RaycastHit2D _hit = Physics2D.Raycast(origin, direction, raycastDistance, ~ignoreLayer);
 
         if (_hit.collider != null)
         {
@@ -184,7 +185,7 @@ public class NewGrappleTest : MonoBehaviour
             Vector2 direction = Quaternion.Euler(0, 0, currentAngle) * forward;
 
             // Perform the raycast
-            RaycastHit2D _hit = Physics2D.Raycast(origin, direction, raycastDistance);
+            RaycastHit2D _hit = Physics2D.Raycast(origin, direction, raycastDistance, ~ignoreLayer);
 
             // Check if the raycast hit something
             if (_hit.collider != null)
