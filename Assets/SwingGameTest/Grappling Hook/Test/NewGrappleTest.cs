@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NewGrappleTest : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class NewGrappleTest : MonoBehaviour
     [Header("Layer Settings:")]
     [SerializeField] private bool grappleToAll = false;
     [SerializeField] private int grappableLayerNumber = 9;// Layer mask to detect interactable objects
+    public LayerMask ignoreLayer;
 
     [Header("Main Camera")]
     public Camera m_camera;
@@ -57,6 +59,9 @@ public class NewGrappleTest : MonoBehaviour
     public Rigidbody2D ballRigidbody;
     [HideInInspector]public bool validGrapplePoint = false;
 
+    [Header("HUD")]
+    public GameObject RotationDirImg;
+
     private void Start()
     {
         grappleRope.enabled = false;
@@ -68,7 +73,7 @@ public class NewGrappleTest : MonoBehaviour
     {
         Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
 
-        
+        if (Input.GetKeyDown(KeyCode.R)) ReverseSpin();
 
         if (Input.GetKey(KeyCode.Space) && !grappleRope.isGrappling)
         {
@@ -103,6 +108,12 @@ public class NewGrappleTest : MonoBehaviour
         ballRigidbody.gravityScale = 1;
     }
 
+    public void ReverseSpin()
+    {
+
+        rotationSpeed = rotationSpeed * -1;
+        RotationDirImg.transform.localScale = new Vector3(RotationDirImg.transform.localScale.x * -1, 1, 1);
+    }
 
     void RotateGun()
     {
@@ -127,7 +138,7 @@ public class NewGrappleTest : MonoBehaviour
         float raycastDistance = hasMaxDistance ? maxDistance : 100f;
 
         // Perform the raycast
-        RaycastHit2D _hit = Physics2D.Raycast(origin, direction, raycastDistance);
+        RaycastHit2D _hit = Physics2D.Raycast(origin, direction, raycastDistance, ~ignoreLayer);
 
         if (_hit.collider != null)
         {
@@ -174,7 +185,7 @@ public class NewGrappleTest : MonoBehaviour
             Vector2 direction = Quaternion.Euler(0, 0, currentAngle) * forward;
 
             // Perform the raycast
-            RaycastHit2D _hit = Physics2D.Raycast(origin, direction, raycastDistance);
+            RaycastHit2D _hit = Physics2D.Raycast(origin, direction, raycastDistance, ~ignoreLayer);
 
             // Check if the raycast hit something
             if (_hit.collider != null)
