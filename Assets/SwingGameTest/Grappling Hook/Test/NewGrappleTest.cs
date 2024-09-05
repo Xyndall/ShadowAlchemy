@@ -10,6 +10,7 @@ public class NewGrappleTest : MonoBehaviour
     [Header("Layer Settings:")]
     [SerializeField] private bool grappleToAll = false;
     [SerializeField] private int grappableLayerNumber = 9;// Layer mask to detect interactable objects
+    [SerializeField] private int slingshotLayerNumber = 10;// Layer mask to detect interactable objects
     public LayerMask ignoreLayer;
 
     [Header("Main Camera")]
@@ -55,12 +56,21 @@ public class NewGrappleTest : MonoBehaviour
 
     [HideInInspector] public Vector2 grapplePoint;
     [HideInInspector] public Vector2 DistanceVector;
+    [HideInInspector] public bool isSlingshotting;
 
     public Rigidbody2D ballRigidbody;
     [HideInInspector]public bool validGrapplePoint = false;
 
     [Header("HUD")]
     public GameObject RotationDirImg;
+
+
+    [Header("Other")]
+    private Vector3 checkpointPos;
+    private bool checkpointSet = false;
+    public GameObject playerBase;
+    public WallStick wallStick;
+
 
     private void Start()
     {
@@ -74,9 +84,12 @@ public class NewGrappleTest : MonoBehaviour
         Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
 
         if (Input.GetKeyDown(KeyCode.R)) ReverseSpin();
+        if (Input.GetKeyDown(KeyCode.T)) SetCheckpoint();
+        if (Input.GetKeyDown(KeyCode.F)) RestartAtCheckpoint();
 
         if (Input.GetKey(KeyCode.Space) && !grappleRope.isGrappling)
         {
+            launchSpeed = 0.8f;
             RotateGun();
         }
         else if (Input.GetKeyUp(KeyCode.Space))
@@ -88,7 +101,6 @@ public class NewGrappleTest : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) && grappleRope.isGrappling)
         {
             DisableGrapple();
-            validGrapplePoint = false;
         }
 
         if (launchToPoint && grappleRope.isGrappling)
@@ -106,6 +118,8 @@ public class NewGrappleTest : MonoBehaviour
         grappleRope.enabled = false;
         m_springJoint2D.enabled = false;
         ballRigidbody.gravityScale = 1;
+        validGrapplePoint = false;
+        isSlingshotting = false;
     }
 
     public void ReverseSpin()
@@ -113,6 +127,29 @@ public class NewGrappleTest : MonoBehaviour
 
         rotationSpeed = rotationSpeed * -1;
         RotationDirImg.transform.localScale = new Vector3(RotationDirImg.transform.localScale.x * -1, 1, 1);
+    }
+
+    void SetCheckpoint()
+    {
+        checkpointPos = transform.position;
+        checkpointSet = true;  // Set a flag to indicate the checkpoint is set
+        Debug.Log("Checkpoint set at: " + checkpointPos);
+    }
+
+    void RestartAtCheckpoint()
+    {
+        if (checkpointSet)  // Ensure the checkpoint has been set
+        {
+            playerBase.transform.position = checkpointPos;
+            // Stop the Rigidbody's movement
+            ballRigidbody.velocity = Vector2.zero;
+            ballRigidbody.angularVelocity = 0f; // If your game involves rotation
+            Debug.Log("Teleported to checkpoint: " + checkpointPos);
+        }
+        else
+        {
+            Debug.LogWarning("No checkpoint set! Press 'T' to set a checkpoint first.");
+        }
     }
 
     void RotateGun()
@@ -149,9 +186,15 @@ public class NewGrappleTest : MonoBehaviour
                 CalculateGrapplePosition(_hit.point, true);
                 return true; // Return true if something was hit
             }
+            else if (_hit.transform.gameObject.layer == slingshotLayerNumber)
+            {
+                Slingshot();
+                CalculateGrapplePosition(_hit.point, true);
+                return true; // Return true if something was hit
+            }
             else
             {
-                CalculateGrapplePosition((Vector2)firePoint.position + (Vector2)(gunPivot.transform.right * raycastDistance), false);
+                CalculateGrapplePosition(_hit.point, false);
                 return true; // return false if something was hit but not grappabble
             }
 
@@ -161,6 +204,12 @@ public class NewGrappleTest : MonoBehaviour
             return false; // Return false if nothing was hit
         }
         
+    }
+
+    void Slingshot()
+    {
+        isSlingshotting = true;
+        launchSpeed = 2;
     }
 
 
@@ -197,12 +246,18 @@ public class NewGrappleTest : MonoBehaviour
                     CalculateGrapplePosition(_hit.point, true);
                     Debug.DrawRay(origin, direction * _hit.distance, Color.green, 10);
                 }
+                else if (_hit.transform.gameObject.layer == slingshotLayerNumber)
+                {
+                    Slingshot();
+                    CalculateGrapplePosition(_hit.point, true);
+                    Debug.DrawRay(origin, direction * _hit.distance, Color.green, 10);
+                }
                 else
                 {
                     // Check if this is the last raycast
                     if (i == numberOfRaycasts && !validGrapplePoint)
                     {
-                        CalculateGrapplePosition((Vector2)firePoint.position + (Vector2)(gunPivot.transform.right * raycastDistance), false);
+                        CalculateGrapplePosition(_hit.point, false);
                     }
                     Debug.DrawRay(origin, direction * maxDistance, Color.red, 10);
 
@@ -214,7 +269,6 @@ public class NewGrappleTest : MonoBehaviour
                 // Check if this is the last raycast
                 if (i == numberOfRaycasts && !validGrapplePoint)
                 {
-                    Debug.Log("why no shoot");
                     CalculateGrapplePosition((Vector2)firePoint.position + (Vector2)(gunPivot.transform.right * raycastDistance), false);
                 }
                 Debug.DrawRay(origin, direction * maxDistance, Color.red, 10);
@@ -243,6 +297,8 @@ public class NewGrappleTest : MonoBehaviour
         {
             return;
         }
+
+        wallStick.UnstickFromWall();
 
         if (!launchToPoint && !autoCongifureDistance)
         {
@@ -276,6 +332,7 @@ public class NewGrappleTest : MonoBehaviour
                 m_springJoint2D.enabled = true;
             }
         }
+
     }
 
     private void OnDrawGizmos()
