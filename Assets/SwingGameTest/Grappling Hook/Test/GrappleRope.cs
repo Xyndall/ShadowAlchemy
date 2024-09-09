@@ -26,7 +26,9 @@ public class GrappleRope : MonoBehaviour
     
     bool drawLine = true;
     bool straightLine = true;
-    
+
+    bool hasGrapplingGun;
+    bool hasNewGrapplingGun;
 
     private void Awake()
     {
@@ -34,6 +36,11 @@ public class GrappleRope : MonoBehaviour
         m_lineRenderer.enabled = false;
         m_lineRenderer.positionCount = percision;
         waveSize = WaveSize;
+    }
+    private void Start()
+    {
+        if (grapplingGun != null) hasGrapplingGun = true;
+        if (newGrapplingGun != null) hasNewGrapplingGun = true;
     }
 
     private void OnEnable()
@@ -56,8 +63,8 @@ public class GrappleRope : MonoBehaviour
     {
         for (int i = 0; i < percision; i++)
         {
-            if (grapplingGun != null) m_lineRenderer.SetPosition(i, grapplingGun.firePoint.position);
-            if (newGrapplingGun != null) m_lineRenderer.SetPosition(i, newGrapplingGun.firePoint.position);
+            if (hasGrapplingGun) m_lineRenderer.SetPosition(i, grapplingGun.firePoint.position);
+            if (hasNewGrapplingGun) m_lineRenderer.SetPosition(i, newGrapplingGun.firePoint.position);
 
         }
     }
@@ -76,7 +83,7 @@ public class GrappleRope : MonoBehaviour
     {
         if (!straightLine) 
         {
-            if (grapplingGun != null)
+            if (hasGrapplingGun)
             {
                 if (m_lineRenderer.GetPosition(percision - 1).x != grapplingGun.grapplePoint.x)
                 {
@@ -87,7 +94,7 @@ public class GrappleRope : MonoBehaviour
                     straightLine = true;
                 }
             }
-            if (newGrapplingGun != null)
+            if (hasNewGrapplingGun)
             {
                 if (m_lineRenderer.GetPosition(percision - 1).x != newGrapplingGun.grapplePoint.x)
                 {
@@ -104,7 +111,7 @@ public class GrappleRope : MonoBehaviour
         {
             if (!isGrappling) 
             {
-                if(grapplingGun != null) grapplingGun.Grapple();
+                if(hasGrapplingGun) grapplingGun.Grapple();
                 if(newGrapplingGun != null) newGrapplingGun.Grapple();
                 isGrappling = true;
             }
@@ -129,7 +136,7 @@ public class GrappleRope : MonoBehaviour
         moveTime += Time.deltaTime;
         for (int i = 0; i < percision; i++)
         {
-            if (grapplingGun != null)
+            if (hasGrapplingGun)
             {
 
                 float delta = (float)i / ((float)percision - 1f);
@@ -139,7 +146,7 @@ public class GrappleRope : MonoBehaviour
 
                 m_lineRenderer.SetPosition(i, currentPosition);
             }
-            if (newGrapplingGun != null)
+            if (hasNewGrapplingGun)
             {
 
                 float delta = (float)i / ((float)percision - 1f);
@@ -152,6 +159,7 @@ public class GrappleRope : MonoBehaviour
 
 
         }
+       
     }
 
     void RetractRopeWaves()
@@ -169,7 +177,7 @@ public class GrappleRope : MonoBehaviour
             Vector2 targetPosition;
             Vector2 currentPosition;
 
-            if (grapplingGun != null)
+            if (hasGrapplingGun)
             {
                 offset = Vector2.Perpendicular(grapplingGun.DistanceVector).normalized * ropeAnimationCurve.Evaluate(delta) * waveSize;
 
@@ -179,7 +187,7 @@ public class GrappleRope : MonoBehaviour
 
                 m_lineRenderer.SetPosition(i, currentPosition);
             }
-            else if (newGrapplingGun != null)
+            else if (hasNewGrapplingGun)
             {
                 offset = Vector2.Perpendicular(newGrapplingGun.DistanceVector).normalized * ropeAnimationCurve.Evaluate(delta) * waveSize;
 
@@ -202,20 +210,27 @@ public class GrappleRope : MonoBehaviour
 
     void DrawRopeNoWaves() 
     {
-        if (grapplingGun != null)
+        if (hasGrapplingGun)
         {
             m_lineRenderer.positionCount = 2;
             m_lineRenderer.SetPosition(0, grapplingGun.grapplePoint);
             m_lineRenderer.SetPosition(1, grapplingGun.firePoint.position);
         }
 
-        if (newGrapplingGun != null)
+        if (hasNewGrapplingGun)
         {
             m_lineRenderer.positionCount = 2;
             m_lineRenderer.SetPosition(0, newGrapplingGun.grapplePoint);
             m_lineRenderer.SetPosition(1, newGrapplingGun.firePoint.position);
         }
-        
+        if (hasNewGrapplingGun)
+        {
+            if (newGrapplingGun.isSlingshotting)
+            {
+                newGrapplingGun.DisableGrapple();
+            }
+        }
+
     }
 
 }

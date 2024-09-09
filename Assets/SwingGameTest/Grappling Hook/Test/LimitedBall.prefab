@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4166852320178622031}
   - component: {fileID: 2216775433246206992}
   - component: {fileID: 5878406836729796500}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -102,6 +102,142 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &3375282708187466810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6667148472222525178}
+  - component: {fileID: 726133100824644305}
+  - component: {fileID: 5901618655547295062}
+  m_Layer: 3
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6667148472222525178
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375282708187466810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3752806337672380352}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
+  m_SizeDelta: {x: 450, y: 100}
+  m_Pivot: {x: 0, y: 1}
+--- !u!222 &726133100824644305
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375282708187466810}
+  m_CullTransparentMesh: 1
+--- !u!114 &5901618655547295062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375282708187466810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 'T - Set Checkpoint
+
+    F - Reset to checkpoint'
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 42
+  m_fontSizeBase: 42
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3439212150793371297
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,7 +247,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 638276557882854080}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GunPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +281,7 @@ GameObject:
   - component: {fileID: 3348437691384091219}
   - component: {fileID: 1175491783741967673}
   - component: {fileID: 8074969661566956164}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GrapplingGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,9 +371,10 @@ MonoBehaviour:
   grappleRope: {fileID: 789591962150517279}
   grappleToAll: 0
   grappableLayerNumber: 9
+  slingshotLayerNumber: 10
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
   m_camera: {fileID: 0}
   gunHolder: {fileID: 3251706366551174603}
   gunPivot: {fileID: 638276557882854080}
@@ -245,7 +382,7 @@ MonoBehaviour:
   rotationSpeed: 360
   launchToPoint: 1
   Launch_Type: 1
-  launchSpeed: 1
+  launchSpeed: 0.8
   autoCongifureDistance: 1
   targetDistance: 3
   targetFrequency: 1
@@ -256,9 +393,11 @@ MonoBehaviour:
   m_springJoint2D: {fileID: 241370395658162702}
   grapplePoint: {x: 0, y: 0}
   DistanceVector: {x: 0, y: 0}
+  isSlingshotting: 0
   ballRigidbody: {fileID: 2738211470705664813}
   validGrapplePoint: 0
   RotationDirImg: {fileID: 6192173769192009419}
+  playerBase: {fileID: 4602626331944618812}
 --- !u!1 &4602626331944618812
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +411,7 @@ GameObject:
   - component: {fileID: 2738211470705664813}
   - component: {fileID: 241370395658162702}
   - component: {fileID: 3602926714071851367}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LimitedBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +581,7 @@ GameObject:
   - component: {fileID: 5216795375444055463}
   - component: {fileID: 4527652651142356286}
   - component: {fileID: 7426304969528929069}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RotationImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3752806337672380352}
   - component: {fileID: 5756843528560490467}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -536,6 +675,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5216795375444055463}
+  - {fileID: 6667148472222525178}
   m_Father: {fileID: 1956323470311968255}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -560,7 +700,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1327332270247175281}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +734,7 @@ GameObject:
   - component: {fileID: 2038452289944070938}
   - component: {fileID: 789591962150517279}
   - component: {fileID: 699849352254901520}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
