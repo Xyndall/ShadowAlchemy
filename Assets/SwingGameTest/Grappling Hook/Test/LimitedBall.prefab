@@ -413,6 +413,8 @@ GameObject:
   - component: {fileID: 241370395658162702}
   - component: {fileID: 3602926714071851367}
   - component: {fileID: 408780301601304839}
+  - component: {fileID: 1638351742606145784}
+  - component: {fileID: 1173221126842274714}
   m_Layer: 3
   m_Name: LimitedBall
   m_TagString: Untagged
@@ -587,6 +589,35 @@ MonoBehaviour:
   stickableLayer:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &1638351742606145784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4602626331944618812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33f2775d92f266c49a2cd532087a57df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  virtualCamera: {fileID: 0}
+  grappleScript: {fileID: 789591962150517279}
+  zoomInSize: 11
+  zoomOutSize: 18
+  zoomSpeed: 1
+--- !u!114 &1173221126842274714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4602626331944618812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465aeba2e4e54ad428627d4bcd35911d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6192173769192009419
 GameObject:
   m_ObjectHideFlags: 0
