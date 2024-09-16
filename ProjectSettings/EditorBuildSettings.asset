@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/SwingGameTest/Grappling Hook/Test/FreeControl.unity
     guid: 23f7755dbdfba26449f471ec78f274dd
   - enabled: 1
