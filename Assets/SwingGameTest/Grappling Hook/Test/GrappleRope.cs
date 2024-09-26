@@ -23,6 +23,7 @@ public class GrappleRope : MonoBehaviour
     float moveTime = 0;
 
     [SerializeField]public bool isGrappling = false;
+    [SerializeField]public bool GrappleRetracting = false;
     
     bool drawLine = true;
     bool straightLine = true;
@@ -113,7 +114,7 @@ public class GrappleRope : MonoBehaviour
             {
                 if(hasGrapplingGun) grapplingGun.Grapple();
                 if(newGrapplingGun != null) newGrapplingGun.Grapple();
-                isGrappling = true;
+                
             }
             if (waveSize > 0)
             {
@@ -164,6 +165,7 @@ public class GrappleRope : MonoBehaviour
 
     void RetractRopeWaves()
     {
+        
         moveTime -= Time.deltaTime;
         if (m_lineRenderer.positionCount != percision)
         {

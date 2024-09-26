@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class NewGrappleTest : MonoBehaviour
 {
@@ -70,7 +68,8 @@ public class NewGrappleTest : MonoBehaviour
     private bool checkpointSet = false;
     public GameObject playerBase;
     public WallStick wallStick;
-
+    PlayerInputActions playerInputActions;
+    bool isHoldingGrapple;
 
     private void Start()
     {
@@ -78,6 +77,11 @@ public class NewGrappleTest : MonoBehaviour
         grappleRope.enabled = false;
         m_springJoint2D.enabled = false;
         ballRigidbody.gravityScale = 1;
+
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.Grapple.performed += Grapple_performed;
+        playerInputActions.Player.Grapple.canceled += Grapple_released;
     }
 
     private void Update()
@@ -88,20 +92,10 @@ public class NewGrappleTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T)) SetCheckpoint();
         if (Input.GetKeyDown(KeyCode.F)) RestartAtCheckpoint();
 
-        if (Input.GetKey(KeyCode.Space) && !grappleRope.isGrappling)
+        if(isHoldingGrapple)
         {
             launchSpeed = 0.8f;
             RotateGun();
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            if(!CastCenterRay()) SetGrapplePoint();
-
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space) && grappleRope.isGrappling)
-        {
-            DisableGrapple();
         }
 
         if (launchToPoint && grappleRope.isGrappling)
@@ -114,9 +108,35 @@ public class NewGrappleTest : MonoBehaviour
 
     }
 
+    private void Grapple_released(InputAction.CallbackContext context)
+    {
+        
+        if (context.canceled && !grappleRope.isGrappling && !grappleRope.GrappleRetracting && isHoldingGrapple)
+        {
+            if (!CastCenterRay()) SetGrapplePoint();
+
+        }
+        else if (context.canceled && grappleRope.isGrappling)
+        {
+            DisableGrapple();
+        }
+        isHoldingGrapple = false;
+    }
+    private void Grapple_performed(InputAction.CallbackContext context)
+    {
+        if (context.performed && !grappleRope.isGrappling && !grappleRope.GrappleRetracting)
+        {
+            isHoldingGrapple = true;
+        }
+    }
+
+
+
     public void DisableGrapple()
     {
         grappleRope.enabled = false;
+        grappleRope.GrappleRetracting = false;
+        grappleRope.isGrappling = false;
         m_springJoint2D.enabled = false;
         ballRigidbody.gravityScale = 1;
         validGrapplePoint = false;
@@ -296,9 +316,10 @@ public class NewGrappleTest : MonoBehaviour
         // Only proceed if the grapple point is valid
         if (!validGrapplePoint)
         {
+            grappleRope.GrappleRetracting = true;
             return;
         }
-
+        grappleRope.isGrappling = true;
         wallStick.UnstickFromWall();
 
         if (!launchToPoint && !autoCongifureDistance)

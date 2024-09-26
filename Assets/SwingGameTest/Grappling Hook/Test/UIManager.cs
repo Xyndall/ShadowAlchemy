@@ -108,16 +108,16 @@ public class UIManager : MonoBehaviour
     void ControlSchemeIsChanged()
     {
         //switches the controls shown on the ui, dependant on what inputs the player is using
-        if (playerInput.currentControlScheme == "Gamepad")
-        {
-            KeyboardAndMousePanel.SetActive(false);
-            GamepadPanel.SetActive(true);
-        }
-        else if (playerInput.currentControlScheme == "Keyboard&Mouse")
-        {
-            GamepadPanel.SetActive(false);
-            KeyboardAndMousePanel.SetActive(true);
-        }
+        //if (playerInput.currentControlScheme == "Gamepad")
+        //{
+        //    KeyboardAndMousePanel.SetActive(false);
+        //    GamepadPanel.SetActive(true);
+        //}
+        //else if (playerInput.currentControlScheme == "Keyboard&Mouse")
+        //{
+        //    GamepadPanel.SetActive(false);
+        //    KeyboardAndMousePanel.SetActive(true);
+        //}
     }
 
     public void SwitchToSettings()
@@ -148,7 +148,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-    private void Pause_performed(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    private void Pause_performed(InputAction.CallbackContext context)
     {
         if (gameIsPaused)
         {

@@ -1385,7 +1385,7 @@ MonoBehaviour:
   m_Follow: {fileID: 125287633}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 11.00006
+    OrthographicSize: 11.06828
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1941,6 +1941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LimitedBall
       objectReference: {fileID: 0}
+    - target: {fileID: 8074969661566956164, guid: dd46abf2d8f4f1a49aaa88ce5a8dfb89, type: 3}
+      propertyPath: cooldownDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2087,7 +2091,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.00006
+  orthographic size: 11.06828
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2532,7 +2536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1146145479
 MonoBehaviour:
   m_ObjectHideFlags: 0
