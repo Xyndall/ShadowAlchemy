@@ -41,7 +41,7 @@ public class NewGrappleTest : MonoBehaviour
     public int numberOfRaycasts = 10;   // Number of raycasts in the arc
     public bool hasMaxDistance = true; //Checks if has maxDistance
     public float maxDistance = 1;  // Max distance of each raycast
-     
+    
 
     private enum LaunchType
     {
@@ -70,6 +70,7 @@ public class NewGrappleTest : MonoBehaviour
     public WallStick wallStick;
     PlayerInputActions playerInputActions;
     bool isHoldingGrapple;
+    bool isHoldingButton;
 
     private void Start()
     {
@@ -86,6 +87,9 @@ public class NewGrappleTest : MonoBehaviour
 
     private void Update()
     {
+        if(UIManager.instance.gameIsPaused) playerInputActions.Player.Disable();
+        else playerInputActions.Player.Enable();
+
         Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
 
         if (Input.GetKeyDown(KeyCode.R)) ReverseSpin();
@@ -96,6 +100,14 @@ public class NewGrappleTest : MonoBehaviour
         {
             launchSpeed = 0.8f;
             RotateGun();
+        }
+
+        if (isHoldingButton)
+        {
+            if (!grappleRope.isGrappling && !grappleRope.GrappleRetracting)
+            {
+                isHoldingGrapple = true;
+            }
         }
 
         if (launchToPoint && grappleRope.isGrappling)
@@ -110,7 +122,7 @@ public class NewGrappleTest : MonoBehaviour
 
     private void Grapple_released(InputAction.CallbackContext context)
     {
-        
+        isHoldingButton = false;
         if (context.canceled && !grappleRope.isGrappling && !grappleRope.GrappleRetracting && isHoldingGrapple)
         {
             if (!CastCenterRay()) SetGrapplePoint();
@@ -124,10 +136,11 @@ public class NewGrappleTest : MonoBehaviour
     }
     private void Grapple_performed(InputAction.CallbackContext context)
     {
-        if (context.performed && !grappleRope.isGrappling && !grappleRope.GrappleRetracting)
-        {
-            isHoldingGrapple = true;
-        }
+        isHoldingButton = true;
+        //if (context.performed && !grappleRope.isGrappling && !grappleRope.GrappleRetracting)
+        //{
+        //    isHoldingGrapple = true;
+        //}
     }
 
 
@@ -304,7 +317,11 @@ public class NewGrappleTest : MonoBehaviour
         // Set the grapple point to the hit point
         grapplePoint = hitPos;
         validGrapplePoint = isValid;
-        
+        if (!validGrapplePoint)
+        {
+            grappleRope.GrappleRetracting = true;
+        }
+
         // Calculate the distance vector and enable the grapple rope
         DistanceVector = grapplePoint - (Vector2)gunPivot.position;
         grappleRope.enabled = true;

@@ -18,7 +18,7 @@ public class CameraZoom : MonoBehaviour
     void Update()
     {
         // Check if the player is moving
-        if (playerRigidbody.velocity.magnitude > 0.1f && grappleScript.isGrappling)
+        if (playerRigidbody.velocity.magnitude >= 0.1f || grappleScript.isGrappling)
         {
             // Zoom out
             virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(
@@ -27,7 +27,7 @@ public class CameraZoom : MonoBehaviour
                 Time.deltaTime * zoomSpeed
             );
         }
-        else if(!grappleScript.isGrappling)
+        else if(!grappleScript.isGrappling && playerRigidbody.velocity.magnitude < 0.1f)
         {
             // Zoom in
             virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(

@@ -9,30 +9,24 @@ public class UIManager : MonoBehaviour
 
 
     [Header("Canvases")]
-    [SerializeField] private GameObject OptionsCanvas;
+    [SerializeField] private GameObject OptionsPanel;
     [SerializeField] private GameObject MainPanel;
-    [SerializeField] private GameObject CreditsPanel;
-    [SerializeField] private GameObject GamepadPanel;
-    [SerializeField] private GameObject KeyboardAndMousePanel;
+    [SerializeField] private GameObject MainMenuPanel;
 
     [Header("PopUps / animations")]
     [SerializeField] private GameObject OverwriteSavePopUp;
 
     [Header("First Selected Buttons")]
-    public Button settingsPrimaryButton;
-    public Button mainPrimaryButton;
-    public Button ControlsPrimaryButton;
+    public Button OptionsPrimaryButton;
+    public Button MainPrimaryButton;
     public Button OSPopUpPrimaryButton;
 
     [Header("Other stuff")]
     [SerializeField] private GameObject ContinueButton;
-    [SerializeField] private GameObject newButton;
     public bool gameIsPaused;
-    [SerializeField] private PlayerInput playerInput;
     PlayerInputActions playerInputActions;
     public bool isMainMenu = false;
-
-    public static bool NewGame = false;
+    public GameObject Player;
 
     public static UIManager instance;
     private void Awake()
@@ -42,7 +36,6 @@ public class UIManager : MonoBehaviour
             instance = this;
         }
 
-        playerInput = GetComponent<PlayerInput>();
         playerInputActions = new PlayerInputActions();
         playerInputActions.Player.Enable();
         playerInputActions.Player.Pause.performed += Pause_performed;
@@ -51,48 +44,36 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.HasKey("PlayerX"))
+        gameIsPaused = true;
+
+        if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
-            ContinueButton.GetComponent<Button>().enabled = false;
-            ContinueButton.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().faceColor = new Color32(255, 255, 255, 40);
+            ContinueButton.GetComponent<Button>().interactable = true;
 
         }
         else
         {
-            ContinueButton.GetComponent<Button>().enabled = true;
-            ContinueButton.transform.GetChild(0).GetComponentInChildren<TextMeshProUGUI>().faceColor = new Color32(255, 255, 255, 255);
+            ContinueButton.GetComponent<Button>().interactable = false;
         }
 
-        mainPrimaryButton.Select();
+        MainPrimaryButton.Select();
         OverwriteSavePopUp.SetActive(false);
-        OptionsCanvas.SetActive(false);
-        //if(first time playing dont show continue button)
+        OptionsPanel.SetActive(false);
+        //if(first time playing continue button is disabled)
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        ControlSchemeIsChanged();
-    }
 
     public void StartNewGame()
     {
-        
-
-        if(PlayerPrefs.HasKey("PlayerX"))
+        if(PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
             OverwriteSavePopUp.SetActive(true);
             OSPopUpPrimaryButton.Select();
         }
         else
         {
-            NewGame = true;
-            Debug.Log("newGame: " + NewGame);
-            LoadGame();
+            NewGame();
         }
-
-        
-
     }
 
     public void DeleteOldSaveData()
@@ -102,49 +83,28 @@ public class UIManager : MonoBehaviour
 
     public void LoadGame()
     {
-        
+        ResumeGame();
+        gameIsPaused = false;
     }
-
-    void ControlSchemeIsChanged()
+    public void NewGame()
     {
-        //switches the controls shown on the ui, dependant on what inputs the player is using
-        //if (playerInput.currentControlScheme == "Gamepad")
-        //{
-        //    KeyboardAndMousePanel.SetActive(false);
-        //    GamepadPanel.SetActive(true);
-        //}
-        //else if (playerInput.currentControlScheme == "Keyboard&Mouse")
-        //{
-        //    GamepadPanel.SetActive(false);
-        //    KeyboardAndMousePanel.SetActive(true);
-        //}
+        ResumeGame();
+        Player.transform.position = GameManager.instance.StartingPos;
     }
 
     public void SwitchToSettings()
     {
-        CreditsPanel.SetActive(false);
         MainPanel.SetActive(false);
-        settingsPrimaryButton.Select();
+        OptionsPanel.SetActive(true);
+        OptionsPrimaryButton.Select();
     }
 
     public void SwitchToMenu()
     {
-        CreditsPanel.SetActive(false);
         MainPanel.SetActive(true);
-        mainPrimaryButton.Select();
-    }
-
-    public void SwitchToControls()
-    {
-        CreditsPanel.SetActive(false);
-        MainPanel.SetActive(false);
-        ControlsPrimaryButton.Select();
-
-    }
-
-    public void SwitchToCredits()
-    {
-        CreditsPanel.SetActive(true);
+        OptionsPanel.SetActive(false);
+        OverwriteSavePopUp.SetActive(false);
+        MainPrimaryButton.Select();
     }
 
 
@@ -166,11 +126,14 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("Resume Game");
             gameIsPaused = false;
-            OptionsCanvas.SetActive(false);
+            OptionsPanel.SetActive(false);
+            MainMenuPanel.SetActive(false);
+            MainPanel.SetActive(false);
+            OverwriteSavePopUp.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
-            Time.timeScale = 1;
+           Time.timeScale = 1;
         }
 
     }
@@ -181,15 +144,17 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("show Pause game");
             gameIsPaused = true;
-            OptionsCanvas.SetActive(true);
+            MainMenuPanel.SetActive(true);
             MainPanel.SetActive(true);
-            mainPrimaryButton.Select();
+            OptionsPanel.SetActive(false);
+            OverwriteSavePopUp.SetActive(false);
+            MainPrimaryButton.Select();
             SaveManager.instance.SaveData();
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
 
 
-            Time.timeScale = 0;
+           // Time.timeScale = 0;
         }
     }
 
