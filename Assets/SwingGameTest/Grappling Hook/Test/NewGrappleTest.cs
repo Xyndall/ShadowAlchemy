@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class NewGrappleTest : MonoBehaviour
 {
@@ -43,7 +41,7 @@ public class NewGrappleTest : MonoBehaviour
     public int numberOfRaycasts = 10;   // Number of raycasts in the arc
     public bool hasMaxDistance = true; //Checks if has maxDistance
     public float maxDistance = 1;  // Max distance of each raycast
-     
+    
 
     private enum LaunchType
     {
@@ -70,7 +68,9 @@ public class NewGrappleTest : MonoBehaviour
     private bool checkpointSet = false;
     public GameObject playerBase;
     public WallStick wallStick;
-
+    PlayerInputActions playerInputActions;
+    bool isHoldingGrapple;
+    bool isHoldingButton;
 
     private void Start()
     {
@@ -78,30 +78,36 @@ public class NewGrappleTest : MonoBehaviour
         grappleRope.enabled = false;
         m_springJoint2D.enabled = false;
         ballRigidbody.gravityScale = 1;
+
+        playerInputActions = new PlayerInputActions();
+        playerInputActions.Player.Enable();
+        playerInputActions.Player.Grapple.performed += Grapple_performed;
+        playerInputActions.Player.Grapple.canceled += Grapple_released;
     }
 
     private void Update()
     {
+        if(UIManager.instance.gameIsPaused) playerInputActions.Player.Disable();
+        else playerInputActions.Player.Enable();
+
         Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
 
         if (Input.GetKeyDown(KeyCode.R)) ReverseSpin();
         if (Input.GetKeyDown(KeyCode.T)) SetCheckpoint();
         if (Input.GetKeyDown(KeyCode.F)) RestartAtCheckpoint();
 
-        if (Input.GetKey(KeyCode.Space) && !grappleRope.isGrappling)
+        if(isHoldingGrapple)
         {
             launchSpeed = 0.8f;
             RotateGun();
         }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            if(!CastCenterRay()) SetGrapplePoint();
 
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space) && grappleRope.isGrappling)
+        if (isHoldingButton)
         {
-            DisableGrapple();
+            if (!grappleRope.isGrappling && !grappleRope.GrappleRetracting)
+            {
+                isHoldingGrapple = true;
+            }
         }
 
         if (launchToPoint && grappleRope.isGrappling)
@@ -114,9 +120,36 @@ public class NewGrappleTest : MonoBehaviour
 
     }
 
+    private void Grapple_released(InputAction.CallbackContext context)
+    {
+        isHoldingButton = false;
+        if (context.canceled && !grappleRope.isGrappling && !grappleRope.GrappleRetracting && isHoldingGrapple)
+        {
+            if (!CastCenterRay()) SetGrapplePoint();
+
+        }
+        else if (context.canceled && grappleRope.isGrappling)
+        {
+            DisableGrapple();
+        }
+        isHoldingGrapple = false;
+    }
+    private void Grapple_performed(InputAction.CallbackContext context)
+    {
+        isHoldingButton = true;
+        //if (context.performed && !grappleRope.isGrappling && !grappleRope.GrappleRetracting)
+        //{
+        //    isHoldingGrapple = true;
+        //}
+    }
+
+
+
     public void DisableGrapple()
     {
         grappleRope.enabled = false;
+        grappleRope.GrappleRetracting = false;
+        grappleRope.isGrappling = false;
         m_springJoint2D.enabled = false;
         ballRigidbody.gravityScale = 1;
         validGrapplePoint = false;
@@ -284,7 +317,11 @@ public class NewGrappleTest : MonoBehaviour
         // Set the grapple point to the hit point
         grapplePoint = hitPos;
         validGrapplePoint = isValid;
-        
+        if (!validGrapplePoint)
+        {
+            grappleRope.GrappleRetracting = true;
+        }
+
         // Calculate the distance vector and enable the grapple rope
         DistanceVector = grapplePoint - (Vector2)gunPivot.position;
         grappleRope.enabled = true;
@@ -296,9 +333,10 @@ public class NewGrappleTest : MonoBehaviour
         // Only proceed if the grapple point is valid
         if (!validGrapplePoint)
         {
+            grappleRope.GrappleRetracting = true;
             return;
         }
-
+        grappleRope.isGrappling = true;
         wallStick.UnstickFromWall();
 
         if (!launchToPoint && !autoCongifureDistance)

@@ -39,9 +39,9 @@ public class PlayerPositionManager : MonoBehaviour
         Vector3 playerPosition = transform.position;
 
         // Saving player's position
-        PlayerPrefs.SetFloat("PlayerX", playerPosition.x);
-        PlayerPrefs.SetFloat("PlayerY", playerPosition.y);
-        PlayerPrefs.SetFloat("PlayerZ", playerPosition.z); // If you're in 2D, you might not need Z
+        PlayerPrefs.SetFloat(SaveManager.PlayerX, playerPosition.x);
+        PlayerPrefs.SetFloat(SaveManager.PlayerY, playerPosition.y);
+        PlayerPrefs.SetFloat(SaveManager.PlayerZ, playerPosition.z); // If you're in 2D, you might not need Z
 
         PlayerPrefs.Save(); // Ensure data is written to disk
     }
@@ -51,11 +51,11 @@ public class PlayerPositionManager : MonoBehaviour
     public void LoadPlayerPosition()
     {
         // Check if the data exists
-        if (PlayerPrefs.HasKey("PlayerX"))
+        if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
-            float x = PlayerPrefs.GetFloat("PlayerX");
-            float y = PlayerPrefs.GetFloat("PlayerY");
-            float z = PlayerPrefs.GetFloat("PlayerZ"); // Optional for 2D
+            float x = PlayerPrefs.GetFloat(SaveManager.PlayerX);
+            float y = PlayerPrefs.GetFloat(SaveManager.PlayerY);
+            float z = PlayerPrefs.GetFloat(SaveManager.PlayerZ); // Optional for 2D
 
             // Set the player's position
             transform.position = new Vector3(x, y, z);
