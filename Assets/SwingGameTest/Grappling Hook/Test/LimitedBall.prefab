@@ -364,8 +364,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 0}
   grappleScript: {fileID: 789591962150517279}
-  zoomInSize: 11
-  zoomOutSize: 15
+  zoomInSize: 10
+  zoomOutSize: 12
   zoomSpeed: 1
 --- !u!114 &1173221126842274714
 MonoBehaviour:
