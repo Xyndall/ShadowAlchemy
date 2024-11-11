@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject OptionsPanel;
     [SerializeField] private GameObject MainPanel;
     [SerializeField] private GameObject MainMenuPanel;
+    [SerializeField] private GameObject HudCanvas;
 
     [Header("PopUps / animations")]
     [SerializeField] private GameObject OverwriteSavePopUp;
@@ -45,20 +46,15 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         gameIsPaused = true;
-
+        PauseGame();
         if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
             ContinueButton.GetComponent<Button>().interactable = true;
-
         }
         else
         {
             ContinueButton.GetComponent<Button>().interactable = false;
         }
-
-        MainPrimaryButton.Select();
-        OverwriteSavePopUp.SetActive(false);
-        OptionsPanel.SetActive(false);
         //if(first time playing continue button is disabled)
     }
 
