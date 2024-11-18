@@ -113,8 +113,8 @@ TextureImporter:
       name: Crystal Cave Tileset_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 144
+        x: 16
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -743,7 +743,7 @@ TextureImporter:
       name: Crystal Cave Tileset_30
       rect:
         serializedVersion: 2
-        x: 128
+        x: 80
         y: 96
         width: 16
         height: 16
@@ -764,7 +764,7 @@ TextureImporter:
       name: Crystal Cave Tileset_31
       rect:
         serializedVersion: 2
-        x: 144
+        x: 96
         y: 96
         width: 16
         height: 16
@@ -785,8 +785,8 @@ TextureImporter:
       name: Crystal Cave Tileset_32
       rect:
         serializedVersion: 2
-        x: 48
-        y: 80
+        x: 128
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -806,8 +806,8 @@ TextureImporter:
       name: Crystal Cave Tileset_33
       rect:
         serializedVersion: 2
-        x: 64
-        y: 80
+        x: 144
+        y: 96
         width: 16
         height: 16
       alignment: 0
@@ -827,7 +827,7 @@ TextureImporter:
       name: Crystal Cave Tileset_34
       rect:
         serializedVersion: 2
-        x: 128
+        x: 48
         y: 80
         width: 16
         height: 16
@@ -848,7 +848,7 @@ TextureImporter:
       name: Crystal Cave Tileset_35
       rect:
         serializedVersion: 2
-        x: 144
+        x: 64
         y: 80
         width: 16
         height: 16
@@ -869,8 +869,8 @@ TextureImporter:
       name: Crystal Cave Tileset_36
       rect:
         serializedVersion: 2
-        x: 96
-        y: 48
+        x: 80
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -890,8 +890,8 @@ TextureImporter:
       name: Crystal Cave Tileset_37
       rect:
         serializedVersion: 2
-        x: 112
-        y: 48
+        x: 96
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -912,7 +912,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -933,7 +933,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 48
+        y: 80
         width: 16
         height: 16
       alignment: 0
@@ -953,8 +953,8 @@ TextureImporter:
       name: Crystal Cave Tileset_40
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
+        x: 96
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -974,8 +974,8 @@ TextureImporter:
       name: Crystal Cave Tileset_41
       rect:
         serializedVersion: 2
-        x: 96
-        y: 32
+        x: 112
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -995,8 +995,8 @@ TextureImporter:
       name: Crystal Cave Tileset_42
       rect:
         serializedVersion: 2
-        x: 112
-        y: 32
+        x: 128
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -1016,8 +1016,8 @@ TextureImporter:
       name: Crystal Cave Tileset_43
       rect:
         serializedVersion: 2
-        x: 128
-        y: 32
+        x: 144
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -1037,7 +1037,7 @@ TextureImporter:
       name: Crystal Cave Tileset_44
       rect:
         serializedVersion: 2
-        x: 144
+        x: 64
         y: 32
         width: 16
         height: 16
@@ -1058,8 +1058,8 @@ TextureImporter:
       name: Crystal Cave Tileset_45
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
+        x: 96
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1079,8 +1079,8 @@ TextureImporter:
       name: Crystal Cave Tileset_46
       rect:
         serializedVersion: 2
-        x: 96
-        y: 16
+        x: 112
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1100,8 +1100,8 @@ TextureImporter:
       name: Crystal Cave Tileset_47
       rect:
         serializedVersion: 2
-        x: 112
-        y: 16
+        x: 128
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1121,8 +1121,8 @@ TextureImporter:
       name: Crystal Cave Tileset_48
       rect:
         serializedVersion: 2
-        x: 128
-        y: 16
+        x: 144
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -1134,6 +1134,258 @@ TextureImporter:
       bones: []
       spriteID: 505f0084d80e9334cac9df75f62213dd
       internalID: 30902495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_49
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bb25fbd66fdaa5429a35786638efd43
+      internalID: -1853624800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_50
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624e4831f5ca2634ebce896277499acb
+      internalID: -314500592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_51
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c193778eeac40d04facb895d14a8c189
+      internalID: 1716503344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_52
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80144543d63324a4d9a85a372744354f
+      internalID: 1018974686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_53
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d930ebc051e7a0e4eb2251cd33bff3a4
+      internalID: -1119483159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_54
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aed3cea8a1970841898986f765b9dcd
+      internalID: -1485434329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_55
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f20a978dcbf457b4695eec607b93ec78
+      internalID: 1928501558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_56
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e87c466dca2c94f88d16b7251a1b1d
+      internalID: -920561935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_57
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aa0e1cfdfeef484fb20614383e02818
+      internalID: -276906930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_58
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42ff4200aa084134588439cc8c0df120
+      internalID: 1705736655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_59
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db76a2aff643244f903af05f005cb4d
+      internalID: 573931139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crystal Cave Tileset_60
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c873eb8bdc91c6b40b268d8ba7247612
+      internalID: 1624472883
       vertices: []
       indices: 
       edges: []
@@ -1193,8 +1445,20 @@ TextureImporter:
       Crystal Cave Tileset_46: -913250094
       Crystal Cave Tileset_47: 1287694714
       Crystal Cave Tileset_48: 30902495
+      Crystal Cave Tileset_49: -1853624800
       Crystal Cave Tileset_5: 66228923
+      Crystal Cave Tileset_50: -314500592
+      Crystal Cave Tileset_51: 1716503344
+      Crystal Cave Tileset_52: 1018974686
+      Crystal Cave Tileset_53: -1119483159
+      Crystal Cave Tileset_54: -1485434329
+      Crystal Cave Tileset_55: 1928501558
+      Crystal Cave Tileset_56: -920561935
+      Crystal Cave Tileset_57: -276906930
+      Crystal Cave Tileset_58: 1705736655
+      Crystal Cave Tileset_59: 573931139
       Crystal Cave Tileset_6: -1356446513
+      Crystal Cave Tileset_60: 1624472883
       Crystal Cave Tileset_7: 1542846462
       Crystal Cave Tileset_8: -2108496465
       Crystal Cave Tileset_9: -120452354
