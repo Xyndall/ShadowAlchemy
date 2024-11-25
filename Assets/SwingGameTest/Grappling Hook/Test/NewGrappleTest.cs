@@ -7,8 +7,10 @@ public class NewGrappleTest : MonoBehaviour
     public GrappleRope grappleRope;
     [Header("Layer Settings:")]
     [SerializeField] private bool grappleToAll = false;
+    [SerializeField] private int unGrappableLayerNumber = 8;// Layer mask to detect unInteractable objects
     [SerializeField] private int grappableLayerNumber = 9;// Layer mask to detect interactable objects
     [SerializeField] private int slingshotLayerNumber = 10;// Layer mask to detect interactable objects
+    [SerializeField] private int StickyLayerNumber = 11;// Layer mask to detect interactable objects
     public LayerMask ignoreLayer;
 
     [Header("Main Camera")]
@@ -71,6 +73,14 @@ public class NewGrappleTest : MonoBehaviour
     PlayerInputActions playerInputActions;
     bool isHoldingGrapple;
     bool isHoldingButton;
+    public string SurfaceTypeHit;
+
+    //Surface types const strings
+    [HideInInspector] public const string AirSurface = "Air";
+    [HideInInspector] public const string MetalSurface = "Metal";
+    [HideInInspector] public const string GroundSurface = "Ground";
+    [HideInInspector] public const string StickySurface = "Sticky";
+    [HideInInspector] public const string SlingshotSurface = "Slingshot";
 
     private void Start()
     {
@@ -213,23 +223,34 @@ public class NewGrappleTest : MonoBehaviour
 
         if (_hit.collider != null)
         {
+
             // If it hits a grappable object or grappleToAll is true, and within max distance
             if ((_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) &&
                 (Vector2.Distance(_hit.point, origin) <= maxDistance || !hasMaxDistance))
             {
-                CalculateGrapplePosition(_hit.point, true);
+                CalculateGrapplePosition(_hit.point, true, GroundSurface);
                 return true; // Return true if something was hit
             }
             else if (_hit.transform.gameObject.layer == slingshotLayerNumber)
             {
                 Slingshot();
-                CalculateGrapplePosition(_hit.point, true);
+                CalculateGrapplePosition(_hit.point, true, SlingshotSurface);
                 return true; // Return true if something was hit
+            }
+            else if(_hit.transform.gameObject.layer == unGrappableLayerNumber)
+            {
+                CalculateGrapplePosition(_hit.point, false, MetalSurface);
+                return true; // Return true if something was hit nut not grappabble
+            }
+            else if(_hit.transform.gameObject.layer == StickyLayerNumber)
+            {
+                CalculateGrapplePosition(_hit.point, false, MetalSurface);
+                return true; // Return true if something was hit nut not grappabble
             }
             else
             {
-                CalculateGrapplePosition(_hit.point, false);
-                return true; // return false if something was hit but not grappabble
+                CalculateGrapplePosition(_hit.point, false, AirSurface);
+                return true; // return true if something was hit but not grappabble
             }
 
         }
@@ -277,21 +298,28 @@ public class NewGrappleTest : MonoBehaviour
                 if ((_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) &&
                     (Vector2.Distance(_hit.point, origin) <= maxDistance || !hasMaxDistance))
                 {
-                    CalculateGrapplePosition(_hit.point, true);
+                    CalculateGrapplePosition(_hit.point, true, GroundSurface);
                     Debug.DrawRay(origin, direction * _hit.distance, Color.green, 10);
                 }
                 else if (_hit.transform.gameObject.layer == slingshotLayerNumber)
                 {
                     Slingshot();
-                    CalculateGrapplePosition(_hit.point, true);
-                    Debug.DrawRay(origin, direction * _hit.distance, Color.green, 10);
+                    CalculateGrapplePosition(_hit.point, true, SlingshotSurface);
+                }
+                else if (_hit.transform.gameObject.layer == unGrappableLayerNumber)
+                {
+                    CalculateGrapplePosition(_hit.point, false, MetalSurface);
+                }
+                else if (_hit.transform.gameObject.layer == StickyLayerNumber)
+                {
+                    CalculateGrapplePosition(_hit.point, false, MetalSurface);
                 }
                 else
                 {
                     // Check if this is the last raycast
                     if (i == numberOfRaycasts && !validGrapplePoint)
                     {
-                        CalculateGrapplePosition(_hit.point, false);
+                        CalculateGrapplePosition(_hit.point, false, AirSurface);
                     }
                     Debug.DrawRay(origin, direction * maxDistance, Color.red, 10);
 
@@ -303,7 +331,7 @@ public class NewGrappleTest : MonoBehaviour
                 // Check if this is the last raycast
                 if (i == numberOfRaycasts && !validGrapplePoint)
                 {
-                    CalculateGrapplePosition((Vector2)firePoint.position + (Vector2)(gunPivot.transform.right * raycastDistance), false);
+                    CalculateGrapplePosition((Vector2)firePoint.position + (Vector2)(gunPivot.transform.right * raycastDistance), false, "Air");
                 }
                 Debug.DrawRay(origin, direction * maxDistance, Color.red, 10);
             }
@@ -312,9 +340,10 @@ public class NewGrappleTest : MonoBehaviour
 
     }
 
-    void CalculateGrapplePosition(Vector2 hitPos, bool isValid)
+    void CalculateGrapplePosition(Vector2 hitPos, bool isValid, string surfaceHit)
     {
         // Set the grapple point to the hit point
+        SurfaceTypeHit = surfaceHit;
         grapplePoint = hitPos;
         validGrapplePoint = isValid;
         if (!validGrapplePoint)
@@ -325,6 +354,7 @@ public class NewGrappleTest : MonoBehaviour
         // Calculate the distance vector and enable the grapple rope
         DistanceVector = grapplePoint - (Vector2)gunPivot.position;
         grappleRope.enabled = true;
+        Debug.Log("Surface type " + SurfaceTypeHit);
     }
 
 
