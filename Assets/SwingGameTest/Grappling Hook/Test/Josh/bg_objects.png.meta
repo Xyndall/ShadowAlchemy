@@ -1,102 +1,12 @@
 fileFormatVersion: 2
-guid: f51c40299c6f2c4438629191492adad6
+guid: ef45a5daf852dbb48b42afa8672f05c9
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 21300000
-    second: bg_cave_blueish_16x32_0
-  - first:
-      213: 21300002
-    second: bg_cave_blueish_16x32_1
-  - first:
-      213: 21300004
-    second: bg_cave_blueish_16x32_2
-  - first:
-      213: 21300006
-    second: bg_cave_blueish_16x32_3
-  - first:
-      213: 21300008
-    second: bg_cave_blueish_16x32_4
-  - first:
-      213: 21300010
-    second: bg_cave_blueish_16x32_5
-  - first:
-      213: 21300012
-    second: bg_cave_blueish_16x32_6
-  - first:
-      213: 21300014
-    second: bg_cave_blueish_16x32_7
-  - first:
-      213: 21300016
-    second: bg_cave_blueish_16x32_8
-  - first:
-      213: 21300018
-    second: bg_cave_blueish_16x32_9
-  - first:
-      213: 21300020
-    second: bg_cave_blueish_16x32_10
-  - first:
-      213: 21300022
-    second: bg_cave_blueish_16x32_11
-  - first:
-      213: 21300024
-    second: bg_cave_blueish_16x32_12
-  - first:
-      213: 21300026
-    second: bg_cave_blueish_16x32_13
-  - first:
-      213: 21300028
-    second: bg_cave_blueish_16x32_14
-  - first:
-      213: 21300030
-    second: bg_cave_blueish_16x32_15
-  - first:
-      213: 21300032
-    second: bg_cave_blueish_16x32_16
-  - first:
-      213: 21300034
-    second: bg_cave_blueish_16x32_17
-  - first:
-      213: 21300036
-    second: bg_cave_blueish_16x32_18
-  - first:
-      213: 21300038
-    second: bg_cave_blueish_16x32_19
-  - first:
-      213: 21300040
-    second: bg_cave_blueish_16x32_20
-  - first:
-      213: 21300042
-    second: bg_cave_blueish_16x32_21
-  - first:
-      213: 21300044
-    second: bg_cave_blueish_16x32_22
-  - first:
-      213: 21300046
-    second: bg_cave_blueish_16x32_23
-  - first:
-      213: 21300048
-    second: bg_cave_blueish_16x32_24
-  - first:
-      213: 21300050
-    second: bg_cave_blueish_16x32_25
-  - first:
-      213: 21300052
-    second: bg_cave_blueish_16x32_26
-  - first:
-      213: 21300054
-    second: bg_cave_blueish_16x32_27
-  - first:
-      213: 21300056
-    second: bg_cave_blueish_16x32_28
-  - first:
-      213: 21300058
-    second: bg_cave_blueish_16x32_29
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -120,12 +30,12 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -1
+  textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
-    aniso: 16
+    filterMode: 0
+    aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
@@ -138,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -153,9 +63,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -200,631 +110,589 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_0
+      name: bg_objects_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 224
+        y: 80
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 02305410000000000800000000000000
-      internalID: 21300000
+      spriteID: 5f0fdbc364c6b924ab674c840399ce98
+      internalID: -1062668787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_1
+      name: bg_objects_1
       rect:
         serializedVersion: 2
         x: 16
-        y: 224
+        y: 80
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 22305410000000000800000000000000
-      internalID: 21300002
+      spriteID: 1f3c0984a62ecb6498c4858457c43ee4
+      internalID: -1789895409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_2
+      name: bg_objects_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 224
+        y: 80
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 42305410000000000800000000000000
-      internalID: 21300004
+      spriteID: da629f6171e5a26478454d54fe58779e
+      internalID: -580819934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_3
+      name: bg_objects_3
       rect:
         serializedVersion: 2
         x: 48
-        y: 224
+        y: 80
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 62305410000000000800000000000000
-      internalID: 21300006
+      spriteID: 09beb8d2718eb064e81c71e53dad433d
+      internalID: -1741145406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_4
+      name: bg_objects_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 192
+        x: 64
+        y: 80
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 82305410000000000800000000000000
-      internalID: 21300008
+      spriteID: bdf6362637e7f474cb15045db7cddb16
+      internalID: 408210235
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_5
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 192
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a2305410000000000800000000000000
-      internalID: 21300010
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_6
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 192
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c2305410000000000800000000000000
-      internalID: 21300012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_7
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 192
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e2305410000000000800000000000000
-      internalID: 21300014
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 160
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03305410000000000800000000000000
-      internalID: 21300016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_9
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 160
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 23305410000000000800000000000000
-      internalID: 21300018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_10
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 160
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 43305410000000000800000000000000
-      internalID: 21300020
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_11
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 160
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 63305410000000000800000000000000
-      internalID: 21300022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 83305410000000000800000000000000
-      internalID: 21300024
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_13
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 128
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a3305410000000000800000000000000
-      internalID: 21300026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_14
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 128
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c3305410000000000800000000000000
-      internalID: 21300028
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_15
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 128
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e3305410000000000800000000000000
-      internalID: 21300030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 96
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 04305410000000000800000000000000
-      internalID: 21300032
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_17
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 96
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 24305410000000000800000000000000
-      internalID: 21300034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_18
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 96
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 44305410000000000800000000000000
-      internalID: 21300036
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_19
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 96
-        width: 16
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 64305410000000000800000000000000
-      internalID: 21300038
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bg_cave_blueish_16x32_20
+      name: bg_objects_5
       rect:
         serializedVersion: 2
         x: 0
         y: 64
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 84305410000000000800000000000000
-      internalID: 21300040
+      spriteID: 856a4fa57fecbc646a7d7bfff3d6ef4c
+      internalID: -309003362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_21
+      name: bg_objects_6
       rect:
         serializedVersion: 2
         x: 16
         y: 64
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a4305410000000000800000000000000
-      internalID: 21300042
+      spriteID: 0f4f0cd4f4dac6145b91a50837e590fe
+      internalID: 311097085
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_22
+      name: bg_objects_7
       rect:
         serializedVersion: 2
         x: 32
         y: 64
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c4305410000000000800000000000000
-      internalID: 21300044
+      spriteID: 667a25897a24ee742ad1b633c0f27d99
+      internalID: 971820135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_23
+      name: bg_objects_8
       rect:
         serializedVersion: 2
         x: 48
         y: 64
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: e4305410000000000800000000000000
-      internalID: 21300046
+      spriteID: 4c99fc4227eae2f4c9e7e6d1f13b59c7
+      internalID: -640442059
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_24
+      name: bg_objects_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d2ce0b093714d84e9783ea71f037858
+      internalID: 1118155513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5c2b1083f536664b893c493f01d9e8a
+      internalID: 1960347261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c409188f284e700448a6c2091c0d3fb3
+      internalID: -225641829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13bb903c4474eac418463eff588f5ef2
+      internalID: -434234735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_13
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42a519ccca63e3c48bd2b5c00502620e
+      internalID: -178530192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d32ff45f761da44db5981fb325cdddf
+      internalID: 1178267570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_15
       rect:
         serializedVersion: 2
         x: 0
         y: 32
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 05305410000000000800000000000000
-      internalID: 21300048
+      spriteID: 507205044eb33f049a04a78d2105de9f
+      internalID: -25711558
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_25
+      name: bg_objects_16
       rect:
         serializedVersion: 2
         x: 16
         y: 32
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 25305410000000000800000000000000
-      internalID: 21300050
+      spriteID: 874ca9769c03cc442a98de6a66637f4e
+      internalID: 785103189
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_26
+      name: bg_objects_17
       rect:
         serializedVersion: 2
         x: 32
         y: 32
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 45305410000000000800000000000000
-      internalID: 21300052
+      spriteID: 803c30ca90d75084190e3006460420ef
+      internalID: -1779498328
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_27
+      name: bg_objects_18
       rect:
         serializedVersion: 2
         x: 48
         y: 32
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 65305410000000000800000000000000
-      internalID: 21300054
+      spriteID: 29e5fc2510050a843b46791f370bdfcd
+      internalID: -199875617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_28
+      name: bg_objects_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 813304eec9e18a54db42a80e72057502
+      internalID: -1028520590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84ea3b59114976c4f9580de417081e31
+      internalID: -355736765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_21
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71a7684adad6ae4c890cd6231d21af3
+      internalID: 33726713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_22
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a23668d63414ba34fa4517d993bc9b71
+      internalID: -630344477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_23
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07a149506e954ab4ebf1f614b1b1bfc8
+      internalID: -112833413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a79e8581f312b478f57e6bae7603ba
+      internalID: 1450264536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_25
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3cdd01946fc19408123dda719ac557
+      internalID: -1452337592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bg_objects_26
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 85305410000000000800000000000000
-      internalID: 21300056
+      spriteID: df1e8757485812e4a969d72b5bb7ecba
+      internalID: 920419826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bg_cave_blueish_16x32_29
+      name: bg_objects_27
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a5305410000000000800000000000000
-      internalID: 21300058
+      spriteID: ee2720d8288e0634a80bc2b98c0ab2ef
+      internalID: 490303870
       vertices: []
       indices: 
       edges: []
@@ -832,7 +700,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -840,36 +708,34 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      bg_cave_blueish_16x32_0: 21300000
-      bg_cave_blueish_16x32_1: 21300002
-      bg_cave_blueish_16x32_10: 21300020
-      bg_cave_blueish_16x32_11: 21300022
-      bg_cave_blueish_16x32_12: 21300024
-      bg_cave_blueish_16x32_13: 21300026
-      bg_cave_blueish_16x32_14: 21300028
-      bg_cave_blueish_16x32_15: 21300030
-      bg_cave_blueish_16x32_16: 21300032
-      bg_cave_blueish_16x32_17: 21300034
-      bg_cave_blueish_16x32_18: 21300036
-      bg_cave_blueish_16x32_19: 21300038
-      bg_cave_blueish_16x32_2: 21300004
-      bg_cave_blueish_16x32_20: 21300040
-      bg_cave_blueish_16x32_21: 21300042
-      bg_cave_blueish_16x32_22: 21300044
-      bg_cave_blueish_16x32_23: 21300046
-      bg_cave_blueish_16x32_24: 21300048
-      bg_cave_blueish_16x32_25: 21300050
-      bg_cave_blueish_16x32_26: 21300052
-      bg_cave_blueish_16x32_27: 21300054
-      bg_cave_blueish_16x32_28: 21300056
-      bg_cave_blueish_16x32_29: 21300058
-      bg_cave_blueish_16x32_3: 21300006
-      bg_cave_blueish_16x32_4: 21300008
-      bg_cave_blueish_16x32_5: 21300010
-      bg_cave_blueish_16x32_6: 21300012
-      bg_cave_blueish_16x32_7: 21300014
-      bg_cave_blueish_16x32_8: 21300016
-      bg_cave_blueish_16x32_9: 21300018
+      bg_objects_0: -1062668787
+      bg_objects_1: -1789895409
+      bg_objects_10: 1960347261
+      bg_objects_11: -225641829
+      bg_objects_12: -434234735
+      bg_objects_13: -178530192
+      bg_objects_14: 1178267570
+      bg_objects_15: -25711558
+      bg_objects_16: 785103189
+      bg_objects_17: -1779498328
+      bg_objects_18: -199875617
+      bg_objects_19: -1028520590
+      bg_objects_2: -580819934
+      bg_objects_20: -355736765
+      bg_objects_21: 33726713
+      bg_objects_22: -630344477
+      bg_objects_23: -112833413
+      bg_objects_24: 1450264536
+      bg_objects_25: -1452337592
+      bg_objects_26: 920419826
+      bg_objects_27: 490303870
+      bg_objects_3: -1741145406
+      bg_objects_4: 408210235
+      bg_objects_5: -309003362
+      bg_objects_6: 311097085
+      bg_objects_7: 971820135
+      bg_objects_8: -640442059
+      bg_objects_9: 1118155513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
