@@ -1,6 +1,7 @@
 using UnityEngine;
 using Cinemachine;
 
+
 public class CameraZoom : MonoBehaviour
 {
     public CinemachineVirtualCamera virtualCamera;
