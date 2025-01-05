@@ -680,8 +680,8 @@ TextureImporter:
       name: objects_misc_animated_27
       rect:
         serializedVersion: 2
-        x: 0
-        y: 48
+        x: 96
+        y: 64
         width: 16
         height: 16
       alignment: 0
@@ -701,7 +701,7 @@ TextureImporter:
       name: objects_misc_animated_28
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 48
         width: 16
         height: 16
@@ -722,7 +722,7 @@ TextureImporter:
       name: objects_misc_animated_29
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 48
         width: 16
         height: 16
@@ -743,7 +743,7 @@ TextureImporter:
       name: objects_misc_animated_30
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 48
         width: 16
         height: 16
@@ -764,7 +764,7 @@ TextureImporter:
       name: objects_misc_animated_31
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 48
         width: 16
         height: 16
@@ -785,7 +785,7 @@ TextureImporter:
       name: objects_misc_animated_32
       rect:
         serializedVersion: 2
-        x: 80
+        x: 64
         y: 48
         width: 16
         height: 16
@@ -806,8 +806,8 @@ TextureImporter:
       name: objects_misc_animated_33
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 80
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -827,7 +827,7 @@ TextureImporter:
       name: objects_misc_animated_34
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 32
         width: 16
         height: 16
@@ -848,7 +848,7 @@ TextureImporter:
       name: objects_misc_animated_35
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 32
         width: 16
         height: 16
@@ -869,7 +869,7 @@ TextureImporter:
       name: objects_misc_animated_36
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 32
         width: 16
         height: 16
@@ -890,7 +890,7 @@ TextureImporter:
       name: objects_misc_animated_37
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 32
         width: 16
         height: 16
@@ -911,7 +911,7 @@ TextureImporter:
       name: objects_misc_animated_38
       rect:
         serializedVersion: 2
-        x: 80
+        x: 64
         y: 32
         width: 16
         height: 16
@@ -932,8 +932,8 @@ TextureImporter:
       name: objects_misc_animated_39
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
+        x: 80
+        y: 32
         width: 16
         height: 16
       alignment: 0
@@ -953,7 +953,7 @@ TextureImporter:
       name: objects_misc_animated_40
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 16
         width: 16
         height: 16
@@ -974,7 +974,7 @@ TextureImporter:
       name: objects_misc_animated_41
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 16
         width: 16
         height: 16
@@ -995,7 +995,7 @@ TextureImporter:
       name: objects_misc_animated_42
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 16
         width: 16
         height: 16
@@ -1016,7 +1016,7 @@ TextureImporter:
       name: objects_misc_animated_43
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 16
         width: 16
         height: 16
@@ -1037,7 +1037,7 @@ TextureImporter:
       name: objects_misc_animated_44
       rect:
         serializedVersion: 2
-        x: 80
+        x: 64
         y: 16
         width: 16
         height: 16
@@ -1058,8 +1058,8 @@ TextureImporter:
       name: objects_misc_animated_45
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 80
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -1079,7 +1079,7 @@ TextureImporter:
       name: objects_misc_animated_46
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 0
         width: 16
         height: 16
@@ -1100,7 +1100,7 @@ TextureImporter:
       name: objects_misc_animated_47
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 0
         width: 16
         height: 16
@@ -1121,7 +1121,7 @@ TextureImporter:
       name: objects_misc_animated_48
       rect:
         serializedVersion: 2
-        x: 48
+        x: 32
         y: 0
         width: 16
         height: 16
@@ -1142,7 +1142,7 @@ TextureImporter:
       name: objects_misc_animated_49
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 0
         width: 16
         height: 16
@@ -1163,7 +1163,7 @@ TextureImporter:
       name: objects_misc_animated_50
       rect:
         serializedVersion: 2
-        x: 80
+        x: 64
         y: 0
         width: 16
         height: 16
@@ -1176,6 +1176,27 @@ TextureImporter:
       bones: []
       spriteID: a63205fe1552dd1488f9344141687ec9
       internalID: -2103308665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: objects_misc_animated_51
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f145789a18275b46a8bb5861bb3f95c
+      internalID: -1137745521
       vertices: []
       indices: 
       edges: []
@@ -1238,6 +1259,7 @@ TextureImporter:
       objects_misc_animated_49: -1686400635
       objects_misc_animated_5: 1622045426
       objects_misc_animated_50: -2103308665
+      objects_misc_animated_51: -1137745521
       objects_misc_animated_6: 1451057941
       objects_misc_animated_7: -698414652
       objects_misc_animated_8: -1022934675
