@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 126
+  controlID: 129
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 44
+  controlID: 69
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 278
     height: 622
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -220,13 +220,13 @@ MonoBehaviour:
     height: 622
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
   - {fileID: 17}
   - {fileID: 16}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -392,7 +392,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: c8fafffffafaffff
+      m_ExpandedIDs: 1eeaffff20eaffff22eaffff2aeaffff2ceaffff2eeaffff30eaffff32eaffff3aeaffff0eecffff64f3ffff8afaffffc0faffffd8faffffe8fafffff8fafffffafaffff36790000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -798,9 +798,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1675.6198, y: 1245.8977, z: -9.033748}
+    m_Target: {x: 2037.5516, y: 1091.8237, z: -5.5285244}
     speed: 2
-    m_Value: {x: 1675.6198, y: 1245.8977, z: -9.033748}
+    m_Value: {x: 2037.5516, y: 1091.8237, z: -5.5285244}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -850,9 +850,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1158.327
+    m_Target: 965.16003
     speed: 2
-    m_Value: 1158.327
+    m_Value: 965.16003
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1110,7 +1110,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/SwingGameTest/Grappling Hook/Test/Tyrel/Settings
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1118,16 +1118,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/SwingGameTest/Grappling Hook/Test/Tyrel/Settings
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Kraken\ShadowAlchemy
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 127}
-    m_SelectedIDs: 4c990000
-    m_LastClickedID: 39244
-    m_ExpandedIDs: 00000000467d0000487d00004a7d00004c7d0000607d00006a7d00006c7d00004099000000ca9a3b
+    m_SelectedIDs: 567d0000
+    m_LastClickedID: 32086
+    m_ExpandedIDs: 00000000567d0000587d00005a7d00005c7d00005e7d0000607d0000627d0000647d0000867d0000227e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1155,7 +1155,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000467d0000487d00004a7d00004c7d0000
+    m_ExpandedIDs: 00000000567d0000587d00005a7d00005c7d00005e7d0000607d0000627d0000647d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
