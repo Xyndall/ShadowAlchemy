@@ -11,12 +11,15 @@ public class PlayerAnimationController : MonoBehaviour
     public float movementThreshold = .1f; // Minimum velocity to consider as "moving."
     public bool isMoving = false; // Tracks whether the object is moving.
 
+    [Header("SoundFX")]
+    public AudioSource aSource;
     private void Start()
     {
         isFacingRight = true;
         grappleTest.ReverseSpin();
     }
 
+    
     public void SetAHoldingButton(bool isTrue)
     {
         animator.SetBool("IsHoldingButton", isTrue);
@@ -58,6 +61,12 @@ public class PlayerAnimationController : MonoBehaviour
         }
 
         animator.SetBool("IsMoving", isMoving);
+
+
+        if (isMoving)
+        {
+
+        }
     }
 
 
