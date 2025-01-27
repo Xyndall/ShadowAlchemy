@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grappleRope: {fileID: 789591962150517279}
+  GrappleAudio: {fileID: 7460512518543295809}
   grappleToAll: 0
   unGrappableLayerNumber: 8
   grappableLayerNumber: 9
@@ -178,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9240c849956cd48987c685e8b5b73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grappleSound: {fileID: 0}
-  hitSound: {fileID: 0}
-  retractSound: {fileID: 0}
+  grappleSound: {fileID: 8300000, guid: a63766e0b62358347bc14bfb43f9dc38, type: 3}
+  hitSound: {fileID: 8300000, guid: 77fee14b55b294047977f610d14c59e9, type: 3}
+  retractSound: {fileID: 8300000, guid: 0f17d7edc52e01d4bbcfa09f5d200201, type: 3}
   audioSource: {fileID: 9178643463736293875}
 --- !u!82 &9178643463736293875
 AudioSource:
@@ -816,6 +817,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grapplingGun: {fileID: 0}
   newGrapplingGun: {fileID: 8074969661566956164}
+  grappleAudio: {fileID: 7460512518543295809}
   m_lineRenderer: {fileID: 699849352254901520}
   percision: 120
   straightenLineSpeed: 11.5
