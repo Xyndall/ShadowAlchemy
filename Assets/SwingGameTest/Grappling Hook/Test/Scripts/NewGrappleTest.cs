@@ -7,6 +7,8 @@ public class NewGrappleTest : MonoBehaviour
 {
     [Header("Scripts:")]
     public GrappleRope grappleRope;
+    public GrappleAudioContoller GrappleAudio;
+
     [Header("Layer Settings:")]
     [SerializeField] private bool grappleToAll = false;
     [SerializeField] private int unGrappableLayerNumber = 8;// Layer mask to detect unInteractable objects
@@ -25,9 +27,6 @@ public class NewGrappleTest : MonoBehaviour
 
     [Header("Rotation:")]
     [Range(0, 360)][SerializeField] private float rotationSpeed = 4;
-
-    [Header("Distance:")]
-    
 
     [Header("Launching")]
     [SerializeField] private bool launchToPoint = true;
@@ -120,6 +119,7 @@ public class NewGrappleTest : MonoBehaviour
             {
                 isHoldingGrapple = true;
                 pAnimaor.SetAHoldingButton(true);
+                
             }
         }
 
@@ -131,11 +131,21 @@ public class NewGrappleTest : MonoBehaviour
             }
         }
 
+        if (grappleRope.GrappleRetracting)
+        {
+            GrappleAudio.PlayRetractSound();
+        }
+        else
+        {
+            GrappleAudio.hasPlayedRetractSound = false;
+        }
     }
 
     private void Grapple_released(InputAction.CallbackContext context)
     {
         isHoldingButton = false;
+        GrappleAudio.PlayGrappleSound();
+        Debug.Log("PlayingGrappleSound");
         if (context.canceled && !grappleRope.isGrappling && !grappleRope.GrappleRetracting && isHoldingGrapple)
         {
             if (!CastCenterRay()) SetGrapplePoint();
@@ -152,6 +162,7 @@ public class NewGrappleTest : MonoBehaviour
     private void Grapple_performed(InputAction.CallbackContext context)
     {
         isHoldingButton = true;
+        
         //if (context.performed && !grappleRope.isGrappling && !grappleRope.GrappleRetracting)
         //{
         //    isHoldingGrapple = true;
@@ -355,10 +366,6 @@ public class NewGrappleTest : MonoBehaviour
         SurfaceTypeHit = surfaceHit;
         grapplePoint = hitPos;
         validGrapplePoint = isValid;
-        if (!validGrapplePoint)
-        {
-            grappleRope.GrappleRetracting = true;
-        }
 
         // Calculate the distance vector and enable the grapple rope
         DistanceVector = grapplePoint - (Vector2)gunPivot.position;
@@ -372,7 +379,7 @@ public class NewGrappleTest : MonoBehaviour
         // Only proceed if the grapple point is valid
         if (!validGrapplePoint)
         {
-            grappleRope.GrappleRetracting = true;
+            
             return;
         }
         grappleRope.isGrappling = true;
@@ -399,6 +406,8 @@ public class NewGrappleTest : MonoBehaviour
 
         else
         {
+            GrappleAudio.PlayHitSound();
+            Debug.Log("playing hit sound");
             if (Launch_Type == LaunchType.Transform_Launch)
             {
                 ballRigidbody.gravityScale = 0;
@@ -411,6 +420,7 @@ public class NewGrappleTest : MonoBehaviour
                 m_springJoint2D.frequency = launchSpeed;
                 m_springJoint2D.enabled = true;
             }
+            
         }
 
     }
