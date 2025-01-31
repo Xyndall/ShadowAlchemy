@@ -107,22 +107,22 @@ public class NewGrappleTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.T)) SetCheckpoint();
         if (Input.GetKeyDown(KeyCode.F)) RestartAtCheckpoint();
 
-        if(isHoldingGrapple)
-        {
-            launchSpeed = 0.8f;
-            RotateGun();
-        }
+        
 
         if (isHoldingButton)
         {
+            Debug.LogWarning(grappleRope.isGrappling + " ? " + grappleRope.GrappleRetracting);
             if (!grappleRope.isGrappling && !grappleRope.GrappleRetracting)
             {
+                Debug.LogWarning("Is holding grapple ");
                 isHoldingGrapple = true;
                 pAnimaor.SetAHoldingButton(true);
-                
+                launchSpeed = 0.8f;
+                RotateGun();
+
             }
         }
-
+        
         if (launchToPoint && grappleRope.isGrappling)
         {
             if (Launch_Type == LaunchType.Transform_Launch)
@@ -145,14 +145,17 @@ public class NewGrappleTest : MonoBehaviour
     {
         isHoldingButton = false;
         GrappleAudio.PlayGrappleSound();
-        Debug.Log("PlayingGrappleSound");
+        
         if (context.canceled && !grappleRope.isGrappling && !grappleRope.GrappleRetracting && isHoldingGrapple)
         {
+            
             if (!CastCenterRay()) SetGrapplePoint();
             pAnimaor.SetAHoldingButton(false);
+            Debug.Log("Grapple released should shoot");
         }
         else if (context.canceled && grappleRope.isGrappling)
         {
+            Debug.Log("should disable grapple");
             DisableGrapple();
             pAnimaor.SetAHoldingButton(false);
             
@@ -162,26 +165,24 @@ public class NewGrappleTest : MonoBehaviour
     private void Grapple_performed(InputAction.CallbackContext context)
     {
         isHoldingButton = true;
-        
-        //if (context.performed && !grappleRope.isGrappling && !grappleRope.GrappleRetracting)
-        //{
-        //    isHoldingGrapple = true;
-        //}
+        Debug.Log("Is Holding Button :" + isHoldingButton);
     }
 
 
 
     public void DisableGrapple()
     {
+        
         grappleRope.enabled = false;
         grappleRope.GrappleRetracting = false;
         grappleRope.isGrappling = false;
         m_springJoint2D.enabled = false;
-        ballRigidbody.gravityScale = 1;
+        ballRigidbody.gravityScale = 1; 
         validGrapplePoint = false;
         isSlingshotting = false;
         pAnimaor.SetGrappling(false);
         pAnimaor.SetIsGrappling(false);
+        Debug.LogWarning("GrappleRope Disabled /" + grappleRope.GrappleRetracting + " / " + grappleRope.isGrappling);
     }
 
     public void ReverseSpin()
@@ -205,7 +206,7 @@ public class NewGrappleTest : MonoBehaviour
             playerBase.transform.position = checkpointPos;
             // Stop the Rigidbody's movement
             ballRigidbody.velocity = Vector2.zero;
-            ballRigidbody.angularVelocity = 0f; // If your game involves rotation
+            ballRigidbody.angularVelocity = 0f; 
             Debug.Log("Teleported to checkpoint: " + checkpointPos);
         }
         else
@@ -370,7 +371,7 @@ public class NewGrappleTest : MonoBehaviour
         // Calculate the distance vector and enable the grapple rope
         DistanceVector = grapplePoint - (Vector2)gunPivot.position;
         grappleRope.enabled = true;
-        Debug.Log("Surface type " + SurfaceTypeHit);
+        Debug.LogWarning("Calculating grapple positions");
     }
 
 

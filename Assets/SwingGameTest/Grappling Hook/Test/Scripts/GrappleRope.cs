@@ -124,12 +124,12 @@ public class GrappleRope : MonoBehaviour
             else 
             {
                 waveSize = 0;
-                DrawRopeNoWaves();
+                
                 
                 if (grapplingGun != null && grapplingGun.validGrapplePoint == false) RetractRopeWaves();
                 
-                if(newGrapplingGun != null && newGrapplingGun.validGrapplePoint == false) RetractRopeWaves();
-                
+                if(newGrapplingGun != null && newGrapplingGun.validGrapplePoint == false && newGrapplingGun.isSlingshotting == false) RetractRopeWaves();
+                DrawRopeNoWaves();
             }
         }
     }
@@ -227,16 +227,14 @@ public class GrappleRope : MonoBehaviour
 
         if (hasNewGrapplingGun)
         {
-            m_lineRenderer.positionCount = 2;
-            m_lineRenderer.SetPosition(0, newGrapplingGun.grapplePoint);
-            m_lineRenderer.SetPosition(1, newGrapplingGun.firePoint.position);
-        }
-        if (hasNewGrapplingGun)
-        {
             if (newGrapplingGun.isSlingshotting)
             {
                 newGrapplingGun.DisableGrapple();
             }
+            m_lineRenderer.positionCount = 2;
+            m_lineRenderer.SetPosition(0, newGrapplingGun.grapplePoint);
+            m_lineRenderer.SetPosition(1, newGrapplingGun.firePoint.position);
+            
         }
 
     }
