@@ -13,13 +13,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject OptionsPanel;
     [SerializeField] private GameObject MainPanel;
     [SerializeField] private GameObject MainMenuPanel;
+    [SerializeField] private GameObject ControlsPanel;
     [SerializeField] private GameObject HudCanvas;
 
     [Header("PopUps / animations")]
     [SerializeField] private GameObject OverwriteSavePopUp;
 
     [Header("First Selected Buttons")]
-    public Button OptionsPrimaryButton;
     public Button MainPrimaryButton;
     public Button OSPopUpPrimaryButton;
 
@@ -89,19 +89,26 @@ public class UIManager : MonoBehaviour
         Player.transform.position = GameManager.instance.StartingPos;
     }
 
+    public void SelectButton(Button button)
+    {
+        button.Select();
+    }
+
     public void SwitchToSettings()
     {
-        MainPanel.SetActive(false);
         OptionsPanel.SetActive(true);
-        OptionsPrimaryButton.Select();
+        MainPanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        
     }
 
     public void SwitchToMenu()
     {
         MainPanel.SetActive(true);
         OptionsPanel.SetActive(false);
+        ControlsPanel.SetActive(false);
         OverwriteSavePopUp.SetActive(false);
-        MainPrimaryButton.Select();
+        
     }
 
 
@@ -121,11 +128,12 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
-            Debug.Log("Resume Game");
+           
             gameIsPaused = false;
             OptionsPanel.SetActive(false);
             MainMenuPanel.SetActive(false);
             MainPanel.SetActive(false);
+            ControlsPanel.SetActive(false);
             OverwriteSavePopUp.SetActive(false);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
@@ -139,10 +147,11 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
-            Debug.Log("show Pause game");
+           
             gameIsPaused = true;
             MainMenuPanel.SetActive(true);
             MainPanel.SetActive(true);
+            ControlsPanel.SetActive(false);
             OptionsPanel.SetActive(false);
             OverwriteSavePopUp.SetActive(false);
             MainPrimaryButton.Select();

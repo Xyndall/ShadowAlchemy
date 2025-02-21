@@ -127,7 +127,22 @@ public class SteamManager : MonoBehaviour {
 		}
 
 		s_EverInitialized = true;
-	}
+
+
+        if (!SteamAPI.IsSteamRunning())
+        {
+            Debug.LogError("Steam is not running! Start Steam and launch the game from Steam.");
+            return;
+        }
+
+        if (!SteamAPI.Init())
+        {
+            Debug.LogError("SteamAPI initialization failed. Make sure Steam is running and the game is launched from Steam.");
+            return;
+        }
+
+        Debug.Log("SteamAPI initialized successfully!");
+    }
 
 	// This should only ever get called on first load and after an Assembly reload, You should never Disable the Steamworks Manager yourself.
 	protected virtual void OnEnable() {

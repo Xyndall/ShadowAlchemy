@@ -98,7 +98,8 @@ public class NewGrappleTest : MonoBehaviour
 
     private void Update()
     {
-        if(UIManager.instance.gameIsPaused) playerInputActions.Player.Disable();
+        bool isGamePaused = UIManager.instance.gameIsPaused;
+        if (isGamePaused) playerInputActions.Player.Disable();
         else playerInputActions.Player.Enable();
 
         Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
@@ -106,15 +107,14 @@ public class NewGrappleTest : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.R)) ReverseSpin();
         if (Input.GetKeyDown(KeyCode.T)) SetCheckpoint();
         if (Input.GetKeyDown(KeyCode.F)) RestartAtCheckpoint();
+        if(Input.GetKeyDown(KeyCode.H)) SteamAchievements.ResetAchievements();
 
-        
 
         if (isHoldingButton)
         {
-            Debug.LogWarning(grappleRope.isGrappling + " ? " + grappleRope.GrappleRetracting);
+            
             if (!grappleRope.isGrappling && !grappleRope.GrappleRetracting)
             {
-                Debug.LogWarning("Is holding grapple ");
                 isHoldingGrapple = true;
                 pAnimaor.SetAHoldingButton(true);
                 launchSpeed = 0.8f;
@@ -151,11 +151,9 @@ public class NewGrappleTest : MonoBehaviour
             
             if (!CastCenterRay()) SetGrapplePoint();
             pAnimaor.SetAHoldingButton(false);
-            Debug.Log("Grapple released should shoot");
         }
         else if (context.canceled && grappleRope.isGrappling)
         {
-            Debug.Log("should disable grapple");
             DisableGrapple();
             pAnimaor.SetAHoldingButton(false);
             
@@ -165,7 +163,6 @@ public class NewGrappleTest : MonoBehaviour
     private void Grapple_performed(InputAction.CallbackContext context)
     {
         isHoldingButton = true;
-        Debug.Log("Is Holding Button :" + isHoldingButton);
     }
 
 
@@ -182,7 +179,7 @@ public class NewGrappleTest : MonoBehaviour
         isSlingshotting = false;
         pAnimaor.SetGrappling(false);
         pAnimaor.SetIsGrappling(false);
-        Debug.LogWarning("GrappleRope Disabled /" + grappleRope.GrappleRetracting + " / " + grappleRope.isGrappling);
+        
     }
 
     public void ReverseSpin()
@@ -371,7 +368,6 @@ public class NewGrappleTest : MonoBehaviour
         // Calculate the distance vector and enable the grapple rope
         DistanceVector = grapplePoint - (Vector2)gunPivot.position;
         grappleRope.enabled = true;
-        Debug.LogWarning("Calculating grapple positions");
     }
 
 
