@@ -124,8 +124,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8be75ce37f7e7846a3944fa77744806
-      internalID: -1972486872
+      spriteID: 7761863ab3e81ac4aa84cd203224e0a1
+      internalID: -321910351
       vertices: []
       indices: 
       edges: []
@@ -145,8 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 804241dd503f5a548ab23fbfc9057034
-      internalID: 494557233
+      spriteID: 6642af25a67560f4192d9fe0de5d32a6
+      internalID: -2136912180
       vertices: []
       indices: 
       edges: []
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c6afb7c77553ef45bc9320f22b29426
-      internalID: -152295367
+      spriteID: 4fc84d1cc0563e7429ba7860d7e2c468
+      internalID: 2144708463
       vertices: []
       indices: 
       edges: []
@@ -187,8 +187,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a32dbd014bd60044998caf19c0a24b4
-      internalID: -1725624339
+      spriteID: 71a225ed41bc49e4b8ce1a8bb764da21
+      internalID: 796877091
       vertices: []
       indices: 
       edges: []
@@ -208,8 +208,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19b998eb3770c2a4aa6a8bde69ad49b3
-      internalID: 1216445914
+      spriteID: 635ff5f7f3e58244e84122a90be00880
+      internalID: 1596231575
       vertices: []
       indices: 
       edges: []
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 175e3f794702a0d48be65e4f06388b2e
-      internalID: -545890615
+      spriteID: d584e7382cd3ad94a959aa567ff6cc12
+      internalID: -2058921706
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Animationss_Swing_Toss_0: -1972486872
-      Player_Animationss_Swing_Toss_1: 494557233
-      Player_Animationss_Swing_Toss_2: -152295367
-      Player_Animationss_Swing_Toss_3: -1725624339
-      Player_Animationss_Swing_Toss_4: 1216445914
-      Player_Animationss_Swing_Toss_5: -545890615
+      Player_Animationss_Swing_Toss_0: -321910351
+      Player_Animationss_Swing_Toss_1: -2136912180
+      Player_Animationss_Swing_Toss_2: 2144708463
+      Player_Animationss_Swing_Toss_3: 796877091
+      Player_Animationss_Swing_Toss_4: 1596231575
+      Player_Animationss_Swing_Toss_5: -2058921706
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
