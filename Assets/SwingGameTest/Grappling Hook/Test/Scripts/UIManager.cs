@@ -128,7 +128,7 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
-           
+            AudioManager.Instance.StartGameMusic();
             gameIsPaused = false;
             OptionsPanel.SetActive(false);
             MainMenuPanel.SetActive(false);
@@ -147,7 +147,7 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
-           
+            AudioManager.Instance.StartTitleMusic();
             gameIsPaused = true;
             MainMenuPanel.SetActive(true);
             MainPanel.SetActive(true);

@@ -14,7 +14,7 @@ public class VolumeControl : MonoBehaviour
     void Start()
     {
         _slider.GetComponent<Slider>();
-        float vol = PlayerPrefs.GetFloat(ParamName, 1);
+        float vol = PlayerPrefs.GetFloat(ParamName, 0.5f);
         _slider.value = vol;
         SetVolume(vol);
     }
