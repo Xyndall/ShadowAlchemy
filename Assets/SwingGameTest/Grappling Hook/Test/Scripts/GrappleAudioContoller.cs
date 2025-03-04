@@ -19,13 +19,13 @@ public class GrappleAudioContoller : MonoBehaviour
     public void PlayGrappleSound()
     {
         PlaySound(grappleSound);
-        Debug.Log("Playing Grapple sound");
+        
     }
 
     public void PlayHitSound()
     {
         PlaySound(hitSound);
-        Debug.Log("Playing Hit sound");
+        
     }
 
     public void PlayRetractSound()
@@ -34,7 +34,7 @@ public class GrappleAudioContoller : MonoBehaviour
         {
             PlaySound(retractSound);
             hasPlayedRetractSound = true; // Prevents repeated triggers
-            Debug.Log("Playing Retract sound");
+            
         }
     }
 

@@ -13,13 +13,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject OptionsPanel;
     [SerializeField] private GameObject MainPanel;
     [SerializeField] private GameObject MainMenuPanel;
+    [SerializeField] private GameObject ControlsPanel;
     [SerializeField] private GameObject HudCanvas;
 
     [Header("PopUps / animations")]
     [SerializeField] private GameObject OverwriteSavePopUp;
 
     [Header("First Selected Buttons")]
-    public Button OptionsPrimaryButton;
     public Button MainPrimaryButton;
     public Button OSPopUpPrimaryButton;
 
@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
     PlayerInputActions playerInputActions;
     public bool isMainMenu = false;
     public GameObject Player;
+    public bool EasyMode = false;
+    public Toggle _toggle;
 
     public static UIManager instance;
     private void Awake()
@@ -47,6 +49,14 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         gameIsPaused = true;
+
+        int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
+        if (EasyModeOptionInt == 0)
+            EasyModeOn(false);
+        else if (EasyModeOptionInt == 1)
+            EasyModeOn(true);
+
+
         PauseGame();
         if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
@@ -89,19 +99,26 @@ public class UIManager : MonoBehaviour
         Player.transform.position = GameManager.instance.StartingPos;
     }
 
+    public void SelectButton(Button button)
+    {
+        button.Select();
+    }
+
     public void SwitchToSettings()
     {
-        MainPanel.SetActive(false);
         OptionsPanel.SetActive(true);
-        OptionsPrimaryButton.Select();
+        MainPanel.SetActive(false);
+        ControlsPanel.SetActive(false);
+        
     }
 
     public void SwitchToMenu()
     {
         MainPanel.SetActive(true);
         OptionsPanel.SetActive(false);
+        ControlsPanel.SetActive(false);
         OverwriteSavePopUp.SetActive(false);
-        MainPrimaryButton.Select();
+        
     }
 
 
@@ -116,20 +133,31 @@ public class UIManager : MonoBehaviour
             PauseGame();
         }
     }
+    public void EasyModeOn(bool on)
+    {
+        _toggle.isOn = on;
+        EasyMode = on;
+        NewGrappleTest.instance.EasyModeGrapple = on;
+        if(on) SaveManager.instance.SaveIntData(SaveManager.EasyModeOption, 1);
+        else if (!on)SaveManager.instance.SaveIntData(SaveManager.EasyModeOption, 0);
+    }
 
     public void ResumeGame()
     {
         if (!isMainMenu)
         {
-            Debug.Log("Resume Game");
+            AudioManager.Instance.StartGameMusic();
             gameIsPaused = false;
             OptionsPanel.SetActive(false);
             MainMenuPanel.SetActive(false);
             MainPanel.SetActive(false);
+            ControlsPanel.SetActive(false);
             OverwriteSavePopUp.SetActive(false);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-
+            if (!EasyMode)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
            Time.timeScale = 1;
         }
 
@@ -139,10 +167,11 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
-            Debug.Log("show Pause game");
+            AudioManager.Instance.StartTitleMusic();
             gameIsPaused = true;
             MainMenuPanel.SetActive(true);
             MainPanel.SetActive(true);
+            ControlsPanel.SetActive(false);
             OptionsPanel.SetActive(false);
             OverwriteSavePopUp.SetActive(false);
             MainPrimaryButton.Select();

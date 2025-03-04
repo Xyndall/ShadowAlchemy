@@ -141,7 +141,7 @@ MonoBehaviour:
   StickyLayerNumber: 11
   ignoreLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 4104
   m_camera: {fileID: 0}
   gunHolder: {fileID: 3251706366551174603}
   gunPivot: {fileID: 638276557882854080}
@@ -183,6 +183,7 @@ MonoBehaviour:
   hitSound: {fileID: 8300000, guid: 77fee14b55b294047977f610d14c59e9, type: 3}
   retractSound: {fileID: 8300000, guid: 0f17d7edc52e01d4bbcfa09f5d200201, type: 3}
   audioSource: {fileID: 9178643463736293875}
+  hasPlayedRetractSound: 0
 --- !u!82 &9178643463736293875
 AudioSource:
   m_ObjectHideFlags: 0
@@ -192,7 +193,7 @@ AudioSource:
   m_GameObject: {fileID: 3898350368469189269}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: a2039d5e8cb1101499808e46c220dace, type: 2}
+  OutputAudioMixerGroup: {fileID: 7348303041289146755, guid: a2039d5e8cb1101499808e46c220dace, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -451,7 +452,7 @@ SpringJoint2D:
   m_BreakAction: 3
   m_AutoConfigureConnectedAnchor: 0
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -49.3, y: -52.7}
+  m_ConnectedAnchor: {x: -52.62311, y: 0.21948814}
   m_AutoConfigureDistance: 0
   m_Distance: 0.005
   m_DampingRatio: 1
@@ -526,7 +527,7 @@ AudioSource:
   m_GameObject: {fileID: 4602626331944618812}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: a2039d5e8cb1101499808e46c220dace, type: 2}
+  OutputAudioMixerGroup: {fileID: 7348303041289146755, guid: a2039d5e8cb1101499808e46c220dace, type: 2}
   m_audioClip: {fileID: 8300000, guid: d43ec938fece7e34790dc33306a51469, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -817,7 +818,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grapplingGun: {fileID: 0}
   newGrapplingGun: {fileID: 8074969661566956164}
-  grappleAudio: {fileID: 7460512518543295809}
   m_lineRenderer: {fileID: 699849352254901520}
   percision: 120
   straightenLineSpeed: 11.5
