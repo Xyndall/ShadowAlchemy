@@ -12,6 +12,7 @@ public class SaveManager : MonoBehaviour
     public const string ForestLevel = "ForestLevel";
     public const string CastleLevel = "CastleLevel";
     public const string PlayersLevel = "PlayersLevel";
+    public const string EasyModeOption = "EasyMode";
 
     public static SaveManager instance;
     private void Awake()

@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
     PlayerInputActions playerInputActions;
     public bool isMainMenu = false;
     public GameObject Player;
+    public bool EasyMode = false;
+    public Toggle _toggle;
 
     public static UIManager instance;
     private void Awake()
@@ -47,6 +49,14 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         gameIsPaused = true;
+
+        int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
+        if (EasyModeOptionInt == 0)
+            EasyModeOn(false);
+        else if (EasyModeOptionInt == 1)
+            EasyModeOn(true);
+
+
         PauseGame();
         if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
@@ -123,6 +133,14 @@ public class UIManager : MonoBehaviour
             PauseGame();
         }
     }
+    public void EasyModeOn(bool on)
+    {
+        _toggle.isOn = on;
+        EasyMode = on;
+        NewGrappleTest.instance.EasyModeGrapple = on;
+        if(on) SaveManager.instance.SaveIntData(SaveManager.EasyModeOption, 1);
+        else if (!on)SaveManager.instance.SaveIntData(SaveManager.EasyModeOption, 0);
+    }
 
     public void ResumeGame()
     {
@@ -135,9 +153,11 @@ public class UIManager : MonoBehaviour
             MainPanel.SetActive(false);
             ControlsPanel.SetActive(false);
             OverwriteSavePopUp.SetActive(false);
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-
+            if (!EasyMode)
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
            Time.timeScale = 1;
         }
 

@@ -5,7 +5,15 @@ using UnityEngine.InputSystem;
 
 public class NewGrappleTest : MonoBehaviour
 {
-    [Header("Scripts:")]
+    public static NewGrappleTest instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
+        [Header("Scripts:")]
     public GrappleRope grappleRope;
     public GrappleAudioContoller GrappleAudio;
 
@@ -26,6 +34,8 @@ public class NewGrappleTest : MonoBehaviour
     public Transform firePoint;
 
     [Header("Rotation:")]
+    //used for easy grapple, always stays true.
+    [SerializeField] private bool rotateOverTime = true;
     [Range(0, 360)][SerializeField] private float rotationSpeed = 4;
 
     [Header("Launching")]
@@ -73,6 +83,7 @@ public class NewGrappleTest : MonoBehaviour
     bool isHoldingButton;
     public string SurfaceTypeHit;
     public PlayerAnimationController pAnimaor;
+    public bool EasyModeGrapple;
 
     //Surface types const strings
     [HideInInspector] public const string AirSurface = "Air";
@@ -109,20 +120,38 @@ public class NewGrappleTest : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F)) RestartAtCheckpoint();
         if(Input.GetKeyDown(KeyCode.H)) SteamAchievements.ResetAchievements();
 
-
-        if (isHoldingButton)
+        //Checks if easymode is on or not.
+        if (!EasyModeGrapple)
         {
-            
-            if (!grappleRope.isGrappling && !grappleRope.GrappleRetracting)
+            if (isHoldingButton)
             {
-                isHoldingGrapple = true;
-                pAnimaor.SetAHoldingButton(true);
-                launchSpeed = 0.8f;
-                RotateGun();
+                if (!grappleRope.isGrappling && !grappleRope.GrappleRetracting)
+                {
+                    isHoldingGrapple = true;
+                    pAnimaor.SetAHoldingButton(true);
+                    launchSpeed = 0.8f;
+                    RotateGun();
 
+                }
+            }
+            
+        }
+        else if (EasyModeGrapple)
+        {
+            EasyRotateGun(m_camera.ScreenToWorldPoint(Input.mousePosition), false);
+            if (isHoldingButton)
+            {
+                if (!grappleRope.isGrappling && !grappleRope.GrappleRetracting)
+                {
+                    isHoldingGrapple = true;
+                    pAnimaor.SetAHoldingButton(true);
+                    launchSpeed = 0.8f;
+                    RotateGun();
+
+                }
             }
         }
-        
+
         if (launchToPoint && grappleRope.isGrappling)
         {
             if (Launch_Type == LaunchType.Transform_Launch)
@@ -225,6 +254,20 @@ public class NewGrappleTest : MonoBehaviour
 
         // Apply the rotation to the object
         gunPivot.transform.Rotate(Vector3.forward, rotationAmount);
+
+    }
+    void EasyRotateGun(Vector3 lookPoint, bool allowRotationOverTime)
+    {
+        Vector3 distanceVector = lookPoint - gunPivot.position;
+
+        float angle = Mathf.Atan2(distanceVector.y, distanceVector.x) * Mathf.Rad2Deg;
+        if (rotateOverTime && allowRotationOverTime)
+        {
+            Quaternion startRotation = gunPivot.rotation;
+            gunPivot.rotation = Quaternion.Lerp(startRotation, Quaternion.AngleAxis(angle, Vector3.forward), Time.deltaTime * rotationSpeed);
+        }
+        else
+            gunPivot.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
     }
 

@@ -7,6 +7,8 @@ public class SteamAchievements : MonoBehaviour
     {
         if (!SteamAPI.IsSteamRunning()) return;
 
+        if (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0) == 1) return;
+
         bool isUnlocked;
         SteamUserStats.GetAchievement(achievementID, out isUnlocked);
 

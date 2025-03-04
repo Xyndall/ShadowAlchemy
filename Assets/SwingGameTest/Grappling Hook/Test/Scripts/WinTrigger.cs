@@ -15,6 +15,12 @@ public class WinTrigger : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             //OnGameWin();
+
+            // Check if the player's level is already the same as this level
+            if (PlayerPrefs.GetString(SaveManager.PlayersLevel) == LevelName)
+            {
+                return; // Exit early to prevent changing the level
+            }
             ChangeLevel();
         }
     }
@@ -38,6 +44,15 @@ public class WinTrigger : MonoBehaviour
     {
         SaveManager.instance.SaveStringData(SaveManager.PlayersLevel, LevelName);
         AudioManager.Instance.StartGameMusic();
+        if(ForestLevel)
+        {
+            SteamAchievements.UnlockAchievement("Ach_ForestLevel");
+        }
+        else if(CastleLevel)
+        {
+            SteamAchievements.UnlockAchievement("Ach_CastleLevel");
+        }
+        
     }
 
     void OnGameWin()
@@ -45,5 +60,7 @@ public class WinTrigger : MonoBehaviour
         Debug.Log("Game Win Goal Reached hayaasdasasa");
         SteamAchievements.UnlockAchievement("Ach_EndGoal");
     }
+
+
 
 }

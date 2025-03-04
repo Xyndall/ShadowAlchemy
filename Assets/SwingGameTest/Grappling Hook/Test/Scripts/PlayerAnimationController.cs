@@ -16,7 +16,7 @@ public class PlayerAnimationController : MonoBehaviour
     private void Start()
     {
         isFacingRight = true;
-        grappleTest.ReverseSpin();
+        //grappleTest.ReverseSpin();
     }
 
     
@@ -51,12 +51,12 @@ public class PlayerAnimationController : MonoBehaviour
             if (horizontalVelocity > 0.5f && !isFacingRight)
             {
                 Flip(-1);
-                grappleTest.ReverseSpin();
+                //grappleTest.ReverseSpin();
             }
             else if (horizontalVelocity < -0.5f && isFacingRight)
             {
                 Flip(1);
-                grappleTest.ReverseSpin();
+                //grappleTest.ReverseSpin();
             }
         }
 
