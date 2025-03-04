@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3f9c608eb77b1d24c927bd0752f5eef7
+guid: c6defb53f0495884e90f6b29b1b6925a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,85 +110,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Animationss_Swing_0
+      name: Readying_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91757432fec851e4b96ec5b450ad0154
-      internalID: 1780027616
+      spriteID: fb267229bc9ff254099167cd2728576f
+      internalID: -1959340006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Animationss_Swing_1
+      name: Readying_1
       rect:
         serializedVersion: 2
         x: 30
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fe8be769aeae1d408d04f0b2bf98a1c
-      internalID: -1675524249
+      spriteID: 5f6874371c229494590dde1d0be6b7a3
+      internalID: -1263020399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Animationss_Swing_2
+      name: Readying_2
       rect:
         serializedVersion: 2
         x: 60
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c5ff5a5a082ae5438c0cc99039d39a6
-      internalID: 631580923
+      spriteID: b43f966dfe88d2b4c917540348522559
+      internalID: -112370680
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Animationss_Swing_3
+      name: Readying_3
       rect:
         serializedVersion: 2
         x: 90
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b14e8d753cb5d5478f01e55b90d1601
-      internalID: 1752808824
+      spriteID: 2c01d90dcf26ff0418d572841e57dc11
+      internalID: -645934910
       vertices: []
       indices: 
       edges: []
@@ -204,10 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Animationss_Swing_0: 1780027616
-      Player_Animationss_Swing_1: -1675524249
-      Player_Animationss_Swing_2: 631580923
-      Player_Animationss_Swing_3: 1752808824
+      Readying_0: -1959340006
+      Readying_1: -1263020399
+      Readying_2: -112370680
+      Readying_3: -645934910
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

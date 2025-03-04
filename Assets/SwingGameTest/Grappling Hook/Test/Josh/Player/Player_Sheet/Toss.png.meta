@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9d9390f26ff97a741ba318627b2f82a1
+guid: 58d3307dd913da2438c2f2756460d47a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,85 +110,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Animationss_Swing_Fall_0
+      name: Toss_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d13b889e436ebbe488085833163d0b83
-      internalID: -1272393972
+      spriteID: 5a59f0148ab80bf48ba1f06336d8c5af
+      internalID: -1087991350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Animationss_Swing_Fall_1
+      name: Toss_1
       rect:
         serializedVersion: 2
         x: 30
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10782e15b78d1de408a730d53daf568f
-      internalID: -1453776331
+      spriteID: 6fd7319b2c70fc64389cbf62b690cfb1
+      internalID: 527303976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Animationss_Swing_Fall_2
+      name: Toss_2
       rect:
         serializedVersion: 2
         x: 60
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77e9bdb7bfb70a24f8ce8eeba9d2c2c8
-      internalID: -42002903
+      spriteID: 90fd81fff4de72a49bfd5f597c17f462
+      internalID: -803690232
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Animationss_Swing_Fall_3
+      name: Toss_3
       rect:
         serializedVersion: 2
         x: 90
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d12d2d7d50fad6b468b73ff3ee2e3722
-      internalID: -945594324
+      spriteID: 65a1d3edacdc3b44a9445681a5ab1eac
+      internalID: -1682882596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toss_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e23c5bde5317a741bbafdf0e4991f57
+      internalID: 444252773
       vertices: []
       indices: 
       edges: []
@@ -204,10 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Animationss_Swing_Fall_0: -1272393972
-      Player_Animationss_Swing_Fall_1: -1453776331
-      Player_Animationss_Swing_Fall_2: -42002903
-      Player_Animationss_Swing_Fall_3: -945594324
+      Toss_0: -1087991350
+      Toss_1: 527303976
+      Toss_2: -803690232
+      Toss_3: -1682882596
+      Toss_4: 444252773
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

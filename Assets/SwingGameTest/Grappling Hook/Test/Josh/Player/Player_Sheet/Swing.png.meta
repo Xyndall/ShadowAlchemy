@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 111950de41244cd43a3a1ff6234b2cfb
+guid: fa7af82bf1501e549933eca5d7ea78b4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,127 +110,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player_Animationss_Swing_Toss_0
+      name: Swing_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7761863ab3e81ac4aa84cd203224e0a1
-      internalID: -321910351
+      spriteID: 7f0048bab1eddb24fb4e4a4d9d439bc9
+      internalID: -2096239110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player_Animationss_Swing_Toss_1
+      name: Swing_1
       rect:
         serializedVersion: 2
         x: 30
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6642af25a67560f4192d9fe0de5d32a6
-      internalID: -2136912180
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Animationss_Swing_Toss_2
-      rect:
-        serializedVersion: 2
-        x: 60
-        y: 0
-        width: 30
-        height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fc84d1cc0563e7429ba7860d7e2c468
-      internalID: 2144708463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Animationss_Swing_Toss_3
-      rect:
-        serializedVersion: 2
-        x: 90
-        y: 0
-        width: 30
-        height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 71a225ed41bc49e4b8ce1a8bb764da21
-      internalID: 796877091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Animationss_Swing_Toss_4
-      rect:
-        serializedVersion: 2
-        x: 120
-        y: 0
-        width: 30
-        height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 635ff5f7f3e58244e84122a90be00880
-      internalID: 1596231575
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Player_Animationss_Swing_Toss_5
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 0
-        width: 30
-        height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d584e7382cd3ad94a959aa567ff6cc12
-      internalID: -2058921706
+      spriteID: 602d75afc8df0744787779ccdf4e5d75
+      internalID: 1352172996
       vertices: []
       indices: 
       edges: []
@@ -246,12 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Player_Animationss_Swing_Toss_0: -321910351
-      Player_Animationss_Swing_Toss_1: -2136912180
-      Player_Animationss_Swing_Toss_2: 2144708463
-      Player_Animationss_Swing_Toss_3: 796877091
-      Player_Animationss_Swing_Toss_4: 1596231575
-      Player_Animationss_Swing_Toss_5: -2058921706
+      Swing_0: -2096239110
+      Swing_1: 1352172996
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
