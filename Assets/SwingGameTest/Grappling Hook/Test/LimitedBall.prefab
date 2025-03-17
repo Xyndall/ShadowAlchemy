@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 638276557882854080}
   m_Layer: 3
   m_Name: GunPivot
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 9178643463736293875}
   m_Layer: 3
   m_Name: GrapplingGun
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,6 +146,7 @@ MonoBehaviour:
   gunHolder: {fileID: 3251706366551174603}
   gunPivot: {fileID: 638276557882854080}
   firePoint: {fileID: 1327332270247175281}
+  rotateOverTime: 1
   rotationSpeed: 360
   launchToPoint: 1
   Launch_Type: 1
@@ -167,6 +168,7 @@ MonoBehaviour:
   wallStick: {fileID: 408780301601304839}
   SurfaceTypeHit: 
   pAnimaor: {fileID: 8202586879399895488}
+  EasyModeGrapple: 1
 --- !u!114 &7460512518543295809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,8 +181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb9240c849956cd48987c685e8b5b73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grappleSound: {fileID: 8300000, guid: a63766e0b62358347bc14bfb43f9dc38, type: 3}
-  hitSound: {fileID: 8300000, guid: 77fee14b55b294047977f610d14c59e9, type: 3}
+  ReadyingSound: {fileID: 8300000, guid: ff6557c68c918f04a89c06158f48f511, type: 3}
+  grappleSound: {fileID: 8300000, guid: 6c7bee70a7b5fa1438b71bc1b472e3aa, type: 3}
+  hitSound: {fileID: 8300000, guid: aabadd24e28f37748bb36bb861cd54aa, type: 3}
   retractSound: {fileID: 8300000, guid: 0f17d7edc52e01d4bbcfa09f5d200201, type: 3}
   audioSource: {fileID: 9178643463736293875}
   hasPlayedRetractSound: 0
@@ -300,7 +303,7 @@ GameObject:
   - component: {fileID: 6022036199095811825}
   m_Layer: 3
   m_Name: LimitedBall
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -515,8 +518,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerRigidbody: {fileID: 2738211470705664813}
   maxVelocity: 10
-  minVolume: 0.2
-  maxVolume: 1
+  minVolume: 0.25
+  maxVolume: 0.5
   smoothingTime: 0.1
 --- !u!82 &6022036199095811825
 AudioSource:
@@ -626,9 +629,9 @@ GameObject:
   - component: {fileID: 2931382747557248685}
   - component: {fileID: 7696420643009044470}
   - component: {fileID: 8202586879399895488}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player_0
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -668,7 +671,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 45f37da4abffec344890d0f91c76bdf0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -689,7 +692,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -989335897, guid: eda6cb4c55d131f4fb87ce7ca54c34b5, type: 3}
+  m_Sprite: {fileID: -2049281520, guid: eda6cb4c55d131f4fb87ce7ca54c34b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -738,7 +741,6 @@ MonoBehaviour:
   grappleTest: {fileID: 8074969661566956164}
   movementThreshold: 0.1
   isMoving: 0
-  aSource: {fileID: 0}
 --- !u!1 &6376050884400069388
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +752,7 @@ GameObject:
   - component: {fileID: 1327332270247175281}
   m_Layer: 3
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -784,7 +786,7 @@ GameObject:
   - component: {fileID: 699849352254901520}
   m_Layer: 3
   m_Name: Rope
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -816,7 +818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90422f3859c7b2468c1eacce1aedc60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grapplingGun: {fileID: 0}
   newGrapplingGun: {fileID: 8074969661566956164}
   m_lineRenderer: {fileID: 699849352254901520}
   percision: 120
@@ -939,7 +940,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d5c11731d1dad3d4f82a2ca85d05dd3b, type: 2}
+  - {fileID: 2100000, guid: 45f37da4abffec344890d0f91c76bdf0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -983,8 +984,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.20754719, g: 0.1542898, b: 0.0244749, a: 1}
+      key1: {r: 0.20754719, g: 0.1542898, b: 0.0244749, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -1007,8 +1008,8 @@ LineRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
-      m_ColorSpace: -1
+      m_Mode: 1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 4

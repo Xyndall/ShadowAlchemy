@@ -10,9 +10,6 @@ public class PlayerAnimationController : MonoBehaviour
     public NewGrappleTest grappleTest;
     public float movementThreshold = .1f; // Minimum velocity to consider as "moving."
     public bool isMoving = false; // Tracks whether the object is moving.
-
-    [Header("SoundFX")]
-    public AudioSource aSource;
     private void Start()
     {
         isFacingRight = true;
@@ -28,10 +25,6 @@ public class PlayerAnimationController : MonoBehaviour
     public void SetIsGrappling(bool isTrue)
     {
         animator.SetBool("IsGrappling", isTrue);
-    }
-    public void SetGrappling(bool isTrue)
-    {
-        animator.SetBool("Grappling", isTrue);
     }
 
     private void Update()

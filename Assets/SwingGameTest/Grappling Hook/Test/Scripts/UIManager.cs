@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
     PlayerInputActions playerInputActions;
     public bool isMainMenu = false;
     public GameObject Player;
+    public GameObject Credits;
     public bool EasyMode = false;
     public Toggle _toggle;
 
@@ -109,7 +110,7 @@ public class UIManager : MonoBehaviour
         OptionsPanel.SetActive(true);
         MainPanel.SetActive(false);
         ControlsPanel.SetActive(false);
-        
+
     }
 
     public void SwitchToMenu()
@@ -118,10 +119,15 @@ public class UIManager : MonoBehaviour
         OptionsPanel.SetActive(false);
         ControlsPanel.SetActive(false);
         OverwriteSavePopUp.SetActive(false);
-        
+        Credits.SetActive(false);
+
     }
 
-
+    public void OpenCredits()
+    {
+        Credits.SetActive(!Credits.activeSelf);
+    }
+    
     private void Pause_performed(InputAction.CallbackContext context)
     {
         if (gameIsPaused)
@@ -133,6 +139,7 @@ public class UIManager : MonoBehaviour
             PauseGame();
         }
     }
+
     public void EasyModeOn(bool on)
     {
         _toggle.isOn = on;
@@ -152,6 +159,7 @@ public class UIManager : MonoBehaviour
             MainMenuPanel.SetActive(false);
             MainPanel.SetActive(false);
             ControlsPanel.SetActive(false);
+            Credits.SetActive(false);
             OverwriteSavePopUp.SetActive(false);
             if (!EasyMode)
             {
@@ -174,6 +182,7 @@ public class UIManager : MonoBehaviour
             ControlsPanel.SetActive(false);
             OptionsPanel.SetActive(false);
             OverwriteSavePopUp.SetActive(false);
+            Credits.SetActive(false);
             MainPrimaryButton.Select();
             SaveManager.instance.SaveData();
             Cursor.visible = true;

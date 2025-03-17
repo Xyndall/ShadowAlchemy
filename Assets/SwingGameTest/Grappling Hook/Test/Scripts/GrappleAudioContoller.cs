@@ -5,6 +5,7 @@ using UnityEngine;
 public class GrappleAudioContoller : MonoBehaviour
 {
     [Header("Audio Clips")]
+    public AudioClip ReadyingSound;
     public AudioClip grappleSound;
     public AudioClip hitSound;
     public AudioClip retractSound;
@@ -15,26 +16,32 @@ public class GrappleAudioContoller : MonoBehaviour
     
     public bool hasPlayedRetractSound = false; // State flag
 
+    public void PlayReadyingSound()
+    {
+        PlaySound(ReadyingSound);
+        audioSource.loop = true;
+    }
+
     // Methods to play different sounds
     public void PlayGrappleSound()
     {
         PlaySound(grappleSound);
-        
+        audioSource.loop = false;
     }
 
     public void PlayHitSound()
     {
         PlaySound(hitSound);
-        
+        audioSource.loop = false;
     }
 
-    public void PlayRetractSound()
+    public void PlayRetractSound() 
     {
         if (!hasPlayedRetractSound)
         {
             PlaySound(retractSound);
             hasPlayedRetractSound = true; // Prevents repeated triggers
-            
+            audioSource.loop = false;
         }
     }
 
