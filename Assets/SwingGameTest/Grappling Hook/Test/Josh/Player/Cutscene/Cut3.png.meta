@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2803e24c101fd3442a1484995238575b
+guid: 26c9e19a429996647b75c5f75a840312
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -93,236 +93,186 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Brickwork - WIP_0
+      name: Cut3_0
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ef32e2b946a3b043848188de247c7c4
-      internalID: 1936760746
+      spriteID: 7b29507dea3f00a40ba34bb17e3c0e1e
+      internalID: -36963910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_1
+      name: Cut3_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 30
         y: 0
-        width: 16
-        height: 16
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48c7c05a5d7c9024da20581e24af092f
-      internalID: 941023874
+      spriteID: c233d2a78167d3943bad90ca6563d84f
+      internalID: 363169773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_2
+      name: Cut3_2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 60
         y: 0
-        width: 16
-        height: 16
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0167cb0bfdd7f14b9ccd189825035c7
-      internalID: -473579422
+      spriteID: 86e99cfefd4fe20448ec5069a6c0a571
+      internalID: -1438171639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_3
+      name: Cut3_3
       rect:
         serializedVersion: 2
-        x: 64
+        x: 90
         y: 0
-        width: 16
-        height: 16
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f4afa4d688874a4b8eb3ee590442df3
-      internalID: -1102771277
+      spriteID: 37ad594da18e05a4aba0c77ea823df6a
+      internalID: 694558397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_4
+      name: Cut3_4
       rect:
         serializedVersion: 2
-        x: 80
+        x: 120
         y: 0
-        width: 16
-        height: 16
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dd5176c35136dc47a92a36c91738968
-      internalID: -1840740603
+      spriteID: ece3e6767e593a14facc9b6169367cd1
+      internalID: -745357476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_5
+      name: Cut3_5
       rect:
         serializedVersion: 2
-        x: 96
+        x: 150
         y: 0
-        width: 16
-        height: 16
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e62092ac555e6144aafc2a2be3c46411
-      internalID: -884437545
+      spriteID: f2b068d80cfac5a45b76bcfc6f5c165d
+      internalID: 954354108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_6
+      name: Cut3_6
       rect:
         serializedVersion: 2
-        x: 112
+        x: 180
         y: 0
-        width: 16
-        height: 16
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be0788a537610dd499c65624fa1b3f0f
-      internalID: -279152290
+      spriteID: fe2ac81fe99a9e54daad9949c1791756
+      internalID: 2074887864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_7
+      name: Cut3_7
       rect:
         serializedVersion: 2
-        x: 128
+        x: 210
         y: 0
-        width: 16
-        height: 16
+        width: 30
+        height: 30
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c494bfad0018254cbfbebbbcaa2f83e
-      internalID: -1763648057
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Brickwork - WIP_8
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0dd401b0f3515e848bd91d97a9ecfe3b
-      internalID: -838626043
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Brickwork - WIP_9
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f00914ae9d9e99c4794a8a7b272706fd
-      internalID: -1940612749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Brickwork - WIP_10
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b1d90b9228547642b4e6f38793a73be
-      internalID: 733040731
+      spriteID: 3f60fc6863bdd50489070e03bd4eee99
+      internalID: -1032916310
       vertices: []
       indices: 
       edges: []
@@ -338,17 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Brickwork - WIP_0: 1936760746
-      Brickwork - WIP_1: 941023874
-      Brickwork - WIP_10: 733040731
-      Brickwork - WIP_2: -473579422
-      Brickwork - WIP_3: -1102771277
-      Brickwork - WIP_4: -1840740603
-      Brickwork - WIP_5: -884437545
-      Brickwork - WIP_6: -279152290
-      Brickwork - WIP_7: -1763648057
-      Brickwork - WIP_8: -838626043
-      Brickwork - WIP_9: -1940612749
+      Cut3_0: -36963910
+      Cut3_1: 363169773
+      Cut3_2: -1438171639
+      Cut3_3: 694558397
+      Cut3_4: -745357476
+      Cut3_5: 954354108
+      Cut3_6: 2074887864
+      Cut3_7: -1032916310
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
