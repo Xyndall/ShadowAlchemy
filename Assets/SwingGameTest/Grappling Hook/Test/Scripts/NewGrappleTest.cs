@@ -125,14 +125,10 @@ public class NewGrappleTest : MonoBehaviour
         {
             if (isHoldingButton)
             {
-                if (!grappleRope.isGrappling && !grappleRope.GrappleRetracting)
-                {
                     isHoldingGrapple = true;
                     pAnimaor.SetAHoldingButton(true);
                     launchSpeed = 0.8f;
                     RotateGun();
-
-                }
             }
             
         }
@@ -141,14 +137,9 @@ public class NewGrappleTest : MonoBehaviour
             EasyRotateGun(m_camera.ScreenToWorldPoint(Input.mousePosition), false);
             if (isHoldingButton)
             {
-                if (!grappleRope.isGrappling && !grappleRope.GrappleRetracting)
-                {
                     isHoldingGrapple = true;
                     pAnimaor.SetAHoldingButton(true);
                     launchSpeed = 0.8f;
-                    RotateGun();
-
-                }
             }
         }
 
@@ -191,7 +182,12 @@ public class NewGrappleTest : MonoBehaviour
     }
     private void Grapple_performed(InputAction.CallbackContext context)
     {
-        isHoldingButton = true;
+         
+         if (!grappleRope.isGrappling && !grappleRope.GrappleRetracting)
+         {
+            isHoldingButton = true;
+            GrappleAudio.PlayReadyingSound();
+         }
     }
 
 
@@ -206,7 +202,6 @@ public class NewGrappleTest : MonoBehaviour
         ballRigidbody.gravityScale = 1; 
         validGrapplePoint = false;
         isSlingshotting = false;
-        pAnimaor.SetGrappling(false);
         pAnimaor.SetIsGrappling(false);
         
     }
@@ -402,7 +397,10 @@ public class NewGrappleTest : MonoBehaviour
 
     void CalculateGrapplePosition(Vector2 hitPos, bool isValid, string surfaceHit)
     {
-        pAnimaor.SetGrappling(true);
+        if(isValid)
+        {
+            pAnimaor.SetIsGrappling(true);
+        }
         // Set the grapple point to the hit point
         SurfaceTypeHit = surfaceHit;
         grapplePoint = hitPos;
@@ -423,8 +421,6 @@ public class NewGrappleTest : MonoBehaviour
             return;
         }
         grappleRope.isGrappling = true;
-        pAnimaor.SetIsGrappling(true);
-        pAnimaor.SetGrappling(false);
         wallStick.UnstickFromWall();
 
         if (!launchToPoint && !autoCongifureDistance)

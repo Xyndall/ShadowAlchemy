@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 58d3307dd913da2438c2f2756460d47a
+guid: 26c9e19a429996647b75c5f75a840312
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,106 +110,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Toss_0
+      name: Cut3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a59f0148ab80bf48ba1f06336d8c5af
-      internalID: -1087991350
+      spriteID: 7b29507dea3f00a40ba34bb17e3c0e1e
+      internalID: -36963910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toss_1
+      name: Cut3_1
       rect:
         serializedVersion: 2
         x: 30
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fd7319b2c70fc64389cbf62b690cfb1
-      internalID: 527303976
+      spriteID: c233d2a78167d3943bad90ca6563d84f
+      internalID: 363169773
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toss_2
+      name: Cut3_2
       rect:
         serializedVersion: 2
         x: 60
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90fd81fff4de72a49bfd5f597c17f462
-      internalID: -803690232
+      spriteID: 86e99cfefd4fe20448ec5069a6c0a571
+      internalID: -1438171639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toss_3
+      name: Cut3_3
       rect:
         serializedVersion: 2
         x: 90
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65a1d3edacdc3b44a9445681a5ab1eac
-      internalID: -1682882596
+      spriteID: 37ad594da18e05a4aba0c77ea823df6a
+      internalID: 694558397
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toss_4
+      name: Cut3_4
       rect:
         serializedVersion: 2
         x: 120
         y: 0
         width: 30
         height: 30
-      alignment: 9
-      pivot: {x: 0.5, y: 0.35}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e23c5bde5317a741bbafdf0e4991f57
-      internalID: 444252773
+      spriteID: ece3e6767e593a14facc9b6169367cd1
+      internalID: -745357476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cut3_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b068d80cfac5a45b76bcfc6f5c165d
+      internalID: 954354108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cut3_6
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe2ac81fe99a9e54daad9949c1791756
+      internalID: 2074887864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cut3_7
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f60fc6863bdd50489070e03bd4eee99
+      internalID: -1032916310
       vertices: []
       indices: 
       edges: []
@@ -225,11 +288,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Toss_0: -1087991350
-      Toss_1: 527303976
-      Toss_2: -803690232
-      Toss_3: -1682882596
-      Toss_4: 444252773
+      Cut3_0: -36963910
+      Cut3_1: 363169773
+      Cut3_2: -1438171639
+      Cut3_3: 694558397
+      Cut3_4: -745357476
+      Cut3_5: 954354108
+      Cut3_6: 2074887864
+      Cut3_7: -1032916310
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
