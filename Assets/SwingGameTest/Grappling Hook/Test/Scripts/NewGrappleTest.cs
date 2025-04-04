@@ -116,9 +116,9 @@ public class NewGrappleTest : MonoBehaviour
         Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
 
         //if (Input.GetKeyDown(KeyCode.R)) ReverseSpin();
-        if (Input.GetKeyDown(KeyCode.T)) SetCheckpoint();
-        if (Input.GetKeyDown(KeyCode.F)) RestartAtCheckpoint();
-        if(Input.GetKeyDown(KeyCode.H)) SteamAchievements.ResetAchievements();
+        //if (Input.GetKeyDown(KeyCode.T)) SetCheckpoint();
+        //if (Input.GetKeyDown(KeyCode.F)) RestartAtCheckpoint();
+        //if(Input.GetKeyDown(KeyCode.H)) SteamAchievements.ResetAchievements();
 
         //Checks if easymode is on or not.
         if (!EasyModeGrapple)
