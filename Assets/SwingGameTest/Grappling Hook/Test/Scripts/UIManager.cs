@@ -32,6 +32,7 @@ public class UIManager : MonoBehaviour
     public GameObject Credits;
     public bool EasyMode = false;
     public Toggle _toggle;
+    
 
     public static UIManager instance;
     private void Awake()
@@ -87,24 +88,28 @@ public class UIManager : MonoBehaviour
     public void DeleteOldSaveData()
     {
        SaveManager.instance.DeleteSaveKeys();
+        GameTimer.Instance.ResetTimer();
     }
 
     public void LoadGame()
     {
         ResumeGame();
-        gameIsPaused = false;
     }
     public void NewGame()
     {
-        ResumeGame();
         Player.transform.position = GameManager.instance.StartingPos;
+        GameTimer.Instance.ResetTimer();
+        ResumeGame();
     }
 
     public void SelectButton(Button button)
     {
         button.Select();
     }
-
+    public void SelectToggle(Toggle toggle)
+    {
+        toggle.Select();
+    }
     public void SwitchToSettings()
     {
         OptionsPanel.SetActive(true);
@@ -153,8 +158,9 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
-            AudioManager.Instance.StartGameMusic();
             gameIsPaused = false;
+            GameTimer.Instance.StartTimer();
+            AudioManager.Instance.StartGameMusic();
             OptionsPanel.SetActive(false);
             MainMenuPanel.SetActive(false);
             MainPanel.SetActive(false);
@@ -175,8 +181,9 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
-            AudioManager.Instance.StartTitleMusic();
             gameIsPaused = true;
+            GameTimer.Instance.StopTimer();
+            AudioManager.Instance.StartTitleMusic();
             MainMenuPanel.SetActive(true);
             MainPanel.SetActive(true);
             ControlsPanel.SetActive(false);
