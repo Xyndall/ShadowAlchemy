@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2803e24c101fd3442a1484995238575b
+guid: 86c72c82bdd3cf6469dd38b6360a6eef
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -69,11 +69,11 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 43
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Brickwork - WIP_0
+      name: Brickwork - Flags_0
       rect:
         serializedVersion: 2
         x: 16
@@ -105,20 +105,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ef32e2b946a3b043848188de247c7c4
-      internalID: 1936760746
+      spriteID: 41b33f151baf2e146a7e3a0f57a1670c
+      internalID: -460592930
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_1
+      name: Brickwork - Flags_1
       rect:
         serializedVersion: 2
         x: 32
@@ -126,20 +126,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 48c7c05a5d7c9024da20581e24af092f
-      internalID: 941023874
+      spriteID: 47ff018832908a841bd7f0557461ea4c
+      internalID: 201307493
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_2
+      name: Brickwork - Flags_2
       rect:
         serializedVersion: 2
         x: 48
@@ -147,20 +147,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0167cb0bfdd7f14b9ccd189825035c7
-      internalID: -473579422
+      spriteID: 61d2294d0e103894a8eab33bd0b5fc4c
+      internalID: -1058638991
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_3
+      name: Brickwork - Flags_3
       rect:
         serializedVersion: 2
         x: 64
@@ -168,20 +168,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f4afa4d688874a4b8eb3ee590442df3
-      internalID: -1102771277
+      spriteID: fa3470efbfb6a2d4389e86ff82d12c26
+      internalID: -397797033
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_4
+      name: Brickwork - Flags_4
       rect:
         serializedVersion: 2
         x: 80
@@ -189,20 +189,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dd5176c35136dc47a92a36c91738968
-      internalID: -1840740603
+      spriteID: 6e20783f11b5ed94cb6a57054eecf5b5
+      internalID: 898371111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_5
+      name: Brickwork - Flags_5
       rect:
         serializedVersion: 2
         x: 96
@@ -210,20 +210,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e62092ac555e6144aafc2a2be3c46411
-      internalID: -884437545
+      spriteID: 145273d7d9aa5364e9b8c8f4bf95947d
+      internalID: -750143027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_6
+      name: Brickwork - Flags_6
       rect:
         serializedVersion: 2
         x: 112
@@ -231,20 +231,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be0788a537610dd499c65624fa1b3f0f
-      internalID: -279152290
+      spriteID: 3f6bd64efc939bf45b8c8f8973a2ad58
+      internalID: -1496166242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_7
+      name: Brickwork - Flags_7
       rect:
         serializedVersion: 2
         x: 128
@@ -252,20 +252,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c494bfad0018254cbfbebbbcaa2f83e
-      internalID: -1763648057
+      spriteID: c192d4f7acb9f384fa6847a27a3aaa9c
+      internalID: -1119798550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_8
+      name: Brickwork - Flags_8
       rect:
         serializedVersion: 2
         x: 144
@@ -273,20 +273,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0dd401b0f3515e848bd91d97a9ecfe3b
-      internalID: -838626043
+      spriteID: 45cb2862633e3a343914fb991f060ad3
+      internalID: -1925659916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_9
+      name: Brickwork - Flags_9
       rect:
         serializedVersion: 2
         x: 160
@@ -294,20 +294,20 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f00914ae9d9e99c4794a8a7b272706fd
-      internalID: -1940612749
+      spriteID: 523aaa7395e5c004abf929e785fa4131
+      internalID: -1732374110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Brickwork - WIP_10
+      name: Brickwork - Flags_10
       rect:
         serializedVersion: 2
         x: 176
@@ -315,14 +315,14 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4b1d90b9228547642b4e6f38793a73be
-      internalID: 733040731
+      spriteID: 1acf98c4054abb64eb85208f260304e1
+      internalID: 12427097
       vertices: []
       indices: 
       edges: []
@@ -338,17 +338,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Brickwork - WIP_0: 1936760746
-      Brickwork - WIP_1: 941023874
-      Brickwork - WIP_10: 733040731
-      Brickwork - WIP_2: -473579422
-      Brickwork - WIP_3: -1102771277
-      Brickwork - WIP_4: -1840740603
-      Brickwork - WIP_5: -884437545
-      Brickwork - WIP_6: -279152290
-      Brickwork - WIP_7: -1763648057
-      Brickwork - WIP_8: -838626043
-      Brickwork - WIP_9: -1940612749
+      Brickwork - Flags_0: -460592930
+      Brickwork - Flags_1: 201307493
+      Brickwork - Flags_10: 12427097
+      Brickwork - Flags_2: -1058638991
+      Brickwork - Flags_3: -397797033
+      Brickwork - Flags_4: 898371111
+      Brickwork - Flags_5: -750143027
+      Brickwork - Flags_6: -1496166242
+      Brickwork - Flags_7: -1119798550
+      Brickwork - Flags_8: -1925659916
+      Brickwork - Flags_9: -1732374110
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
