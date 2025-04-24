@@ -5,7 +5,6 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     [Header("UI Sounds")]
-    public AudioClip clickSound;
     public AudioSource uiAudioSource;
 
     [Header("Music")]
@@ -37,9 +36,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlayUIClickSound()
     {
-        if (uiAudioSource != null && clickSound != null)
+        if (uiAudioSource != null)
         {
-            uiAudioSource.PlayOneShot(clickSound);
+            uiAudioSource.Play();
         }
     }
 

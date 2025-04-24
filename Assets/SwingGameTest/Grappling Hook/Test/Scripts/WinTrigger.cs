@@ -7,6 +7,7 @@ public class WinTrigger : MonoBehaviour
     public bool CaveLevel = false;
     public bool ForestLevel = false;
     public bool CastleLevel = false;
+    public bool WinGame = false;
     [SerializeField] private string LevelName = SaveManager.CaveLevel;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -15,13 +16,24 @@ public class WinTrigger : MonoBehaviour
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             //OnGameWin();
+            if (WinGame)
+            {
+                // Call the method to handle the win condition
+                OnGameWin();
+            }
+            
 
             // Check if the player's level is already the same as this level
             if (PlayerPrefs.GetString(SaveManager.PlayersLevel) == LevelName)
             {
                 return; // Exit early to prevent changing the level
             }
-            ChangeLevel();
+            if(!WinGame)
+            {
+                ChangeLevel();
+            }
+
+            
         }
     }
 

@@ -85,6 +85,11 @@ public class NewGrappleTest : MonoBehaviour
     public PlayerAnimationController pAnimaor;
     public bool EasyModeGrapple;
 
+
+    
+    private Vector2 aimInput;
+    private bool isUsingGamepad = false;
+
     //Surface types const strings
     [HideInInspector] public const string AirSurface = "Air";
     [HideInInspector] public const string MetalSurface = "Metal";
@@ -104,7 +109,20 @@ public class NewGrappleTest : MonoBehaviour
         playerInputActions.Player.Enable();
         playerInputActions.Player.Grapple.performed += Grapple_performed;
         playerInputActions.Player.Grapple.canceled += Grapple_released;
-        
+        playerInputActions.Player.Aim.performed += ctx =>
+        {
+            aimInput = ctx.ReadValue<Vector2>();
+            if (ctx.control.device is Gamepad && aimInput.sqrMagnitude > 0.1f)
+                isUsingGamepad = true;
+        };
+        playerInputActions.Player.Aim.canceled += ctx => aimInput = Vector2.zero;
+
+    }
+
+    public void OnMouseMove(InputAction.CallbackContext context)
+    {
+        if (context.ReadValue<Vector2>().sqrMagnitude > 0.1f)
+            isUsingGamepad = false;
     }
 
     private void Update()
@@ -116,9 +134,9 @@ public class NewGrappleTest : MonoBehaviour
         Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
 
         //if (Input.GetKeyDown(KeyCode.R)) ReverseSpin();
-        if (Input.GetKeyDown(KeyCode.T)) SetCheckpoint();
-        if (Input.GetKeyDown(KeyCode.F)) RestartAtCheckpoint();
-        if(Input.GetKeyDown(KeyCode.H)) SteamAchievements.ResetAchievements();
+        //if (Input.GetKeyDown(KeyCode.T)) SetCheckpoint();
+        //if (Input.GetKeyDown(KeyCode.F)) RestartAtCheckpoint();
+        //if(Input.GetKeyDown(KeyCode.H)) SteamAchievements.ResetAchievements();
 
         //Checks if easymode is on or not.
         if (!EasyModeGrapple)
@@ -134,7 +152,17 @@ public class NewGrappleTest : MonoBehaviour
         }
         else if (EasyModeGrapple)
         {
-            EasyRotateGun(m_camera.ScreenToWorldPoint(Input.mousePosition), false);
+            if (isUsingGamepad)
+            {
+                Vector3 lookDirection = (Vector3)aimInput.normalized + gunPivot.position;
+                EasyRotateGun(lookDirection, true);
+            }
+            else
+            {
+                EasyRotateGun(m_camera.ScreenToWorldPoint(Input.mousePosition), false);
+            }
+            
+            
             if (isHoldingButton)
             {
                     isHoldingGrapple = true;
