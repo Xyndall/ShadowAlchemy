@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class UIManager : MonoBehaviour
@@ -47,6 +48,8 @@ public class UIManager : MonoBehaviour
         playerInputActions.Player.Pause.performed += Pause_performed;
     }
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,7 +91,7 @@ public class UIManager : MonoBehaviour
     public void DeleteOldSaveData()
     {
        SaveManager.instance.DeleteSaveKeys();
-        GameTimer.Instance.ResetTimer();
+       GameTimer.Instance.ResetTimer();
     }
 
     public void LoadGame()
@@ -97,9 +100,11 @@ public class UIManager : MonoBehaviour
     }
     public void NewGame()
     {
+        DeleteOldSaveData();
         Player.transform.position = GameManager.instance.StartingPos;
         GameTimer.Instance.ResetTimer();
-        ResumeGame();
+        // Reset the scene by reloading it
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void SelectButton(Button button)
@@ -133,6 +138,10 @@ public class UIManager : MonoBehaviour
         Credits.SetActive(!Credits.activeSelf);
     }
     
+    public void DisableInputs()
+    {
+        playerInputActions.Player.Disable();
+    }
     private void Pause_performed(InputAction.CallbackContext context)
     {
         if (gameIsPaused)

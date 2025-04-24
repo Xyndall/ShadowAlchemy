@@ -10,6 +10,8 @@ public class WinTrigger : MonoBehaviour
     public bool WinGame = false;
     [SerializeField] private string LevelName = SaveManager.CaveLevel;
 
+    public GameObject winCrown;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Check if the collider is the player (or assign a specific tag to the player)
@@ -71,6 +73,8 @@ public class WinTrigger : MonoBehaviour
     {
         Debug.Log("Game Win Goal Reached hayaasdasasa");
         SteamAchievements.UnlockAchievement("Ach_EndGoal");
+        Instantiate(winCrown, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
 

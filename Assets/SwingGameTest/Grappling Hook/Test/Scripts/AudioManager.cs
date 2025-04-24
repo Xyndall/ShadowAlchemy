@@ -83,4 +83,22 @@ public class AudioManager : MonoBehaviour
             titleMusicPlaying = false;
             gameMusicPlaying = true;
     }
+
+    public void StopAllMusic()
+    {
+        // Stop both title and game music
+        if (titleMusic.isPlaying)
+        {
+            titleMusic.Stop();
+        }
+
+        if (gameMusic.isPlaying)
+        {
+            gameMusic.Stop();
+        }
+
+        // Reset flags
+        titleMusicPlaying = false;
+        gameMusicPlaying = false;
+    }
 }

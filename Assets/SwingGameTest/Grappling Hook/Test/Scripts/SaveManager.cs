@@ -13,6 +13,7 @@ public class SaveManager : MonoBehaviour
     public const string CastleLevel = "CastleLevel";
     public const string PlayersLevel = "PlayersLevel";
     public const string EasyModeOption = "EasyMode";
+    public const string DoorSmashedOpen = "DoorSmashedOpen";
 
     public static SaveManager instance;
     private void Awake()
@@ -29,6 +30,8 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.DeleteKey(PlayerX);
         PlayerPrefs.DeleteKey(PlayerY);
         PlayerPrefs.DeleteKey(PlayerZ);
+        PlayerPrefs.DeleteKey(PlayersLevel);
+        PlayerPrefs.DeleteKey(DoorSmashedOpen);
     }
 
     public void SaveData()

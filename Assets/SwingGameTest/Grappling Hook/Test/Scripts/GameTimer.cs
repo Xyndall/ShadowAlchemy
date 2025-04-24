@@ -5,8 +5,15 @@ public class GameTimer : MonoBehaviour
 {
     public static GameTimer Instance { get; private set; }
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI timerTextEnd;
     public float elapsedTime { get; private set; }
     private bool isRunning = false;
+
+    [Header("Sprite Change Settings")]
+    [SerializeField] private GameObject[] Crowns; // The UI Image or SpriteRenderer to update
+    [SerializeField] private float[] timeThresholds; // Time thresholds for sprite changes
+
+    private int currentGameObjectIndex = 0;
 
     private void Awake()
     {
@@ -25,6 +32,7 @@ public class GameTimer : MonoBehaviour
     {
         // Load saved time
         elapsedTime = PlayerPrefs.GetFloat("ElapsedTime", 0f);
+        UpdateTimerDisplay();
     }
 
     private void Update()
@@ -33,7 +41,13 @@ public class GameTimer : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             UpdateTimerDisplay();
+            
         }
+
+    }
+    private void FixedUpdate()
+    {
+        CheckAndUpdateGameObject();
     }
 
     public void StartTimer()
@@ -78,6 +92,37 @@ public class GameTimer : MonoBehaviour
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
 
         timerText.text = $"{hours}h:{minutes}m:{seconds}s";
+        timerTextEnd.text = $"{hours}h:{minutes}m:{seconds}s";
+    }
+    private void CheckAndUpdateGameObject()
+    {
+        // Ensure we have valid thresholds and GameObjects
+        if (timeThresholds.Length == 0 || Crowns.Length == 0)
+            return;
+
+        // Check if the elapsed time has reached the next threshold
+        if (currentGameObjectIndex < timeThresholds.Length && elapsedTime >= timeThresholds[currentGameObjectIndex])
+        {
+            currentGameObjectIndex++;
+            UpdateGameObject();
+        }
     }
 
+    private void UpdateGameObject()
+    {
+        // Deactivate all GameObjects
+        foreach (GameObject obj in Crowns)
+        {
+            if (obj != null)
+                obj.SetActive(false);
+        }
+
+        // Activate the current GameObject if the index is valid
+        if (currentGameObjectIndex - 1 >= 0 && currentGameObjectIndex - 1 < Crowns.Length)
+        {
+            GameObject currentObject = Crowns[currentGameObjectIndex - 1];
+            if (currentObject != null)
+                currentObject.SetActive(true);
+        }
+    }
 }
