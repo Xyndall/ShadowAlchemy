@@ -106,9 +106,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -807361733
+  m_SortingLayer: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: d09c56478d7bf4f4bbb37c469f738a03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -302,13 +302,14 @@ GameObject:
   - component: {fileID: 2393980488312091449}
   - component: {fileID: 6022036199095811825}
   - component: {fileID: 7294813511517844418}
+  - component: {fileID: 729978049256208804}
   m_Layer: 3
   m_Name: LimitedBall
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3251706366551174603
 Transform:
   m_ObjectHideFlags: 0
@@ -632,6 +633,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingEffectPrefab: {fileID: 5179483583275745774, guid: 552c4ba94e4c7154695d73ebc77a45e7, type: 3}
   fallThreshold: -2
+--- !u!114 &729978049256208804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4602626331944618812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17652138a5662b643a8b0ae50362c0fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffset: -10
+  fallLineCollider: {fileID: 0}
+  resetDelay: 0.5
+  fallThreshold: -0.1
 --- !u!1 &4681009219727168504
 GameObject:
   m_ObjectHideFlags: 0

@@ -55,23 +55,24 @@ public class UIManager : MonoBehaviour
     {
         gameIsPaused = true;
 
-        int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
-        if (EasyModeOptionInt == 0)
-            EasyModeOn(false);
-        else if (EasyModeOptionInt == 1)
-            EasyModeOn(true);
-
-
         PauseGame();
         if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
             ContinueButton.GetComponent<Button>().interactable = true;
+            
         }
         else
         {
             ContinueButton.GetComponent<Button>().interactable = false;
         }
         //if(first time playing continue button is disabled)
+
+        int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
+        if (EasyModeOptionInt == 0)
+            EasyModeOn(false);
+        else if (EasyModeOptionInt == 1)
+            EasyModeOn(true);
+
     }
 
 
@@ -161,6 +162,22 @@ public class UIManager : MonoBehaviour
         NewGrappleTest.instance.EasyModeGrapple = on;
         if(on) SaveManager.instance.SaveIntData(SaveManager.EasyModeOption, 1);
         else if (!on)SaveManager.instance.SaveIntData(SaveManager.EasyModeOption, 0);
+    }
+
+    public void CutsceneFinished()
+    {
+        //set game stuff
+        GameManager.instance.CutsceneFinished();
+
+        //now load ui stuff
+        int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
+        if (EasyModeOptionInt == 0)
+            EasyModeOn(false);
+        else if (EasyModeOptionInt == 1)
+            EasyModeOn(true);
+
+
+        ResumeGame();
     }
 
     public void ResumeGame()

@@ -152,6 +152,7 @@ public class NewGrappleTest : MonoBehaviour
         }
         else if (EasyModeGrapple)
         {
+
             if (isUsingGamepad)
             {
                 Vector3 lookDirection = (Vector3)aimInput.normalized + gunPivot.position;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -21,6 +22,10 @@ public class GameManager : MonoBehaviour
     public GameObject vcam;
     public GameObject Mcamera;
     public GameObject EndCanvas;
+    public GameObject CutscenePlayer;
+    public bool CutscenePlaying;
+
+    public TextMeshProUGUI FallText;
 
     void Start()
     {
@@ -32,11 +37,28 @@ public class GameManager : MonoBehaviour
             player.SetActive(true);
             vcam.SetActive(true);
             Mcamera.SetActive(true);
+            CutscenePlayer.SetActive(false);
         }
         else
         {
             playableDirector.Play();
+            CutscenePlaying = true;
         }
+    }
+
+    public void CutsceneFinished()
+    {
+        //set game stuff
+        CutscenePlaying = false;
+        playableDirector.Stop();
+        player.SetActive(true);
+        vcam.SetActive(true);
+        Mcamera.SetActive(true);
+        CutscenePlayer.SetActive(false);
+        player.transform.position = StartingPos;
+        GameTimer.Instance.ResetTimer();
+        
+
     }
 
     public void EndGame()
@@ -82,7 +104,7 @@ public class GameManager : MonoBehaviour
         }
 
         EndCanvas.SetActive(true);
-
+        FallText.text = PlayerPrefs.GetInt("FallCount", 0).ToString();
     }
 
 }
