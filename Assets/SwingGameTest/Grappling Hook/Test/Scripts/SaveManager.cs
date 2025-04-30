@@ -32,6 +32,18 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.DeleteKey(PlayerZ);
         PlayerPrefs.DeleteKey(PlayersLevel);
         PlayerPrefs.DeleteKey(DoorSmashedOpen);
+        // Delete all BreakableObject keys
+        foreach (BreakableObject breakable in FindObjectsOfType<BreakableObject>())
+        {
+            string key = $"BreakableObject_{breakable.UniqueID}";
+            if (PlayerPrefs.HasKey(key))
+            {
+                PlayerPrefs.DeleteKey(key);
+            }
+        }
+
+        // Save changes to PlayerPrefs
+        PlayerPrefs.Save();
     }
 
     public void SaveData()
