@@ -472,7 +472,6 @@ public class NewGrappleTest : MonoBehaviour
         else
         {
             GrappleAudio.PlayHitSound();
-            Debug.Log("playing hit sound");
             if (Launch_Type == LaunchType.Transform_Launch)
             {
                 ballRigidbody.gravityScale = 0;

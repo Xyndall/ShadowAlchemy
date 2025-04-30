@@ -59,7 +59,11 @@ public class UIManager : MonoBehaviour
         if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
             ContinueButton.GetComponent<Button>().interactable = true;
-            
+            int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
+            if (EasyModeOptionInt == 0)
+                EasyModeOn(false);
+            else if (EasyModeOptionInt == 1)
+                EasyModeOn(true);
         }
         else
         {
@@ -67,14 +71,19 @@ public class UIManager : MonoBehaviour
         }
         //if(first time playing continue button is disabled)
 
-        int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
-        if (EasyModeOptionInt == 0)
-            EasyModeOn(false);
-        else if (EasyModeOptionInt == 1)
-            EasyModeOn(true);
+        
 
     }
 
+    public void CheckPlayerPrefs()
+    {
+        if (PlayerPrefs.HasKey(SaveManager.PlayerX))
+        {
+            ContinueButton.GetComponent<Button>().interactable = true;
+            
+        }
+        
+    }
 
     public void StartNewGame()
     {
@@ -103,9 +112,8 @@ public class UIManager : MonoBehaviour
     {
         DeleteOldSaveData();
         Player.transform.position = GameManager.instance.StartingPos;
-        GameTimer.Instance.ResetTimer();
-        // Reset the scene by reloading it
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.StartCutscene();
+
     }
 
     public void SelectButton(Button button)
@@ -184,6 +192,7 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
+            CheckPlayerPrefs();
             gameIsPaused = false;
             GameTimer.Instance.StartTimer();
             AudioManager.Instance.StartGameMusic();

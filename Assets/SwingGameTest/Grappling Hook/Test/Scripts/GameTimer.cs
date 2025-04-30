@@ -91,8 +91,12 @@ public class GameTimer : MonoBehaviour
         int minutes = Mathf.FloorToInt((elapsedTime % 3600f) / 60f);
         int seconds = Mathf.FloorToInt(elapsedTime % 60f);
 
-        timerText.text = $"{hours}h:{minutes}m:{seconds}s";
-        timerTextEnd.text = $"{hours}h:{minutes}m:{seconds}s";
+        // Format the time as 00:00:00
+        string formattedTime = $"{hours:00}:{minutes:00}:{seconds:00}";
+
+        // Update the timer text
+        timerText.text = formattedTime;
+        timerTextEnd.text = formattedTime;
     }
     private void CheckAndUpdateGameObject()
     {

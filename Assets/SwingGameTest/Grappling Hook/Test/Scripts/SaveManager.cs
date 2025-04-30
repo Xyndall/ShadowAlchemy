@@ -14,6 +14,7 @@ public class SaveManager : MonoBehaviour
     public const string PlayersLevel = "PlayersLevel";
     public const string EasyModeOption = "EasyMode";
     public const string DoorSmashedOpen = "DoorSmashedOpen";
+    public const string FallCount = "FallCount";
 
     public static SaveManager instance;
     private void Awake()
@@ -32,6 +33,7 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.DeleteKey(PlayerZ);
         PlayerPrefs.DeleteKey(PlayersLevel);
         PlayerPrefs.DeleteKey(DoorSmashedOpen);
+        PlayerPrefs.DeleteKey(FallCount);
         // Delete all BreakableObject keys
         foreach (BreakableObject breakable in FindObjectsOfType<BreakableObject>())
         {

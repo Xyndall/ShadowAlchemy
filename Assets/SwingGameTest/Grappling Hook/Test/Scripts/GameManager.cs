@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.Playables;
 
 
@@ -16,6 +15,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Header("Game Settings")]
     public Vector3 StartingPos;
     public PlayableDirector playableDirector;
     public GameObject player;
@@ -25,7 +25,11 @@ public class GameManager : MonoBehaviour
     public GameObject CutscenePlayer;
     public bool CutscenePlaying;
 
+    [Header("UI Elements")]
     public TextMeshProUGUI FallText;
+    public Image EndGameImage; // Reference to the UI Image
+    public Sprite GoldCrownSprite; // Sprite for the best time
+    public Sprite SilverCrownSprite; // Sprite for a good time
 
     void Start()
     {
@@ -41,9 +45,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            playableDirector.Play();
-            CutscenePlaying = true;
+            StartCutscene();
         }
+    }
+
+    public void StartCutscene()
+    {
+        playableDirector.Play();
+        CutscenePlaying = true;
     }
 
     public void CutsceneFinished()
@@ -97,14 +106,30 @@ public class GameManager : MonoBehaviour
         if (GameTimer.Instance != null)
         {
             GameTimer.Instance.StopTimer();
+            UpdateEndGameImage(GameTimer.Instance.elapsedTime); // Update the UI image based on the time
         }
+    
         else
         {
             Debug.LogWarning("GameTimer not found!");
         }
 
         EndCanvas.SetActive(true);
-        FallText.text = PlayerPrefs.GetInt("FallCount", 0).ToString();
+        FallText.text = PlayerPrefs.GetInt(SaveManager.FallCount, 0).ToString();
+    }
+
+
+    private void UpdateEndGameImage(float elapsedTime)
+    {
+        // Check the time thresholds and update the sprite
+        if (elapsedTime <= 600) // Gold crown for times less than or equal to 600 seconds
+        {
+            EndGameImage.sprite = GoldCrownSprite;
+        }
+        else // Silver crown for times greater than 600 seconds
+        {
+            EndGameImage.sprite = SilverCrownSprite;
+        }
     }
 
 }

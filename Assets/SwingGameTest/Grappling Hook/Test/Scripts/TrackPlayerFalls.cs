@@ -74,7 +74,7 @@ public class TrackPlayerFalls : MonoBehaviour
         {
             Debug.Log("Player has fallen!");
             fallCount++; // Increment the fall count
-            PlayerPrefs.SetInt("FallCount", fallCount); // Save the fall count to PlayerPrefs
+            PlayerPrefs.SetInt(SaveManager.FallCount, fallCount); // Save the fall count to PlayerPrefs
             StartCoroutine(ResetFallLine());
         }
     }

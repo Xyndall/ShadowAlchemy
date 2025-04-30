@@ -135,7 +135,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: StartNewGame
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1715,6 +1715,9 @@ MonoBehaviour:
   CutscenePlayer: {fileID: 7275992143421240562}
   CutscenePlaying: 0
   FallText: {fileID: 6916718639697267398}
+  EndGameImage: {fileID: 4331611279810707066}
+  GoldCrownSprite: {fileID: 563394004, guid: ead3d2897b0cce44fb4ac4a495fb34ef, type: 3}
+  SilverCrownSprite: {fileID: -504125429, guid: a427c0951c2885240bfae0e748c4a367, type: 3}
 --- !u!114 &1318678993973807401
 MonoBehaviour:
   m_ObjectHideFlags: 0

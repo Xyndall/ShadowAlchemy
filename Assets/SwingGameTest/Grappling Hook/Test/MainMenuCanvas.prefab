@@ -208,7 +208,10 @@ MonoBehaviour:
     of the Deep\" Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons:
     By Attribution 4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n\"Lotus\"
     Kevin MacLeod (incompetech.com)\nLicensed under Creative Commons: By Attribution
-    4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n"
+    4.0 License\nhttp://creativecommons.org/licenses/by/4.0/\n\n\"Drawbridge, drop
+    the chains - Sound Effect (HD)\" @boomsounds9946  Youtube\n\n\"Creaking Wood
+    SFX\" Everyday Cinematic Effects https://www.youtube.com/@everydaycinematicsounds\n\n\"wood
+    Breaking SFX\" @soundeffectscentral3\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5ff583b9cc65e3f47aff16d5627f729b, type: 2}
   m_sharedMaterial: {fileID: -8959692469408994054, guid: 5ff583b9cc65e3f47aff16d5627f729b, type: 2}
@@ -2940,18 +2943,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2239088706157270838}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: DeleteOldSaveData
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2239088706157270838}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
@@ -5292,7 +5283,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6770063496582428861
 RectTransform:
   m_ObjectHideFlags: 0
