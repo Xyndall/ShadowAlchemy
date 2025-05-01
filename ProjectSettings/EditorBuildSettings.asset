@@ -10,8 +10,11 @@ EditorBuildSettings:
     guid: 23f7755dbdfba26449f471ec78f274dd
   - enabled: 0
     path: Assets/SwingGameTest/Grappling Hook/Test/LimitedControl.unity
-    guid: 358bc4fec47778f4eba80706201dd8eb
-  - enabled: 1
+    guid: 3aa36376f338db84cbea5669436829ec
+  - enabled: 0
     path: Assets/SwingGameTest/Grappling Hook/Test/Tessstingss.unity
     guid: 500d5fabcaa9ade4995c2fd0ec6610a0
+  - enabled: 1
+    path: Assets/SwingGameTest/Grappling Hook/Test/FullLevel.unity
+    guid: 6c585aa23d07ce243b5e3eb64e1c9e9b
   m_configObjects: {}

@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class UIManager : MonoBehaviour
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject MainMenuPanel;
     [SerializeField] private GameObject ControlsPanel;
     [SerializeField] private GameObject HudCanvas;
+    [SerializeField] private GameObject QuitCanvas;
 
     [Header("PopUps / animations")]
     [SerializeField] private GameObject OverwriteSavePopUp;
@@ -47,30 +49,42 @@ public class UIManager : MonoBehaviour
         playerInputActions.Player.Pause.performed += Pause_performed;
     }
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         gameIsPaused = true;
-
-        int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
-        if (EasyModeOptionInt == 0)
-            EasyModeOn(false);
-        else if (EasyModeOptionInt == 1)
-            EasyModeOn(true);
-
-
+        QuitCanvas.SetActive(false);
         PauseGame();
         if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
             ContinueButton.GetComponent<Button>().interactable = true;
+            int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
+            if (EasyModeOptionInt == 0)
+                EasyModeOn(false);
+            else if (EasyModeOptionInt == 1)
+                EasyModeOn(true);
         }
         else
         {
             ContinueButton.GetComponent<Button>().interactable = false;
         }
         //if(first time playing continue button is disabled)
+
+        
+
     }
 
+    public void CheckPlayerPrefs()
+    {
+        if (PlayerPrefs.HasKey(SaveManager.PlayerX))
+        {
+            ContinueButton.GetComponent<Button>().interactable = true;
+            
+        }
+        
+    }
 
     public void StartNewGame()
     {
@@ -87,19 +101,22 @@ public class UIManager : MonoBehaviour
 
     public void DeleteOldSaveData()
     {
-       SaveManager.instance.DeleteSaveKeys();
         GameTimer.Instance.ResetTimer();
+        SaveManager.instance.DeleteSaveKeys();
+       
     }
 
     public void LoadGame()
     {
         ResumeGame();
     }
+
     public void NewGame()
     {
+        DeleteOldSaveData();
         Player.transform.position = GameManager.instance.StartingPos;
-        GameTimer.Instance.ResetTimer();
-        ResumeGame();
+        GameManager.instance.StartCutscene();
+        Debug.Log("New Game");
     }
 
     public void SelectButton(Button button)
@@ -133,6 +150,10 @@ public class UIManager : MonoBehaviour
         Credits.SetActive(!Credits.activeSelf);
     }
     
+    public void DisableInputs()
+    {
+        playerInputActions.Player.Disable();
+    }
     private void Pause_performed(InputAction.CallbackContext context)
     {
         if (gameIsPaused)
@@ -154,10 +175,27 @@ public class UIManager : MonoBehaviour
         else if (!on)SaveManager.instance.SaveIntData(SaveManager.EasyModeOption, 0);
     }
 
+    public void CutsceneFinished()
+    {
+        //set game stuff
+        GameManager.instance.CutsceneFinished();
+
+        //now load ui stuff
+        int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
+        if (EasyModeOptionInt == 0)
+            EasyModeOn(false);
+        else if (EasyModeOptionInt == 1)
+            EasyModeOn(true);
+
+
+        ResumeGame();
+    }
+
     public void ResumeGame()
     {
         if (!isMainMenu)
         {
+            CheckPlayerPrefs();
             gameIsPaused = false;
             GameTimer.Instance.StartTimer();
             AudioManager.Instance.StartGameMusic();
@@ -181,6 +219,7 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
+            
             gameIsPaused = true;
             GameTimer.Instance.StopTimer();
             AudioManager.Instance.StartTitleMusic();
@@ -202,6 +241,7 @@ public class UIManager : MonoBehaviour
 
     public void QuitGame()
     {
+        QuitCanvas.SetActive(true);
         SaveManager.instance.SaveData();
         StartCoroutine(WaitForQuit());
     }

@@ -33,7 +33,15 @@ public class PlayerFallingEffect : MonoBehaviour
                 }
             }
         }
-       
+        else
+        {
+            if (currentEffect != null)
+            {
+                Destroy(currentEffect);
+                currentEffect = null;
+            }
+        }
+
     }
 }
 

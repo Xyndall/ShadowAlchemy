@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine.Playables;
 
 
@@ -15,25 +15,131 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Header("Game Settings")]
     public Vector3 StartingPos;
     public PlayableDirector playableDirector;
     public GameObject player;
     public GameObject vcam;
     public GameObject Mcamera;
+    public GameObject EndCanvas;
+    public GameObject CutscenePlayer;
+    public GameObject ControlsWorldCanvas;
+    public bool CutscenePlaying;
 
+    [Header("UI Elements")]
+    public TextMeshProUGUI FallText;
+    public Image EndGameImage; // Reference to the UI Image
+    public Sprite GoldCrownSprite; // Sprite for the best time
+    public Sprite SilverCrownSprite; // Sprite for a good time
+
+    [Header("Other Stuff")]
+    public GameObject Gate;
 
     void Start()
     {
+        EndCanvas.SetActive(false);
+
         // Check if the data exists
         if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
             player.SetActive(true);
             vcam.SetActive(true);
             Mcamera.SetActive(true);
+            CutscenePlayer.SetActive(false);
         }
         else
         {
-            playableDirector.Play();
+            StartCutscene();
+        }
+    }
+
+    public void StartCutscene()
+    {
+        Gate.SetActive(true);
+        ControlsWorldCanvas.SetActive(false);
+        UIManager.instance.DeleteOldSaveData();
+        EndCanvas.SetActive(false);
+        playableDirector.Play();
+        CutscenePlaying = true;
+    }
+
+    public void CutsceneFinished()
+    {
+        //set game stuff
+        ControlsWorldCanvas.SetActive(true);
+        CutscenePlaying = false;
+        playableDirector.Stop();
+        player.SetActive(true);
+        vcam.SetActive(true);
+        Mcamera.SetActive(true);
+        CutscenePlayer.SetActive(false);
+        player.transform.position = StartingPos;
+        GameTimer.Instance.ResetTimer();
+        PlayerPositionManager.Instance.SavePlayerPosition();
+
+    }
+
+    public void EndGame()
+    {
+
+        if (NewGrappleTest.instance != null)
+        {
+            NewGrappleTest.instance.enabled = false;
+        }
+        else
+        {
+            Debug.LogWarning("NewGrappleTest script not found!");
+        }
+
+
+        if (UIManager.instance != null)
+        {
+            UIManager.instance.DisableInputs();
+        }
+        else
+        {
+            Debug.LogWarning("UIManager not found!");
+        }
+
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopAllMusic();
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager not found!");
+        }
+
+
+        if (GameTimer.Instance != null)
+        {
+            GameTimer.Instance.StopTimer();
+            UpdateEndGameImage(GameTimer.Instance.elapsedTime); // Update the UI image based on the time
+        }
+    
+        else
+        {
+            Debug.LogWarning("GameTimer not found!");
+        }
+
+        EndCanvas.SetActive(true);
+        FallText.text = PlayerPrefs.GetInt(SaveManager.FallCount, 0).ToString();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+
+    private void UpdateEndGameImage(float elapsedTime)
+    {
+        // Check the time thresholds and update the sprite
+        if (elapsedTime <= 600) // Gold crown for times less than or equal to 600 seconds
+        {
+            EndGameImage.sprite = GoldCrownSprite;
+        }
+        else // Silver crown for times greater than 600 seconds
+        {
+            EndGameImage.sprite = SilverCrownSprite;
         }
     }
 
