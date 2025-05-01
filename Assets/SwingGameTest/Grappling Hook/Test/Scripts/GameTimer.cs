@@ -31,7 +31,7 @@ public class GameTimer : MonoBehaviour
     private void Start()
     {
         // Load saved time
-        elapsedTime = PlayerPrefs.GetFloat("ElapsedTime", 0f);
+        elapsedTime = PlayerPrefs.GetFloat(SaveManager.GameTimer, 0f);
         UpdateTimerDisplay();
     }
 
@@ -64,7 +64,7 @@ public class GameTimer : MonoBehaviour
     public void ResetTimer()
     {
         elapsedTime = 0f;
-        PlayerPrefs.SetFloat("ElapsedTime", 0f);
+        PlayerPrefs.SetFloat(SaveManager.GameTimer, 0f);
         PlayerPrefs.Save();
     }
 
@@ -81,7 +81,7 @@ public class GameTimer : MonoBehaviour
 
     private void SaveTime()
     {
-        PlayerPrefs.SetFloat("ElapsedTime", elapsedTime);
+        PlayerPrefs.SetFloat(SaveManager.GameTimer, elapsedTime);
         PlayerPrefs.Save();
     }
 

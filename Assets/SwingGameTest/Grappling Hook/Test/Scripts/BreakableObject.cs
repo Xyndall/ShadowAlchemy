@@ -58,8 +58,8 @@ public class BreakableObject : MonoBehaviour
             PlayerPrefs.SetInt($"BreakableObject_{uniqueID}", 1);
             PlayerPrefs.Save();
 
-            // Destroy the original object after the pieces are created
-            Destroy(gameObject, destroyDelay);
+            // Set the object inactive instead of destroying it
+            gameObject.SetActive(false);
         }
     }
 

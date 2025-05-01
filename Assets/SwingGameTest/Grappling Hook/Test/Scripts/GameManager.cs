@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject Mcamera;
     public GameObject EndCanvas;
     public GameObject CutscenePlayer;
+    public GameObject ControlsWorldCanvas;
     public bool CutscenePlaying;
 
     [Header("UI Elements")]
@@ -30,6 +31,9 @@ public class GameManager : MonoBehaviour
     public Image EndGameImage; // Reference to the UI Image
     public Sprite GoldCrownSprite; // Sprite for the best time
     public Sprite SilverCrownSprite; // Sprite for a good time
+
+    [Header("Other Stuff")]
+    public GameObject Gate;
 
     void Start()
     {
@@ -51,6 +55,10 @@ public class GameManager : MonoBehaviour
 
     public void StartCutscene()
     {
+        Gate.SetActive(true);
+        ControlsWorldCanvas.SetActive(false);
+        UIManager.instance.DeleteOldSaveData();
+        EndCanvas.SetActive(false);
         playableDirector.Play();
         CutscenePlaying = true;
     }
@@ -58,6 +66,7 @@ public class GameManager : MonoBehaviour
     public void CutsceneFinished()
     {
         //set game stuff
+        ControlsWorldCanvas.SetActive(true);
         CutscenePlaying = false;
         playableDirector.Stop();
         player.SetActive(true);
@@ -66,7 +75,7 @@ public class GameManager : MonoBehaviour
         CutscenePlayer.SetActive(false);
         player.transform.position = StartingPos;
         GameTimer.Instance.ResetTimer();
-        
+        PlayerPositionManager.Instance.SavePlayerPosition();
 
     }
 
@@ -116,6 +125,8 @@ public class GameManager : MonoBehaviour
 
         EndCanvas.SetActive(true);
         FallText.text = PlayerPrefs.GetInt(SaveManager.FallCount, 0).ToString();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
 

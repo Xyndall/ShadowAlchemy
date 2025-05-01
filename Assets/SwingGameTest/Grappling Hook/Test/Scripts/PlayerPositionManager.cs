@@ -5,6 +5,21 @@ using UnityEngine;
 
 public class PlayerPositionManager : MonoBehaviour
 {
+    public static PlayerPositionManager Instance { get; private set; } // Singleton instance
+
+    private void Awake()
+    {
+        // Ensure only one instance of the PlayerPositionManager exists
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Optional: Keep this object across scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy duplicate instances
+        }
+    }
 
     private void Start()
     {

@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject MainMenuPanel;
     [SerializeField] private GameObject ControlsPanel;
     [SerializeField] private GameObject HudCanvas;
+    [SerializeField] private GameObject QuitCanvas;
 
     [Header("PopUps / animations")]
     [SerializeField] private GameObject OverwriteSavePopUp;
@@ -54,7 +55,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         gameIsPaused = true;
-
+        QuitCanvas.SetActive(false);
         PauseGame();
         if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
@@ -100,20 +101,22 @@ public class UIManager : MonoBehaviour
 
     public void DeleteOldSaveData()
     {
-       SaveManager.instance.DeleteSaveKeys();
-       GameTimer.Instance.ResetTimer();
+        GameTimer.Instance.ResetTimer();
+        SaveManager.instance.DeleteSaveKeys();
+       
     }
 
     public void LoadGame()
     {
         ResumeGame();
     }
+
     public void NewGame()
     {
         DeleteOldSaveData();
         Player.transform.position = GameManager.instance.StartingPos;
         GameManager.instance.StartCutscene();
-
+        Debug.Log("New Game");
     }
 
     public void SelectButton(Button button)
@@ -216,6 +219,7 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
+            
             gameIsPaused = true;
             GameTimer.Instance.StopTimer();
             AudioManager.Instance.StartTitleMusic();
@@ -237,6 +241,7 @@ public class UIManager : MonoBehaviour
 
     public void QuitGame()
     {
+        QuitCanvas.SetActive(true);
         SaveManager.instance.SaveData();
         StartCoroutine(WaitForQuit());
     }

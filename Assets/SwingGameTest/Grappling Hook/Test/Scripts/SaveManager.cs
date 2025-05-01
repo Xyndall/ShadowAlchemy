@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 public class SaveManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class SaveManager : MonoBehaviour
     public const string EasyModeOption = "EasyMode";
     public const string DoorSmashedOpen = "DoorSmashedOpen";
     public const string FallCount = "FallCount";
+    public const string GameTimer = "ElapsedTime";
 
     public static SaveManager instance;
     private void Awake()
@@ -34,18 +36,20 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.DeleteKey(PlayersLevel);
         PlayerPrefs.DeleteKey(DoorSmashedOpen);
         PlayerPrefs.DeleteKey(FallCount);
+        PlayerPrefs.DeleteKey(GameTimer);
+        
         // Delete all BreakableObject keys
         foreach (BreakableObject breakable in FindObjectsOfType<BreakableObject>())
         {
             string key = $"BreakableObject_{breakable.UniqueID}";
+            
             if (PlayerPrefs.HasKey(key))
             {
+                PlayerPrefs.SetInt(key, 0);
                 PlayerPrefs.DeleteKey(key);
             }
         }
 
-        // Save changes to PlayerPrefs
-        PlayerPrefs.Save();
     }
 
     public void SaveData()
