@@ -79,7 +79,7 @@ public class GameTimer : MonoBehaviour
             SaveTime();
     }
 
-    private void SaveTime()
+    public void SaveTime()
     {
         PlayerPrefs.SetFloat(SaveManager.GameTimer, elapsedTime);
         PlayerPrefs.Save();

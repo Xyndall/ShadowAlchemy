@@ -16,7 +16,9 @@ public class SaveManager : MonoBehaviour
     public const string EasyModeOption = "EasyMode";
     public const string DoorSmashedOpen = "DoorSmashedOpen";
     public const string FallCount = "FallCount";
-    public const string GameTimer = "ElapsedTime";
+    public const string GameTimer = "GameTimer";
+    public const string TotalGameCompletions = "TotalGameCompletions";
+    
 
     public static SaveManager instance;
     private void Awake()
