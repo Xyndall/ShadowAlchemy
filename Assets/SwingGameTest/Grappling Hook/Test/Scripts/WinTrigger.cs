@@ -67,13 +67,21 @@ public class WinTrigger : MonoBehaviour
         {
             SteamAchievements.UnlockAchievement("Ach_CastleLevel");
         }
-        
+        else if (CaveLevel)
+        {
+            SteamAchievements.UnlockAchievement("Ach_CaveLevel");
+        }
+
     }
 
     void OnGameWin()
     {
         Debug.Log("Game Win Goal Reached hayaasdasasa");
         SteamAchievements.UnlockAchievement("Ach_EndGoal");
+        if(GameTimer.Instance.OverTenMins == true)
+        {
+            SteamAchievements.UnlockAchievement("Ach_TenMinutes");
+        }
         Instantiate(winCrown, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

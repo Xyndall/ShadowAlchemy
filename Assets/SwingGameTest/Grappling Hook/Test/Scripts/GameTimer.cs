@@ -8,6 +8,7 @@ public class GameTimer : MonoBehaviour
     public TextMeshProUGUI timerTextEnd;
     public float elapsedTime { get; private set; }
     private bool isRunning = false;
+    public bool OverTenMins = false;
 
     [Header("Sprite Change Settings")]
     [SerializeField] private GameObject[] Crowns; // The UI Image or SpriteRenderer to update
@@ -109,6 +110,7 @@ public class GameTimer : MonoBehaviour
         {
             currentGameObjectIndex++;
             UpdateGameObject();
+            OverTenMins = true;
         }
     }
 

@@ -27,6 +27,7 @@ public class GrappleRope : MonoBehaviour
     
     bool drawLine = true;
     bool straightLine = true;
+    public int GrappleAmountMissed;
 
     private void Awake()
     {
@@ -128,6 +129,8 @@ public class GrappleRope : MonoBehaviour
     void RetractRopeWaves()
     {
         GrappleRetracting = true;
+        GrappleAmountMissed++;
+        SteamAchievements.UnlockAchievement("Ach_GrappleMiss");
         // Slow retraction rate
         moveTime -= Time.deltaTime * (ropeLaunchSpeedMultiplayer / 10f);
 

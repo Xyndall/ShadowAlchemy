@@ -60,11 +60,13 @@ public class GameManager : MonoBehaviour
     public void StartCutscene()
     {
         Gate.SetActive(true);
+        Gate.GetComponent<SpriteRenderer>().enabled = true;
         ControlsWorldCanvas.SetActive(false);
         UIManager.instance.DeleteOldSaveData();
         EndCanvas.SetActive(false);
         playableDirector.Play();
         CutscenePlaying = true;
+
     }
 
     public void CutsceneFinished()

@@ -59,6 +59,9 @@ public class TeleportTrigger : MonoBehaviour
         if (rb != null) rb.isKinematic = false;
         if (grappleScript != null) grappleScript.enabled = true;
 
+        //Unlock Achievement
+        SteamAchievements.UnlockAchievement("Ach_SavedByGhost");
+
         // Mark the player as having returned to the teleport point
         hasReturnedToTeleportPoint = true;
 

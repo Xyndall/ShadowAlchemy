@@ -76,6 +76,7 @@ public class TrackPlayerFalls : MonoBehaviour
             fallCount++; // Increment the fall count
             PlayerPrefs.SetInt(SaveManager.FallCount, fallCount); // Save the fall count to PlayerPrefs
             StartCoroutine(ResetFallLine());
+            SteamAchievements.UnlockAchievement("Ach_FirstFall"); // Unlock achievement for falling
         }
     }
 

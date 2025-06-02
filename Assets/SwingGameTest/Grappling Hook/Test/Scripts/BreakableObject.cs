@@ -60,15 +60,22 @@ public class BreakableObject : MonoBehaviour
 
             // Set the object inactive instead of destroying it
             gameObject.SetActive(false);
+            spriteRenderer.enabled = true;
         }
     }
 
     private void BreakIntoPieces(Vector2 playerVelocity)
     {
+        float spawnRadius = 0.3f; // Adjust this value as needed
+
         for (int i = 0; i < pieceCount; i++)
         {
-            // Instantiate a piece at the object's position
-            GameObject piece = Instantiate(piecePrefab, transform.position, Quaternion.identity);
+            // Generate a random offset within a circle
+            Vector2 randomOffset = Random.insideUnitCircle * spawnRadius;
+            Vector3 spawnPosition = transform.position + (Vector3)randomOffset;
+
+            // Instantiate a piece at the randomized position
+            GameObject piece = Instantiate(piecePrefab, spawnPosition, Quaternion.identity);
 
             // Get the Rigidbody2D of the piece to apply force
             Rigidbody2D pieceRigidbody = piece.GetComponent<Rigidbody2D>();

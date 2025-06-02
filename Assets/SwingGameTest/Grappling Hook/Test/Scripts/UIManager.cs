@@ -236,6 +236,12 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
+            if (PlayerPrefs.GetInt(SaveManager.TotalGameCompletions, 0) > 0)
+            {
+                modifierButton.interactable = true;
+
+            }
+
             GameTimer.Instance.SaveTime();
             gameIsPaused = true;
             GameTimer.Instance.StopTimer();
