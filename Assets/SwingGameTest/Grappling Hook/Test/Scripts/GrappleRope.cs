@@ -27,7 +27,7 @@ public class GrappleRope : MonoBehaviour
     
     bool drawLine = true;
     bool straightLine = true;
-    public int GrappleAmountMissed;
+    
 
     private void Awake()
     {
@@ -104,8 +104,8 @@ public class GrappleRope : MonoBehaviour
             else 
             {
                 waveSize = 0;
-
-                if(newGrapplingGun.validGrapplePoint == false && newGrapplingGun.isSlingshotting == false) RetractRopeWaves();
+                
+                if (newGrapplingGun.validGrapplePoint == false && newGrapplingGun.isSlingshotting == false) RetractRopeWaves();
                 else DrawRopeNoWaves();
             }
         }
@@ -129,8 +129,6 @@ public class GrappleRope : MonoBehaviour
     void RetractRopeWaves()
     {
         GrappleRetracting = true;
-        GrappleAmountMissed++;
-        SteamAchievements.UnlockAchievement("Ach_GrappleMiss");
         // Slow retraction rate
         moveTime -= Time.deltaTime * (ropeLaunchSpeedMultiplayer / 10f);
 
@@ -164,7 +162,8 @@ public class GrappleRope : MonoBehaviour
 
     void DrawRopeNoWaves() 
     {
-            if (newGrapplingGun.isSlingshotting)
+        
+        if (newGrapplingGun.isSlingshotting)
             {
                 newGrapplingGun.DisableGrapple();
             }

@@ -84,9 +84,9 @@ public class NewGrappleTest : MonoBehaviour
     public string SurfaceTypeHit;
     public PlayerAnimationController pAnimaor;
     public bool EasyModeGrapple;
+    public int GrappleAmountMissed;
 
 
-    
     private Vector2 aimInput;
     private bool isUsingGamepad = false;
 
@@ -426,12 +426,19 @@ public class NewGrappleTest : MonoBehaviour
 
     void CalculateGrapplePosition(Vector2 hitPos, bool isValid, string surfaceHit)
     {
-        if(isValid)
+        if (isValid)
         {
             pAnimaor.SetIsGrappling(true);
         }
-        // Set the grapple point to the hit point
-        SurfaceTypeHit = surfaceHit;
+        else 
+        {
+            GrappleAmountMissed++;
+            SteamAchievements.UnlockAchievement("Ach_GrappleMiss");
+            Debug.Log("Grapple Missed: " + GrappleAmountMissed);
+        }
+
+            // Set the grapple point to the hit point
+            SurfaceTypeHit = surfaceHit;
         grapplePoint = hitPos;
         validGrapplePoint = isValid;
 

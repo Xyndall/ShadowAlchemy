@@ -242,7 +242,7 @@ public class UIManager : MonoBehaviour
 
             }
 
-            GameTimer.Instance.SaveTime();
+            
             gameIsPaused = true;
             GameTimer.Instance.StopTimer();
             AudioManager.Instance.StartTitleMusic();
