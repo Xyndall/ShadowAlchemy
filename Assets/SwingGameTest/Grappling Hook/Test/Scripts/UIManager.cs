@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour
     public GameObject Credits;
     public bool EasyMode = false;
     public Toggle _toggle;
+    public Button modifierButton;
     
 
     public static UIManager instance;
@@ -54,17 +55,28 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameIsPaused = true;
+        if(PlayerPrefs.GetInt(SaveManager.TotalGameCompletions, 0) > 0)
+        {
+            modifierButton.interactable = true;
+            
+        }
+        else
+        {
+            modifierButton.interactable = false;
+        }
+
+            gameIsPaused = true;
         QuitCanvas.SetActive(false);
         PauseGame();
+        int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
+        if (EasyModeOptionInt == 0)
+            EasyModeOn(false);
+        else if (EasyModeOptionInt == 1)
+            EasyModeOn(true);
         if (PlayerPrefs.HasKey(SaveManager.PlayerX))
         {
             ContinueButton.GetComponent<Button>().interactable = true;
-            int EasyModeOptionInt = (PlayerPrefs.GetInt(SaveManager.EasyModeOption, 0));
-            if (EasyModeOptionInt == 0)
-                EasyModeOn(false);
-            else if (EasyModeOptionInt == 1)
-                EasyModeOn(true);
+            
         }
         else
         {
@@ -154,6 +166,11 @@ public class UIManager : MonoBehaviour
     {
         playerInputActions.Player.Disable();
     }
+    public void EnableInputs()
+    {
+        playerInputActions.Player.Enable();
+    }
+
     private void Pause_performed(InputAction.CallbackContext context)
     {
         if (gameIsPaused)
@@ -219,7 +236,7 @@ public class UIManager : MonoBehaviour
     {
         if (!isMainMenu)
         {
-            
+            GameTimer.Instance.SaveTime();
             gameIsPaused = true;
             GameTimer.Instance.StopTimer();
             AudioManager.Instance.StartTitleMusic();

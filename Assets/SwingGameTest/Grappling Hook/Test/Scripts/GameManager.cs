@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Playables;
+using System.Collections;
 
 
 public class GameManager : MonoBehaviour
@@ -22,11 +23,13 @@ public class GameManager : MonoBehaviour
     public GameObject vcam;
     public GameObject Mcamera;
     public GameObject EndCanvas;
+    public GameObject FinalCreditsCanvas;
     public GameObject CutscenePlayer;
     public GameObject ControlsWorldCanvas;
     public bool CutscenePlaying;
 
     [Header("UI Elements")]
+    public Button newGameButton;
     public TextMeshProUGUI FallText;
     public Image EndGameImage; // Reference to the UI Image
     public Sprite GoldCrownSprite; // Sprite for the best time
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         EndCanvas.SetActive(false);
+        FinalCreditsCanvas.SetActive(false);
 
         // Check if the data exists
         if (PlayerPrefs.HasKey(SaveManager.PlayerX))
@@ -76,59 +80,40 @@ public class GameManager : MonoBehaviour
         player.transform.position = StartingPos;
         GameTimer.Instance.ResetTimer();
         PlayerPositionManager.Instance.SavePlayerPosition();
+        NewGrappleTest.instance.enabled = true;
+        UIManager.instance.EnableInputs();
+        AudioManager.Instance.StartGameMusic();
 
     }
 
     public void EndGame()
     {
+        NewGrappleTest.instance.enabled = false;
+        UIManager.instance.DisableInputs();
+        AudioManager.Instance.StopAllMusic();
+        GameTimer.Instance.StopTimer();
+        UpdateEndGameImage(GameTimer.Instance.elapsedTime); // Update the UI image based on the time
 
-        if (NewGrappleTest.instance != null)
+        if (PlayerPrefs.GetInt(SaveManager.TotalGameCompletions, 0) == 0)
         {
-            NewGrappleTest.instance.enabled = false;
+            FinalCreditsCanvas.SetActive(true);
+            StartCoroutine(WaitForCredits());
         }
-        else
-        {
-            Debug.LogWarning("NewGrappleTest script not found!");
-        }
-
-
-        if (UIManager.instance != null)
-        {
-            UIManager.instance.DisableInputs();
-        }
-        else
-        {
-            Debug.LogWarning("UIManager not found!");
-        }
-
-
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.StopAllMusic();
-        }
-        else
-        {
-            Debug.LogWarning("AudioManager not found!");
-        }
-
-
-        if (GameTimer.Instance != null)
-        {
-            GameTimer.Instance.StopTimer();
-            UpdateEndGameImage(GameTimer.Instance.elapsedTime); // Update the UI image based on the time
-        }
-    
-        else
-        {
-            Debug.LogWarning("GameTimer not found!");
-        }
+        
 
         EndCanvas.SetActive(true);
         FallText.text = PlayerPrefs.GetInt(SaveManager.FallCount, 0).ToString();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        UIManager.instance.SelectButton(newGameButton);
+        PlayerPrefs.SetInt(SaveManager.TotalGameCompletions, PlayerPrefs.GetInt(SaveManager.TotalGameCompletions, 0) + 1);
     }
 
+    IEnumerator WaitForCredits()
+    {
+        yield return new WaitForSeconds(5f);
+        FinalCreditsCanvas.SetActive(false);
+    }
 
     private void UpdateEndGameImage(float elapsedTime)
     {
