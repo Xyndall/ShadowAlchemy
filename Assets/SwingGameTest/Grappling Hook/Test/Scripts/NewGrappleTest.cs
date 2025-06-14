@@ -85,7 +85,8 @@ public class NewGrappleTest : MonoBehaviour
     public PlayerAnimationController pAnimaor;
     public bool EasyModeGrapple;
     public int GrappleAmountMissed;
-
+    [HideInInspector] public Transform grappledObject; // The object being grappled
+    private Vector2 grappledLocalPoint; // The local point on the object where the grapple attached
 
     private Vector2 aimInput;
     private bool isUsingGamepad = false;
@@ -96,6 +97,7 @@ public class NewGrappleTest : MonoBehaviour
     [HideInInspector] public const string GroundSurface = "Ground";
     [HideInInspector] public const string StickySurface = "Sticky";
     [HideInInspector] public const string SlingshotSurface = "Slingshot";
+    
 
     private void Start()
     {
@@ -172,6 +174,17 @@ public class NewGrappleTest : MonoBehaviour
             }
         }
 
+        if (grappleRope.isGrappling && grappledObject != null)
+        {
+            // Update the grapple point to follow the moving object
+            Vector2 newGrapplePoint = grappledObject.TransformPoint(grappledLocalPoint);
+            grapplePoint = newGrapplePoint;
+
+            // If using SpringJoint2D, update its anchor
+            if (m_springJoint2D.enabled)
+                m_springJoint2D.connectedAnchor = newGrapplePoint;
+        }
+
         if (launchToPoint && grappleRope.isGrappling)
         {
             if (Launch_Type == LaunchType.Transform_Launch)
@@ -232,7 +245,7 @@ public class NewGrappleTest : MonoBehaviour
         validGrapplePoint = false;
         isSlingshotting = false;
         pAnimaor.SetIsGrappling(false);
-        
+        grappledObject = null;
     }
 
     public void ReverseSpin()
@@ -312,6 +325,9 @@ public class NewGrappleTest : MonoBehaviour
             if ((_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) &&
                 (Vector2.Distance(_hit.point, origin) <= maxDistance || !hasMaxDistance))
             {
+                // Store the object and local point
+                grappledObject = _hit.transform;
+                grappledLocalPoint = grappledObject.InverseTransformPoint(_hit.point);
                 CalculateGrapplePosition(_hit.point, true, GroundSurface);
                 return true; // Return true if something was hit
             }
@@ -382,6 +398,9 @@ public class NewGrappleTest : MonoBehaviour
                 if ((_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) &&
                     (Vector2.Distance(_hit.point, origin) <= maxDistance || !hasMaxDistance))
                 {
+                    // Store the object and local point
+                    grappledObject = _hit.transform;
+                    grappledLocalPoint = grappledObject.InverseTransformPoint(_hit.point);
                     CalculateGrapplePosition(_hit.point, true, GroundSurface);
                     Debug.DrawRay(origin, direction * _hit.distance, Color.green, 10);
                 }
@@ -437,8 +456,8 @@ public class NewGrappleTest : MonoBehaviour
             Debug.Log("Grapple Missed: " + GrappleAmountMissed);
         }
 
-            // Set the grapple point to the hit point
-            SurfaceTypeHit = surfaceHit;
+        // Set the grapple point to the hit point
+        SurfaceTypeHit = surfaceHit;
         grapplePoint = hitPos;
         validGrapplePoint = isValid;
 
