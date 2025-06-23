@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     [Header("UI Elements")]
     public Button newGameButton;
     public TextMeshProUGUI FallText;
+    public TextMeshProUGUI GrapplesMissedText;
     public Image EndGameImage; // Reference to the UI Image
     public Sprite GoldCrownSprite; // Sprite for the best time
     public Sprite SilverCrownSprite; // Sprite for a good time
@@ -105,6 +106,7 @@ public class GameManager : MonoBehaviour
 
         EndCanvas.SetActive(true);
         FallText.text = PlayerPrefs.GetInt(SaveManager.FallCount, 0).ToString();
+        GrapplesMissedText.text = PlayerPrefs.GetInt(SaveManager.GrapplesMissed, 0).ToString();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         UIManager.instance.SelectButton(newGameButton);

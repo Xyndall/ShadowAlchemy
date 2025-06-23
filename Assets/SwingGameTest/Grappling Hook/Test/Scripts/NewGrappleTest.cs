@@ -13,7 +13,7 @@ public class NewGrappleTest : MonoBehaviour
             instance = this;
         }
     }
-        [Header("Scripts:")]
+    [Header("Scripts:")]
     public GrappleRope grappleRope;
     public GrappleAudioContoller GrappleAudio;
 
@@ -118,6 +118,8 @@ public class NewGrappleTest : MonoBehaviour
                 isUsingGamepad = true;
         };
         playerInputActions.Player.Aim.canceled += ctx => aimInput = Vector2.zero;
+
+        GrappleAmountMissed = PlayerPrefs.GetInt(SaveManager.GrapplesMissed, 0);
 
     }
 
@@ -452,6 +454,7 @@ public class NewGrappleTest : MonoBehaviour
         else 
         {
             GrappleAmountMissed++;
+            PlayerPrefs.SetInt(SaveManager.GrapplesMissed, GrappleAmountMissed);
             SteamAchievements.UnlockAchievement("Ach_GrappleMiss");
             Debug.Log("Grapple Missed: " + GrappleAmountMissed);
         }

@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject ControlsPanel;
     [SerializeField] private GameObject HudCanvas;
     [SerializeField] private GameObject QuitCanvas;
+    [SerializeField] private GameObject ModifierPanel;
 
     [Header("PopUps / animations")]
     [SerializeField] private GameObject OverwriteSavePopUp;
@@ -55,7 +56,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(PlayerPrefs.GetInt(SaveManager.TotalGameCompletions, 0) > 0)
+        ModifierPanel.SetActive(false);
+        if (PlayerPrefs.GetInt(SaveManager.TotalGameCompletions, 0) > 0)
         {
             modifierButton.interactable = true;
             
