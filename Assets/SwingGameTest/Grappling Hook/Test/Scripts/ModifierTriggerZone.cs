@@ -7,76 +7,71 @@ public class ModifierTriggerZone : MonoBehaviour
     public bool useLowGravity;
     public bool useFrictionless;
 
-    private float originalBounciness;
-    private float originalFriction;
     private float originalGravityScale;
     private bool valuesStored = false;
 
-    private PhysicsMaterial2D playerMaterial;
+    private PhysicsMaterial2D originalMaterial;
     private Rigidbody2D playerRb;
-    private Collider2D playerCollider;
-    private bool colliderTemporarilyDisabled = false;
+
+    // Store the generated material so it can be reused and not leak memory
+    private PhysicsMaterial2D generatedMaterial;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.GetComponent<PlayerTriggerTrack>().playerInside == true && !colliderTemporarilyDisabled)
+        if (other.CompareTag("Player"))
         {
-            
             playerRb = other.GetComponent<Rigidbody2D>();
-            playerCollider = other.GetComponent<Collider2D>();
             other.GetComponent<PlayerTriggerTrack>().playerInside = true;
+
             // Store original values
             if (playerRb != null && !valuesStored)
             {
                 originalGravityScale = playerRb.gravityScale;
                 valuesStored = true;
             }
-            if (playerCollider != null)
+            if (playerRb != null)
             {
-                playerMaterial = playerRb.sharedMaterial;
-                if (playerMaterial != null)
-                {
-                    originalBounciness = playerMaterial.bounciness;
-                    originalFriction = playerMaterial.friction;
-                }
+                originalMaterial = playerRb.sharedMaterial;
             }
 
-            // Apply modifiers
-            if (useBouncy && playerMaterial != null)
+            // Create and configure a new material
+            generatedMaterial = new PhysicsMaterial2D("GeneratedModifierMaterial");
+            // Set defaults
+            generatedMaterial.bounciness = 0f;
+            generatedMaterial.friction = 0.4f;
+
+            if (useBouncy)
             {
-                playerMaterial.bounciness = 1f;
-                playerMaterial.friction = 0f;
+                generatedMaterial.bounciness = 1f;
             }
-            if (useFrictionless && playerMaterial != null)
+            if (useFrictionless)
             {
-                playerMaterial.friction = 0f;
+                generatedMaterial.friction = 0f;
             }
+            // If both bouncy and frictionless, both properties will be set
+
+            // Assign the generated material
+            if (playerRb != null)
+            {
+                playerRb.sharedMaterial = generatedMaterial;
+            }
+
+            // Apply gravity modifier
             if (useLowGravity && playerRb != null)
             {
                 playerRb.gravityScale = originalGravityScale * 0.5f;
-            }
-
-            // Disable the collider
-            if (playerCollider != null)
-            {
-                playerCollider.enabled = false;
-                colliderTemporarilyDisabled = true;
-                // Start coroutine to re-enable after a short delay
-                StartCoroutine(ReenableColliderAfterDelay(playerCollider, 0.1f));
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && other.GetComponent<PlayerTriggerTrack>().playerInside == false && !colliderTemporarilyDisabled)
+        if (other.CompareTag("Player"))
         {
-            
-            // Restore original values
-            if (playerMaterial != null)
+            // Restore original material
+            if (playerRb != null)
             {
-                playerMaterial.bounciness = originalBounciness;
-                playerMaterial.friction = originalFriction;
+                playerRb.sharedMaterial = originalMaterial;
             }
             if (playerRb != null)
             {
@@ -84,20 +79,12 @@ public class ModifierTriggerZone : MonoBehaviour
             }
             valuesStored = false;
 
-            // Disable the collider
-            if (playerCollider != null)
+            // Optionally destroy the generated material to avoid memory leaks
+            if (generatedMaterial != null)
             {
-                playerCollider.enabled = false;
-                colliderTemporarilyDisabled = true;
-                StartCoroutine(ReenableColliderAfterDelay(playerCollider, 0.1f));
+                Destroy(generatedMaterial);
+                generatedMaterial = null;
             }
         }
-    }
-
-    private System.Collections.IEnumerator ReenableColliderAfterDelay(Collider2D collider, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        collider.enabled = true;
-        colliderTemporarilyDisabled = false;
     }
 }

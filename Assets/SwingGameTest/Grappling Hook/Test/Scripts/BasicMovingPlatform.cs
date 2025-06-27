@@ -25,8 +25,8 @@ public class BasicMovingPlatform : MonoBehaviour
     [Header("Movement Settings")]
     public MovementMode movementMode = MovementMode.Path;
 
-    [Tooltip("Set the positions (relative to the starting position) the platform will move between.")]
-    public Vector2[] localMovePoints;
+    [Tooltip("Set the positions (in world coordinates) the platform will move between.")]
+    public Vector2[] worldMovePoints;
 
     [Tooltip("If using Random mode, this is the max distance from the start position.")]
     [Range(0f, 50f)]
@@ -60,14 +60,14 @@ public class BasicMovingPlatform : MonoBehaviour
 
         if (enableMovement)
         {
-            if (movementMode == MovementMode.Path && localMovePoints != null && localMovePoints.Length > 0)
+            if (movementMode == MovementMode.Path && worldMovePoints != null && worldMovePoints.Length > 0)
             {
-                Vector2 targetPosition = startPosition + localMovePoints[currentTargetIndex];
+                Vector2 targetPosition = worldMovePoints[currentTargetIndex];
                 transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
                 if (Vector2.Distance(transform.position, targetPosition) < 0.05f)
                 {
-                    currentTargetIndex = (currentTargetIndex + 1) % localMovePoints.Length;
+                    currentTargetIndex = (currentTargetIndex + 1) % worldMovePoints.Length;
                 }
             }
             else if (movementMode == MovementMode.Random)
