@@ -8,6 +8,7 @@ public class GameTimer : MonoBehaviour
     public TextMeshProUGUI timerTextEnd;
     public float elapsedTime { get; private set; }
     private bool isRunning = false;
+    public bool OverTenMins = false;
 
     [Header("Sprite Change Settings")]
     [SerializeField] private GameObject[] Crowns; // The UI Image or SpriteRenderer to update
@@ -30,8 +31,8 @@ public class GameTimer : MonoBehaviour
 
     private void Start()
     {
-        // Load saved time
         elapsedTime = PlayerPrefs.GetFloat(SaveManager.GameTimer, 0f);
+        Debug.Log("Loaded timer: " + elapsedTime);
         UpdateTimerDisplay();
     }
 
@@ -58,7 +59,6 @@ public class GameTimer : MonoBehaviour
     public void StopTimer()
     {
         isRunning = false;
-        SaveTime();
     }
 
     public void ResetTimer()
@@ -81,6 +81,7 @@ public class GameTimer : MonoBehaviour
 
     public void SaveTime()
     {
+        Debug.Log("Saving timer: " + elapsedTime);
         PlayerPrefs.SetFloat(SaveManager.GameTimer, elapsedTime);
         PlayerPrefs.Save();
     }
@@ -109,6 +110,7 @@ public class GameTimer : MonoBehaviour
         {
             currentGameObjectIndex++;
             UpdateGameObject();
+            OverTenMins = true;
         }
     }
 

@@ -13,7 +13,7 @@ public class NewGrappleTest : MonoBehaviour
             instance = this;
         }
     }
-        [Header("Scripts:")]
+    [Header("Scripts:")]
     public GrappleRope grappleRope;
     public GrappleAudioContoller GrappleAudio;
 
@@ -84,9 +84,10 @@ public class NewGrappleTest : MonoBehaviour
     public string SurfaceTypeHit;
     public PlayerAnimationController pAnimaor;
     public bool EasyModeGrapple;
+    public int GrappleAmountMissed;
+    [HideInInspector] public Transform grappledObject; // The object being grappled
+    private Vector2 grappledLocalPoint; // The local point on the object where the grapple attached
 
-
-    
     private Vector2 aimInput;
     private bool isUsingGamepad = false;
 
@@ -96,6 +97,7 @@ public class NewGrappleTest : MonoBehaviour
     [HideInInspector] public const string GroundSurface = "Ground";
     [HideInInspector] public const string StickySurface = "Sticky";
     [HideInInspector] public const string SlingshotSurface = "Slingshot";
+    
 
     private void Start()
     {
@@ -116,6 +118,8 @@ public class NewGrappleTest : MonoBehaviour
                 isUsingGamepad = true;
         };
         playerInputActions.Player.Aim.canceled += ctx => aimInput = Vector2.zero;
+
+        GrappleAmountMissed = PlayerPrefs.GetInt(SaveManager.GrapplesMissed, 0);
 
     }
 
@@ -170,6 +174,17 @@ public class NewGrappleTest : MonoBehaviour
                     pAnimaor.SetAHoldingButton(true);
                     launchSpeed = 0.8f;
             }
+        }
+
+        if (grappleRope.isGrappling && grappledObject != null)
+        {
+            // Update the grapple point to follow the moving object
+            Vector2 newGrapplePoint = grappledObject.TransformPoint(grappledLocalPoint);
+            grapplePoint = newGrapplePoint;
+
+            // If using SpringJoint2D, update its anchor
+            if (m_springJoint2D.enabled)
+                m_springJoint2D.connectedAnchor = newGrapplePoint;
         }
 
         if (launchToPoint && grappleRope.isGrappling)
@@ -232,7 +247,7 @@ public class NewGrappleTest : MonoBehaviour
         validGrapplePoint = false;
         isSlingshotting = false;
         pAnimaor.SetIsGrappling(false);
-        
+        grappledObject = null;
     }
 
     public void ReverseSpin()
@@ -312,6 +327,9 @@ public class NewGrappleTest : MonoBehaviour
             if ((_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) &&
                 (Vector2.Distance(_hit.point, origin) <= maxDistance || !hasMaxDistance))
             {
+                // Store the object and local point
+                grappledObject = _hit.transform;
+                grappledLocalPoint = grappledObject.InverseTransformPoint(_hit.point);
                 CalculateGrapplePosition(_hit.point, true, GroundSurface);
                 return true; // Return true if something was hit
             }
@@ -382,6 +400,9 @@ public class NewGrappleTest : MonoBehaviour
                 if ((_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) &&
                     (Vector2.Distance(_hit.point, origin) <= maxDistance || !hasMaxDistance))
                 {
+                    // Store the object and local point
+                    grappledObject = _hit.transform;
+                    grappledLocalPoint = grappledObject.InverseTransformPoint(_hit.point);
                     CalculateGrapplePosition(_hit.point, true, GroundSurface);
                     Debug.DrawRay(origin, direction * _hit.distance, Color.green, 10);
                 }
@@ -426,10 +447,18 @@ public class NewGrappleTest : MonoBehaviour
 
     void CalculateGrapplePosition(Vector2 hitPos, bool isValid, string surfaceHit)
     {
-        if(isValid)
+        if (isValid)
         {
             pAnimaor.SetIsGrappling(true);
         }
+        else 
+        {
+            GrappleAmountMissed++;
+            PlayerPrefs.SetInt(SaveManager.GrapplesMissed, GrappleAmountMissed);
+            SteamAchievements.UnlockAchievement("Ach_GrappleMiss");
+            Debug.Log("Grapple Missed: " + GrappleAmountMissed);
+        }
+
         // Set the grapple point to the hit point
         SurfaceTypeHit = surfaceHit;
         grapplePoint = hitPos;
