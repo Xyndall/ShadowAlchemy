@@ -56,6 +56,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+
         ModifierPanel.SetActive(false);
         if (PlayerPrefs.GetInt(SaveManager.TotalGameCompletions, 0) > 0)
         {
@@ -89,6 +91,7 @@ public class UIManager : MonoBehaviour
         
 
     }
+
 
     public void CheckPlayerPrefs()
     {

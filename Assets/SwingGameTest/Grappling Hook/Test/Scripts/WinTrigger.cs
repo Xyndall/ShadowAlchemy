@@ -78,6 +78,8 @@ public class WinTrigger : MonoBehaviour
     {
         Debug.Log("Game Win Goal Reached hayaasdasasa");
         SteamAchievements.UnlockAchievement("Ach_EndGoal");
+        if (PlayerPrefs.GetInt("ChallengeLevelEnabled", 0) == 1)
+            SteamAchievements.UnlockAchievement("Ach_ChallengeModeGoal");
         if(GameTimer.Instance.OverTenMins == true)
         {
             SteamAchievements.UnlockAchievement("Ach_TenMinutes");

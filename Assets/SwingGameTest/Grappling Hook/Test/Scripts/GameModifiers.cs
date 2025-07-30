@@ -8,6 +8,7 @@ public class GameModifiers : MonoBehaviour
     public Toggle BouncyToggle;
     public Toggle FrictionToggle;
     public Toggle GravityToggle;
+    public Toggle ChallengeToggle;
 
     public PhysicsMaterial2D playerMaterial;
     public Collider2D playerCollider;
@@ -54,6 +55,17 @@ public class GameModifiers : MonoBehaviour
             LowGravity(false);
             GravityToggle.isOn = false;
             Debug.Log("Low Gravity is OFF");
+        }
+
+        if(PlayerPrefs.GetInt("ChallengeLevelEnabled", 0) == 1)
+        {
+            ChallengeToggle.isOn = true;
+            Debug.Log("Challenge Level is ON");
+        }
+        else
+        {
+            ChallengeToggle.isOn = false;
+            Debug.Log("Challenge Level is OFF");
         }
     }
 
@@ -107,7 +119,19 @@ public class GameModifiers : MonoBehaviour
         }
     }
 
-
+    public void Challenge(bool toggle)
+    {
+        if (toggle)
+        {
+            Debug.Log("Challenge Level Enabled");
+            ChallengeLevel.Instance.EnableChallengeLevel();
+        }
+        else
+        {
+            Debug.Log("Challenge Level Disabled");
+            ChallengeLevel.Instance.DisableChallengeLevel();
+        }
+    }
 
     public void TemporarilyDisablePlayerCollider()
     {

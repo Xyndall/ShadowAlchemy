@@ -19,10 +19,10 @@ public class NewGrappleTest : MonoBehaviour
 
     [Header("Layer Settings:")]
     [SerializeField] private bool grappleToAll = false;
-    [SerializeField] private int unGrappableLayerNumber = 8;// Layer mask to detect unInteractable objects
-    [SerializeField] private int grappableLayerNumber = 9;// Layer mask to detect interactable objects
-    [SerializeField] private int slingshotLayerNumber = 10;// Layer mask to detect interactable objects
-    [SerializeField] private int StickyLayerNumber = 11;// Layer mask to detect interactable objects
+    [SerializeField] private int unGrappableLayerNumber = 8; // Layer mask to detect unInteractable objects
+    [SerializeField] private LayerMask grappleableLayers; // <-- Use LayerMask for multiple grappleable layers
+    [SerializeField] private int slingshotLayerNumber = 10; // Layer mask to detect interactable objects
+    [SerializeField] private int StickyLayerNumber = 11; // Layer mask to detect interactable objects
     public LayerMask ignoreLayer;
 
     [Header("Main Camera")]
@@ -42,6 +42,7 @@ public class NewGrappleTest : MonoBehaviour
     [SerializeField] private bool launchToPoint = true;
     [SerializeField] private LaunchType Launch_Type = LaunchType.Transform_Launch;
     [Range(0, 5)][SerializeField] private float launchSpeed = 5;
+    [Range(0, 5)][SerializeField] private float slingshotSpeed = 5;
 
     [Header("No Launch To Point")]
     [SerializeField] private bool autoCongifureDistance = false;
@@ -123,6 +124,19 @@ public class NewGrappleTest : MonoBehaviour
 
     }
 
+    public void DisablePlayerInput()
+    {
+        if (playerInputActions != null)
+            playerInputActions.Player.Disable();
+    }
+
+    public void EnablePlayerInput()
+    {
+        if (playerInputActions != null)
+            playerInputActions.Player.Enable();
+    }
+
+
     public void OnMouseMove(InputAction.CallbackContext context)
     {
         if (context.ReadValue<Vector2>().sqrMagnitude > 0.1f)
@@ -132,7 +146,7 @@ public class NewGrappleTest : MonoBehaviour
     private void Update()
     {
         bool isGamePaused = UIManager.instance.gameIsPaused;
-        if (isGamePaused) playerInputActions.Player.Disable();
+        if (isGamePaused || PlayerHit.Instance.isStunned) playerInputActions.Player.Disable();
         else playerInputActions.Player.Enable();
 
         Debug.DrawRay(firePoint.position, gunPivot.transform.right * maxDistance);
@@ -323,15 +337,13 @@ public class NewGrappleTest : MonoBehaviour
         if (_hit.collider != null)
         {
 
-            // If it hits a grappable object or grappleToAll is true, and within max distance
-            if ((_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) &&
-                (Vector2.Distance(_hit.point, origin) <= maxDistance || !hasMaxDistance))
+            // Check if hit layer is in grappleableLayers
+            if (((1 << _hit.transform.gameObject.layer) & grappleableLayers.value) != 0 || grappleToAll)
             {
-                // Store the object and local point
                 grappledObject = _hit.transform;
                 grappledLocalPoint = grappledObject.InverseTransformPoint(_hit.point);
-                CalculateGrapplePosition(_hit.point, true, GroundSurface);
-                return true; // Return true if something was hit
+                CalculateGrapplePosition(_hit.point, true, GroundSurface);      
+                return true;
             }
             else if (_hit.transform.gameObject.layer == slingshotLayerNumber)
             {
@@ -366,7 +378,23 @@ public class NewGrappleTest : MonoBehaviour
     void Slingshot()
     {
         isSlingshotting = true;
-        launchSpeed = 2;
+
+        //// Calculate distance between player and slingshot point
+        //float distance = Vector2.Distance(gunPivot.position, grapplePoint);
+
+        //// Map distance to speed: closer = faster, further = slower
+        //// Example: minSpeed = 2, maxSpeed = 8, minDistance = 1, maxDistance = 10
+        //float minSpeed = 1f;
+        //float maxSpeed = 8f;
+        //float minDistance = 0f;
+        //float maxDistance = 10f;
+
+        //// Inverse Lerp: closer = maxSpeed, further = minSpeed
+        //float t = Mathf.InverseLerp(minDistance, maxDistance, distance);
+        //slingshotSpeed = Mathf.Lerp(maxSpeed, minSpeed, t);
+        //Debug.Log("Slingshot Speed: " + slingshotSpeed);
+
+        launchSpeed = slingshotSpeed;
     }
 
 
@@ -397,7 +425,7 @@ public class NewGrappleTest : MonoBehaviour
             if (_hit.collider != null)
             {
                 // If it hits a grappable object or grappleToAll is true, and within max distance
-                if ((_hit.transform.gameObject.layer == grappableLayerNumber || grappleToAll) &&
+                if ((((1 << _hit.transform.gameObject.layer) & grappleableLayers.value) != 0 || grappleToAll) &&
                     (Vector2.Distance(_hit.point, origin) <= maxDistance || !hasMaxDistance))
                 {
                     // Store the object and local point

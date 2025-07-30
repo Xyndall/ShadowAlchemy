@@ -12,31 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e1dc532bcb41949b58bc4f2abfbb7e, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
+  active: 0
   intensity:
     m_OverrideState: 1
     m_Value: 0.1
-    min: -1
-    max: 1
   xMultiplier:
     m_OverrideState: 0
     m_Value: 1
-    min: 0
-    max: 1
   yMultiplier:
     m_OverrideState: 0
     m_Value: 1
-    min: 0
-    max: 1
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   scale:
     m_OverrideState: 0
     m_Value: 1
-    min: 0.01
-    max: 5
 --- !u!114 &-1095237604870006056
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -50,40 +41,40 @@ MonoBehaviour:
   m_Name: Bloom
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
-  threshold:
+  skipIterations:
     m_OverrideState: 0
-    m_Value: 0.9
-    min: 0
+    m_Value: 1
+  threshold:
+    m_OverrideState: 1
+    m_Value: 0.5
   intensity:
     m_OverrideState: 1
-    m_Value: 0.87
-    min: 0
+    m_Value: 0.5
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
-    min: 0
-    max: 1
   clamp:
     m_OverrideState: 0
     m_Value: 65472
-    min: 0
   tint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
   highQualityFiltering:
     m_OverrideState: 0
     m_Value: 0
+  downscale:
+    m_OverrideState: 0
+    m_Value: 0
+  maxIterations:
+    m_OverrideState: 0
+    m_Value: 6
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
+    dimension: 1
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
-    min: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,26 +105,18 @@ MonoBehaviour:
   m_Name: Vignette
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
   color:
     m_OverrideState: 1
     m_Value: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
-    hdr: 0
-    showAlpha: 0
-    showEyeDropper: 1
   center:
     m_OverrideState: 0
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.277
-    min: 0
-    max: 1
+    m_Value: 0.133
   smoothness:
     m_OverrideState: 1
     m_Value: 1
-    min: 0.01
-    max: 1
   rounded:
     m_OverrideState: 0
     m_Value: 0
@@ -150,20 +133,15 @@ MonoBehaviour:
   m_Name: FilmGrain
   m_EditorClassIdentifier: 
   active: 1
-  m_AdvancedMode: 0
   type:
     m_OverrideState: 0
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.77
-    min: 0
-    max: 1
+    m_Value: 0.271
   response:
     m_OverrideState: 1
-    m_Value: 0.94
-    min: 0
-    max: 1
+    m_Value: 0.691
   texture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
