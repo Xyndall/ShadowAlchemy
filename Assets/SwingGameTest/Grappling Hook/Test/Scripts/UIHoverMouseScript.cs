@@ -33,7 +33,7 @@ public class UIHoverMouseScript : MonoBehaviour, IPointerEnterHandler, IPointerE
         }
     }
 
-    private void HidePopup()
+    public void HidePopup()
     {
         if (popupInstance != null)
         {

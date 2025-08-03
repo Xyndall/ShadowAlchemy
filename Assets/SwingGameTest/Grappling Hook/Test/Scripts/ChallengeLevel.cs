@@ -69,9 +69,14 @@ public class ChallengeLevel : MonoBehaviour
         if (basicLevelObject != null)
             basicLevelObject.SetActive(!enableChallenge);
 
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(3f);
+        UIManager.instance.NewGame();
 
+        yield return new WaitForSeconds(4.5f);
+        
         if (loadingAnimationObject != null)
             loadingAnimationObject.SetActive(false);
+
+        
     }
 }

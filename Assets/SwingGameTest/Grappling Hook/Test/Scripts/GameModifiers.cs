@@ -13,6 +13,7 @@ public class GameModifiers : MonoBehaviour
     public PhysicsMaterial2D playerMaterial;
     public Collider2D playerCollider;
     private Vector2 originalGravity; // Store the original gravity
+    bool challengeGamejustStarted;
     private void Start()
     {
         ModifierPanel.SetActive(false);
@@ -57,8 +58,10 @@ public class GameModifiers : MonoBehaviour
             Debug.Log("Low Gravity is OFF");
         }
 
-        if(PlayerPrefs.GetInt("ChallengeLevelEnabled", 0) == 1)
+        challengeGamejustStarted = true;
+        if (PlayerPrefs.GetInt("ChallengeLevelEnabled", 0) == 1)
         {
+            
             ChallengeToggle.isOn = true;
             Debug.Log("Challenge Level is ON");
         }
@@ -121,6 +124,12 @@ public class GameModifiers : MonoBehaviour
 
     public void Challenge(bool toggle)
     {
+        if (challengeGamejustStarted)
+        {
+            Debug.LogWarning("Challenge level cannot be toggled after the game has started.");
+            challengeGamejustStarted = false; // Reset the flag after toggling
+            return; // Prevent toggling if the game has just started
+        }
         if (toggle)
         {
             Debug.Log("Challenge Level Enabled");
@@ -131,6 +140,8 @@ public class GameModifiers : MonoBehaviour
             Debug.Log("Challenge Level Disabled");
             ChallengeLevel.Instance.DisableChallengeLevel();
         }
+
+        
     }
 
     public void TemporarilyDisablePlayerCollider()

@@ -21,6 +21,8 @@ public class PlayerHit : MonoBehaviour
 
     private GroundCheck groundCheck;
     private bool hasTakenAirborneDamage = false; // Add this flag
+    private float stunTimer = 0f;
+    public float maxStunDuration = 10f; // seconds
 
     private void Awake()
     {
@@ -44,6 +46,22 @@ public class PlayerHit : MonoBehaviour
             Debug.LogError("GroundCheck component not found on player!");
         currentHP = maxHP;
     }
+
+    private void Update()
+    {
+        if (isStunned)
+        {
+            stunTimer += Time.deltaTime;
+            if (stunTimer >= maxStunDuration)
+            {
+                isStunned = false;
+                stunTimer = 0f;
+                if (animator != null)
+                    animator.SetBool("IsStunned", false);
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (((1 << other.gameObject.layer) & trapLayer) != 0 && !isStunned && !hasTakenAirborneDamage)
@@ -114,6 +132,7 @@ public class PlayerHit : MonoBehaviour
 
         // Disable movement/input
         isStunned = true;
+        stunTimer = 0f; // Reset stun timer
 
         // Play hit animation
         if (animator != null)
@@ -167,4 +186,5 @@ public class PlayerHit : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(teleportPosition, 0.2f);
     }
+
 }

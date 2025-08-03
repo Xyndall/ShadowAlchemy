@@ -45,6 +45,9 @@ public class BasicMovingPlatform : MonoBehaviour
     [Range(0f, 50f)]
     public float randomMoveRange = 5f;
 
+    [Header("Path Movement Options")]
+    public bool pingPongPath = false;
+
     private Vector2 startPosition;
     private int currentTargetIndex = 0;
     private Vector2 randomTarget;
@@ -57,6 +60,9 @@ public class BasicMovingPlatform : MonoBehaviour
     private Vector3 initialPivotOffset;
     private Quaternion initialPivotRotation;
     private float swingTime = 0f;
+
+    // New variable to control path direction for ping-pong effect
+    private int pathDirection = 1;
 
     void Start()
     {
@@ -88,7 +94,20 @@ public class BasicMovingPlatform : MonoBehaviour
 
                 if (Vector3.Distance(transform.localPosition, targetPosition) < 0.05f)
                 {
-                    currentTargetIndex = (currentTargetIndex + 1) % localMovePoints.Length;
+                    if (pingPongPath)
+                    {
+                        // Reverse direction at ends
+                        if ((currentTargetIndex == localMovePoints.Length - 1 && pathDirection == 1) ||
+                            (currentTargetIndex == 0 && pathDirection == -1))
+                        {
+                            pathDirection *= -1;
+                        }
+                        currentTargetIndex += pathDirection;
+                    }
+                    else
+                    {
+                        currentTargetIndex = (currentTargetIndex + 1) % localMovePoints.Length;
+                    }
                 }
             }
             else if (movementMode == MovementMode.Random)
@@ -155,6 +174,20 @@ public class BasicMovingPlatform : MonoBehaviour
         randomTarget = startPosition + new Vector2(offsetX, offsetY);
     }
 
+
+    public Vector3 GetPlatformEndWorldPosition(Vector3 localEndOffset)
+    {
+        // Calculate the pivot in world space
+        Vector3 pivot = transform.TransformPoint(swingPivotOffset);
+
+        // Calculate the current rotation (matches your FixedUpdate logic)
+        Quaternion rotation = transform.rotation;
+
+        // The end offset is relative to the platform's local space
+        // So, rotate it and add to the current position
+        return transform.TransformPoint(localEndOffset);
+    }
+
     void OnDrawGizmosSelected()
     {
         // Calculate the world position of the pivot
@@ -179,4 +212,5 @@ public class BasicMovingPlatform : MonoBehaviour
             Gizmos.DrawLine(pivotWorld, pivotWorld + endDir);
         }
     }
+
 }
