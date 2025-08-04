@@ -642,69 +642,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: tudo buildings_26
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 139b95e89625ef44996fc461b4de2a40
-      internalID: -1588646734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tudo buildings_27
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46a9cbe139fec3042911bf643782a199
-      internalID: -732020282
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tudo buildings_28
-      rect:
-        serializedVersion: 2
-        x: 464
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74ed114f50c36e64cafd86b5a683e5a1
-      internalID: 1659883080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -735,9 +672,6 @@ TextureImporter:
       tudo buildings_23: -1790883263
       tudo buildings_24: -1092301173
       tudo buildings_25: 1787573245
-      tudo buildings_26: -1588646734
-      tudo buildings_27: -732020282
-      tudo buildings_28: 1659883080
       tudo buildings_3: 1627456071
       tudo buildings_4: 455304775
       tudo buildings_5: -699387390
