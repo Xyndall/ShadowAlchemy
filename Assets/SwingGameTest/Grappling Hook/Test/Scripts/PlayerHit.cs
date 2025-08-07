@@ -24,6 +24,12 @@ public class PlayerHit : MonoBehaviour
     private float stunTimer = 0f;
     public float maxStunDuration = 10f; // seconds
 
+    public AudioSource audioSource; // Assign in Inspector or via code
+    public AudioClip hitSound;      // Assign your hit sound in Inspector
+
+    private float lastDamageTime = 0f;
+    public float damageCooldown = 0.5f; // seconds
+
     private void Awake()
     {
         if (Instance == null)
@@ -45,6 +51,9 @@ public class PlayerHit : MonoBehaviour
         if (groundCheck == null)
             Debug.LogError("GroundCheck component not found on player!");
         currentHP = maxHP;
+
+        SetTeleportPosition(new Vector3(PlayerPrefs.GetFloat(SaveManager.TeleportX), PlayerPrefs.GetFloat(SaveManager.TeleportY), PlayerPrefs.GetFloat(SaveManager.TeleportZ))); // Default teleport position
+
     }
 
     private void Update()
@@ -66,6 +75,10 @@ public class PlayerHit : MonoBehaviour
     {
         if (((1 << other.gameObject.layer) & trapLayer) != 0 && !isStunned && !hasTakenAirborneDamage)
         {
+            if (Time.time - lastDamageTime < damageCooldown)
+                return; // Still in cooldown
+
+            lastDamageTime = Time.time;
             hasTakenAirborneDamage = true; // Set flag
             Vector3 hitPosition = transform.position; // Player's position at collision
             if (trapTilemap != null)
@@ -95,6 +108,10 @@ public class PlayerHit : MonoBehaviour
     {
         if (((1 << other.gameObject.layer) & trapLayer) != 0 && !isStunned && !hasTakenAirborneDamage)
         {
+            if (Time.time - lastDamageTime < damageCooldown)
+                return; // Still in cooldown
+
+            lastDamageTime = Time.time;
             hasTakenAirborneDamage = true; // Set flag
             Vector3 hitPosition = transform.position; // Player's position at collision
             if (trapTilemap != null)
@@ -130,6 +147,14 @@ public class PlayerHit : MonoBehaviour
 
         Debug.Log("Player hit! HP: " + currentHP);
 
+        // Play hit sound
+        if (audioSource != null && hitSound != null)
+            audioSource.PlayOneShot(hitSound);
+
+        // Update UI hearts
+        if (UIManager.instance != null)
+            UIManager.instance.UpdateHearts(currentHP);
+
         // Disable movement/input
         isStunned = true;
         stunTimer = 0f; // Reset stun timer
@@ -158,6 +183,10 @@ public class PlayerHit : MonoBehaviour
 
         currentHP = maxHP;
 
+        // Update hearts UI
+        if (UIManager.instance != null)
+            UIManager.instance.UpdateHearts(currentHP);
+
         yield return StartCoroutine(WaitUntilGrounded());
     }
 
@@ -178,6 +207,15 @@ public class PlayerHit : MonoBehaviour
     public void SetTeleportPosition(Vector3 newPosition)
     {
         teleportPosition = newPosition;
+
+        // Save the new teleport position using SaveManager
+        if (SaveManager.instance != null)
+        {
+            SaveManager.instance.SaveFloatData(SaveManager.TeleportX, teleportPosition.x);
+            SaveManager.instance.SaveFloatData(SaveManager.TeleportY, teleportPosition.y);
+            SaveManager.instance.SaveFloatData(SaveManager.TeleportZ, teleportPosition.z);
+            SaveManager.instance.SaveData();
+        }
     }
 
     private void OnDrawGizmosSelected()

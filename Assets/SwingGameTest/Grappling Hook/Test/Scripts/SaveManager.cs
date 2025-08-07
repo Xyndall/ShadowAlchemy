@@ -19,7 +19,9 @@ public class SaveManager : MonoBehaviour
     public const string GrapplesMissed = "GrapplesMissed";
     public const string GameTimer = "GameTimer";
     public const string TotalGameCompletions = "TotalGameCompletions";
-    
+    public const string TeleportX = "TeleportX";
+    public const string TeleportY = "TeleportY";
+    public const string TeleportZ = "TeleportZ";
 
     public static SaveManager instance;
     private void Awake()

@@ -189,8 +189,8 @@ TextureImporter:
       name: SlingshotFill_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 48
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -210,8 +210,8 @@ TextureImporter:
       name: SlingshotFill_4
       rect:
         serializedVersion: 2
-        x: 16
-        y: 0
+        x: 64
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -231,8 +231,8 @@ TextureImporter:
       name: SlingshotFill_5
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 80
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -252,7 +252,7 @@ TextureImporter:
       name: SlingshotFill_6
       rect:
         serializedVersion: 2
-        x: 48
+        x: 96
         y: 16
         width: 16
         height: 16
@@ -273,8 +273,8 @@ TextureImporter:
       name: SlingshotFill_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
+        x: 0
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -294,7 +294,7 @@ TextureImporter:
       name: SlingshotFill_8
       rect:
         serializedVersion: 2
-        x: 48
+        x: 16
         y: 0
         width: 16
         height: 16
@@ -315,7 +315,7 @@ TextureImporter:
       name: SlingshotFill_9
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 0
         width: 16
         height: 16
@@ -328,6 +328,90 @@ TextureImporter:
       bones: []
       spriteID: 6d8aa78989a341a4f95293f9088e0371
       internalID: 384190173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlingshotFill_10
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea626b46bd74dbe4f8a873bc42af3fba
+      internalID: -401483446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlingshotFill_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fca296bed64ee6540967fb79d57035ad
+      internalID: 2089379603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlingshotFill_12
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690033fbf2a072a4f8ccc8cc42aef371
+      internalID: -1938530962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlingshotFill_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70fbe55b86b855a4d8e09523df9bc07b
+      internalID: 1031526575
       vertices: []
       indices: 
       edges: []
@@ -345,6 +429,10 @@ TextureImporter:
     nameFileIdTable:
       SlingshotFill_0: 1994206534
       SlingshotFill_1: -241196742
+      SlingshotFill_10: -401483446
+      SlingshotFill_11: 2089379603
+      SlingshotFill_12: -1938530962
+      SlingshotFill_13: 1031526575
       SlingshotFill_2: 1751071826
       SlingshotFill_3: -117176590
       SlingshotFill_4: 679612162

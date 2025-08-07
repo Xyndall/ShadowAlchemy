@@ -26,18 +26,43 @@ public class ArrowTrap : MonoBehaviour
 
     private bool isActive = false; // Controlled externally
 
+    [Header("Aiming Settings")]
+    public bool aimAtPlayer = false;
+    public float aimRange = 10f;
+    public Transform player;
+
+    [Header("Audio Settings")]
+    public AudioSource audioSource;
+    public AudioClip fireSound;
+
+
     void Start()
     {
         if (frontspriteRenderer != null)
             frontdefaultSprite = frontspriteRenderer.sprite;
         if (backspriteRenderer != null)
             backdefaultSprite = backspriteRenderer.sprite;
+
+        // Auto-find player if not assigned
+        if (player == null && GameObject.FindWithTag("Player") != null)
+            player = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
     {
         if (!isActive)
             return;
+
+        if (aimAtPlayer && player != null)
+        {
+            float distance = Vector2.Distance(transform.position, player.position);
+            if (distance <= aimRange)
+            {
+                Vector2 direction = player.position - transform.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, angle + 180f);
+            }
+        }
 
         fireTimer += Time.deltaTime;
         if (fireTimer >= fireRate && !isFiring)
@@ -54,10 +79,18 @@ public class ArrowTrap : MonoBehaviour
         ActivateTrap();
         isFiring = false;
     }
+    public void PlayFireSound()
+    {
+        if (audioSource != null && fireSound != null)
+        {
+            audioSource.PlayOneShot(fireSound);
+        }
+    }
 
     public void ActivateTrap()
     {
         FireProjectile();
+        PlayFireSound(); // Play sound when firing
         SwapSprite();
         StartCoroutine(ResetSpriteAfterDelay());
     }
@@ -66,7 +99,8 @@ public class ArrowTrap : MonoBehaviour
     {
         GameObject projectile = Instantiate(projectilePrefab, transform.position, transform.rotation);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-        projectile.transform.parent = transform;
+        // Do NOT parent the projectile to the trap!
+        // projectile.transform.parent = transform; // <-- Remove or comment out this line
         if (rb != null)
         {
             rb.velocity = -transform.right * projectileSpeed;
@@ -110,5 +144,11 @@ public class ArrowTrap : MonoBehaviour
     {
         isActive = false;
         isFiring = false;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, aimRange);
     }
 }

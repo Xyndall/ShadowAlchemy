@@ -26,6 +26,12 @@ public class UIManager : MonoBehaviour
     public Button MainPrimaryButton;
     public Button OSPopUpPrimaryButton;
 
+    [Header("Player Health")]
+    public Image[] hearts; // Assign 3 heart images in Inspector
+    public Animator[] heartAnimators; // Assign in Inspector, same order as hearts
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
+
     [Header("Other stuff")]
     [SerializeField] private GameObject ContinueButton;
     public bool gameIsPaused;
@@ -195,6 +201,19 @@ public class UIManager : MonoBehaviour
         NewGrappleTest.instance.EasyModeGrapple = on;
         if(on) SaveManager.instance.SaveIntData(SaveManager.EasyModeOption, 1);
         else if (!on)SaveManager.instance.SaveIntData(SaveManager.EasyModeOption, 0);
+    }
+
+    public void UpdateHearts(int currentHP)
+    {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            bool alive = i < currentHP;
+            hearts[i].sprite = alive ? fullHeart : emptyHeart;
+            if (heartAnimators != null && heartAnimators.Length > i && heartAnimators[i] != null)
+            {
+                heartAnimators[i].SetBool("IsAlive", alive);
+            }
+        }
     }
 
     public void CutsceneFinished()
